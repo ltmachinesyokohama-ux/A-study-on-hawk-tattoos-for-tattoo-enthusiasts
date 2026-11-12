@@ -142,3 +142,1677 @@
   }
 }
 </script>
+
+
+---
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#webapplication",
+  "url": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435",
+  "name": "AI伊彫原画生成シミュレーター",
+  "alternateName": [
+    "AI IHORI — Hawk Tattoo Design Simulator",
+    "LOYAL TATTOO AIタトゥーデザインシミュレーター"
+  ],
+  "description": "LOYAL TATTOOが公開する鷹タトゥー原画設計用Webアプリ。姿勢・図柄・施術様式・部位・描写密度の基本5項目と詳細10項目を選択し、公式原画・研究資料URLを参照するラテン語の画像生成プロンプトを作成してコピーする。画像描画は利用者が選択した外部の画像生成AIアプリで実行する。",
+  "abstract": "刺青師・伊彫の原画研究、Loyal鉛筆画技法、猛禽の解剖学的構造と人体配置の設計条件を統合する、AI画像生成支援型タトゥーデザイン構成・プロンプト生成ソフトウェア。",
+  "applicationCategory": "DesignApplication",
+  "applicationSubCategory": "AI-Assisted Tattoo Image Generation and Design Simulation",
+  "genre": [
+    "Creative Software Development",
+    "Generative AI",
+    "Tattoo Design Technology",
+    "TattooTech",
+    "Creative Technology"
+  ],
+  "softwareVersion": "5.4",
+  "datePublished": "2026-11-12",
+  "creativeWorkStatus": "Public Beta / 公開動作検証版",
+  "inLanguage": ["ja-JP", "en"],
+  "operatingSystem": "Any operating system with a modern web browser",
+  "runtimePlatform": "JavaScript / Web browser",
+  "browserRequirements": "Modern JavaScript-enabled web browser; Clipboard API or compatible copy function.",
+  "softwareRequirements": "An external image-capable AI application is used to render artwork from the copied prompt.",
+  "releaseNotes": "Public Beta v5.4: 5 basic design settings, 10 advanced controls, one-arm half-sleeve support, full-back coverage through the buttocks, single 9:16 white-background artwork instructions, Latin prompt copying, research references and tattoo cost estimates.",
+  "featureList": [
+    "6 hawk postures; 6 secondary motifs; 4 tattoo styles; 5 body placements; 3 detail densities",
+    "10 advanced parameters: motion axis, wings, gaze, talons, pencil linework, solid-black coverage, shading, background, negative space, feather detail",
+    "Four selectable original Ihori artwork references",
+    "Official website and sitemap URL discovery",
+    "GitHub, Zenodo DOI and ORCID research source selection",
+    "Research source grouping in batches of up to 20 URLs",
+    "Latin-language image-generation prompt compilation and clipboard copy",
+    "Copy-success confirmation displayed after copying",
+    "Instructions for one original tattoo artwork, single composition, portrait 9:16, pure white background, without human bodies or mockups",
+    "Full-back placement extends to the buttocks; half-back ends above the waist",
+    "One-arm full sleeve and half sleeve configurations",
+    "Illustrative tattoo hours and JPY 15,000 per hour before-tax cost estimation",
+    "Japanese/English interface; 30 specialist FAQ entries"
+  ],
+  "keywords": [
+    "AIタトゥーデザイン",
+    "タトゥーデザインシミュレーター",
+    "AI伊彫",
+    "鷹タトゥー",
+    "鷹の刺青",
+    "和彫",
+    "洋彫",
+    "ブラックワーク",
+    "AI tattoo design",
+    "hawk tattoo",
+    "tattoo design simulator",
+    "aiタトゥージェネレーター",
+    "aiタトゥー アプリ",
+    "タトゥーデザイン ai",
+    "タトゥーデザイン ai 無料",
+    "タトゥーデザイン作成 サイト",
+    "タトゥーデザイン作成アプリ",
+    "タトゥーデザイン作成アプリ 無料",
+    "タトゥーデザイン作成 無料",
+    "タトゥーデザイン 無料",
+    "タトゥーデザイン 自分で",
+    "タトゥーデザイン 作る",
+    "タトゥーデザイン 依頼",
+    "タトゥーデザイン シュミレーション",
+    "タトゥーデザイン シュミレーター",
+    "タトゥーデザイン イラスト",
+    "タトゥーデザイン一覧",
+    "タトゥー デザイン ワンポイント",
+    "タトゥーアプリ iphone",
+    "タトゥーアプリ 無料",
+    "タトゥー 合成 アプリ",
+    "タトゥー 加工アプリ",
+    "タトゥー 編集",
+    "タトゥー 下絵 アプリ",
+    "和彫り アプリ",
+    "入れ墨 アプリ",
+    "写真をタトゥーにする",
+    "写真にタトゥーを入れる アプリ",
+    "AIタトゥー",
+    "AIタトゥーデザイン生成",
+    "AIタトゥー生成",
+    "AIタトゥー作成",
+    "AIタトゥー画像生成",
+    "AIタトゥーイラスト",
+    "AIタトゥーメーカー",
+    "AI刺青ジェネレーター",
+    "AI刺青デザイン",
+    "タトゥーAI",
+    "タトゥー AI 生成",
+    "タトゥー デザイン AI 作成",
+    "タトゥー画像生成AI",
+    "タトゥー絵柄 AI",
+    "タトゥー図案 AI",
+    "タトゥー 原画 AI",
+    "タトゥー デザイン ChatGPT",
+    "ChatGPT タトゥーデザイン",
+    "ChatGPT タトゥー画像生成",
+    "タトゥーデザイン プロンプト",
+    "AIタトゥー プロンプト",
+    "AIタトゥーデザイン おすすめ",
+    "AIタトゥージェネレーター 日本語",
+    "AIタトゥージェネレーター 無料",
+    "AIタトゥージェネレーター オンライン",
+    "タトゥー 自動生成",
+    "刺青 デザイン 自動生成",
+    "タトゥー イメージ生成",
+    "タトゥーAI 無料",
+    "AIタトゥー画像 無料",
+    "タトゥーデザイン 作成",
+    "タトゥーデザイン作成サイト 無料",
+    "タトゥーデザイン 作成 オンライン",
+    "タトゥーデザイン ジェネレーター",
+    "タトゥーデザインメーカー",
+    "タトゥーデザインツール",
+    "タトゥーデザイン 作成ツール",
+    "タトゥーデザイン サイト",
+    "タトゥー無料生成サイト",
+    "タトゥー無料デザイン",
+    "タトゥー 無料作成",
+    "無料 タトゥージェネレーター",
+    "無料 タトゥーデザインメーカー",
+    "タトゥー デザイン 登録不要",
+    "タトゥー デザイン ログイン不要",
+    "タトゥーデザイン 無制限",
+    "タトゥーデザイン オリジナル",
+    "オリジナルタトゥー作成",
+    "オーダーメイド タトゥーデザイン",
+    "タトゥーデザイン 自作",
+    "タトゥー デザイン 自分で考える",
+    "タトゥー デザイン 手書き",
+    "タトゥー デザイン テンプレート",
+    "タトゥー デザイン 素材",
+    "タトゥー デザイン 参考画像",
+    "タトゥー デザイン 画像",
+    "タトゥー デザイン アイデア",
+    "タトゥー デザイン ギャラリー",
+    "タトゥー デザイン カタログ",
+    "タトゥーデザイン 人気",
+    "タトゥーデザイン 種類",
+    "タトゥー フラッシュデザイン",
+    "タトゥーデザインアプリ",
+    "AIタトゥーデザインアプリ",
+    "タトゥー AI アプリ 無料",
+    "AIタトゥーアプリ iPhone",
+    "AIタトゥーアプリ Android",
+    "タトゥーデザイン アプリ iPhone",
+    "タトゥーデザイン アプリ Android",
+    "タトゥー作成アプリ",
+    "タトゥー シミュレーション アプリ",
+    "タトゥーシミュレーター アプリ",
+    "タトゥー試着アプリ",
+    "タトゥー写真アプリ",
+    "タトゥー画像編集アプリ",
+    "タトゥー下絵作成アプリ",
+    "タトゥー作画アプリ",
+    "刺青デザインアプリ",
+    "入れ墨デザインアプリ",
+    "和彫りデザインアプリ",
+    "タトゥーアプリ おすすめ",
+    "タトゥーアプリ Android",
+    "タトゥーアプリ iPad",
+    "タトゥーアプリ ダウンロード",
+    "タトゥーアプリ 課金なし",
+    "タトゥーデザイン Webアプリ",
+    "タトゥーシミュレーション",
+    "タトゥー シミュレータ",
+    "タトゥー シミュレーション 無料",
+    "タトゥー シミュレーター 無料",
+    "AIタトゥーシミュレーター",
+    "タトゥー AI シミュレーション",
+    "タトゥーデザイン シミュレーション 無料",
+    "タトゥーデザイン シュミレーション 無料",
+    "タトゥー バーチャル試着",
+    "タトゥー 仮想試着",
+    "タトゥー AI 試着",
+    "タトゥー AR 試着",
+    "タトゥー AR アプリ",
+    "タトゥー 3D シミュレーション",
+    "タトゥー 身体プレビュー",
+    "タトゥー ボディプレビュー",
+    "タトゥー デザイン 配置シミュレーション",
+    "タトゥー 配置 アプリ",
+    "タトゥー 位置 シミュレーション",
+    "タトゥー サイズ シミュレーション",
+    "タトゥー 入れたらどうなる",
+    "タトゥー 入れる前に試す",
+    "タトゥー 自分の体に合成",
+    "タトゥー 腕に合成",
+    "タトゥー 背中に合成",
+    "タトゥー モックアップ",
+    "タトゥー プレビュー 無料",
+    "タトゥー 完成イメージ",
+    "タトゥー 写真で試す",
+    "写真からタトゥー",
+    "写真からタトゥーデザイン",
+    "写真からタトゥー AI",
+    "写真をタトゥーデザインに変換",
+    "写真 タトゥー風 加工",
+    "写真を刺青風にする",
+    "写真を線画にする タトゥー",
+    "写真をタトゥー下絵にする",
+    "画像をタトゥーにする",
+    "画像からタトゥーデザイン",
+    "画像からタトゥー下絵",
+    "画像を刺青に変換",
+    "画像をタトゥー風にする",
+    "AI 写真 タトゥー変換",
+    "タトゥー画像 合成",
+    "タトゥー 写真合成",
+    "写真に刺青を合成",
+    "写真にタトゥーを追加",
+    "タトゥー 写真 編集",
+    "タトゥー 写真 加工 無料",
+    "タトゥー合成サイト",
+    "タトゥー合成オンライン",
+    "タトゥー フィルター",
+    "タトゥー スキンオーバーレイ",
+    "タトゥー 透過画像",
+    "タトゥー デザイン 背景透過",
+    "タトゥー PNG 素材",
+    "ペット写真 タトゥーデザイン",
+    "人物写真 タトゥー化",
+    "イラストをタトゥーにする",
+    "手描きイラスト タトゥー変換",
+    "タトゥー 下絵 作成",
+    "タトゥー 下絵 無料",
+    "タトゥー 下絵 AI",
+    "タトゥー 原画 作成",
+    "タトゥー 原画 生成",
+    "タトゥー 線画 作成",
+    "タトゥー 線画化 AI",
+    "タトゥー ステンシル",
+    "AIタトゥーステンシル",
+    "AIステンシルメーカー",
+    "タトゥーステンシル作成",
+    "タトゥーステンシル 無料",
+    "タトゥー ステンシル アプリ",
+    "タトゥー ステンシル 変換",
+    "写真からステンシル作成",
+    "タトゥー ステンシル 印刷",
+    "タトゥー 下絵 転写",
+    "タトゥー 転写用デザイン",
+    "タトゥー トレース アプリ",
+    "タトゥー アウトライン 抽出",
+    "タトゥー 輪郭線 作成",
+    "タトゥー 線の太さ 調整",
+    "タトゥー 白黒変換",
+    "タトゥー 高解像度 画像",
+    "タトゥー 原寸大 印刷",
+    "タトゥー PNG 書き出し",
+    "タトゥー PDF 書き出し",
+    "タトゥー SVG 書き出し",
+    "タトゥー プリント用 下絵",
+    "タトゥー スケッチ AI",
+    "タトゥー ラフスケッチ",
+    "タトゥー フラッシュシート",
+    "タトゥー デザイン レタリング",
+    "タトゥー フォント 生成",
+    "タトゥー 文字 デザイン 無料",
+    "和彫り デザイン AI",
+    "和彫り AI ジェネレーター",
+    "和彫り シミュレーター",
+    "刺青 AI 画像生成",
+    "刺青 図柄 AI",
+    "日本伝統刺青 AI",
+    "現代和彫 AI",
+    "洋彫 タトゥー AI",
+    "ブラックワーク タトゥー AI",
+    "ブラックアンドグレー タトゥー AI",
+    "フルカラー タトゥー AI",
+    "ボタニカル タトゥー AI",
+    "フローラル タトゥー AI",
+    "ファインライン タトゥー AI",
+    "ミニマル タトゥー AI",
+    "トライバル タトゥー AI",
+    "ドットワーク タトゥー AI",
+    "ジオメトリック タトゥー AI",
+    "リアリズム タトゥー AI",
+    "オールドスクール タトゥー AI",
+    "ネオトラディショナル タトゥー AI",
+    "アブストラクト タトゥー AI",
+    "鷹 タトゥーデザイン AI",
+    "鷹 タトゥージェネレーター",
+    "鷲 タトゥーデザイン AI",
+    "龍 タトゥーデザイン AI",
+    "蛇 タトゥーデザイン AI",
+    "鯉 タトゥーデザイン AI",
+    "鬼 タトゥーデザイン AI",
+    "般若 タトゥーデザイン AI",
+    "菊 タトゥーデザイン AI",
+    "牡丹 タトゥーデザイン AI",
+    "花 タトゥーデザイン AI",
+    "薔薇 タトゥーデザイン AI",
+    "ひまわり タトゥーデザイン AI",
+    "蝶 タトゥーデザイン AI",
+    "ワンポイント タトゥー AI",
+    "女性向け タトゥーデザイン AI",
+    "男性向け タトゥーデザイン AI",
+    "シンプル タトゥー デザイン AI",
+    "腕 タトゥー シミュレーション",
+    "二の腕 タトゥー シミュレーション",
+    "前腕 タトゥー シミュレーション",
+    "手首 タトゥー シミュレーション",
+    "肩 タトゥー シミュレーション",
+    "胸 タトゥー シミュレーション",
+    "背中 タトゥー シミュレーション",
+    "脚 タトゥー シミュレーション",
+    "太もも タトゥー シミュレーション",
+    "首 タトゥー シミュレーション",
+    "フルスリーブ タトゥー AI",
+    "ハーフスリーブ タトゥー AI",
+    "バックピース タトゥー AI",
+    "フルバック タトゥー AI",
+    "腕一本 タトゥーデザイン",
+    "背中一面 タトゥーデザイン",
+    "タトゥー デザイン サイズ 目安",
+    "タトゥー デザイン 配置",
+    "タトゥー デザイン 部位",
+    "タトゥー ワンポイント 作成",
+    "タトゥー フルスリーブ デザイン 作成",
+    "タトゥー 背中 デザイン 作成",
+    "タトゥー 片腕 デザイン シミュレーション",
+    "タトゥー カバーアップ シミュレーション",
+    "タトゥーデザイン オーダー",
+    "タトゥーデザイン 依頼 相場",
+    "タトゥーデザイン オーダー 料金",
+    "タトゥーデザイン 相談",
+    "タトゥーデザイン 持ち込み",
+    "AI生成 タトゥー 持ち込み",
+    "AIタトゥーデザイン 施術",
+    "AIタトゥーデザイン 彫り師",
+    "AIタトゥー デザイン 修正",
+    "AIタトゥー デザイン 描き直し",
+    "AIタトゥー カウンセリング",
+    "タトゥー デザイン 修正 依頼",
+    "タトゥーデザイン 絵師 依頼",
+    "タトゥー オリジナルデザイン 依頼",
+    "タトゥー 予約前 デザイン相談",
+    "タトゥー デザイン 見積もり",
+    "タトゥー料金 シミュレーター",
+    "タトゥー 費用 計算",
+    "タトゥー 値段 シミュレーション",
+    "タトゥー サイズ別 料金",
+    "AIタトゥー カバーアップ",
+    "タトゥー カバーアップ AI",
+    "古いタトゥー カバーアップ デザイン",
+    "タトゥー 隙間 埋める デザイン",
+    "タトゥー デザイン 東京",
+    "タトゥー デザイン 横浜",
+    "タトゥー デザイン 六本木",
+    "タトゥー デザイン 神奈川",
+    "AI tattoo generator",
+    "free AI tattoo generator",
+    "AI tattoo maker",
+    "tattoo design generator",
+    "tattoo generator free",
+    "free tattoo design maker",
+    "tattoo design app",
+    "AI tattoo app",
+    "tattoo generator online",
+    "tattoo design online",
+    "custom tattoo generator",
+    "custom tattoo design AI",
+    "tattoo idea generator",
+    "AI tattoo prompt",
+    "tattoo prompt generator",
+    "ChatGPT tattoo design",
+    "image to tattoo converter",
+    "photo to tattoo converter",
+    "photo to tattoo AI",
+    "text to tattoo generator",
+    "AI tattoo stencil generator",
+    "tattoo stencil maker",
+    "photo to tattoo stencil",
+    "tattoo line art generator",
+    "tattoo outline generator",
+    "tattoo sketch generator",
+    "tattoo flash sheet generator",
+    "tattoo lettering generator",
+    "tattoo font generator",
+    "virtual tattoo try on",
+    "AI tattoo try on",
+    "AR tattoo try on",
+    "tattoo placement simulator",
+    "tattoo on skin preview",
+    "tattoo body preview",
+    "3D tattoo preview",
+    "tattoo mockup generator",
+    "tattoo size preview",
+    "tattoo cost calculator",
+    "tattoo cover up generator",
+    "AI tattoo cover up",
+    "tattoo gap filler",
+    "Japanese tattoo generator",
+    "irezumi tattoo generator",
+    "blackwork tattoo generator",
+    "botanical tattoo generator",
+    "floral tattoo generator",
+    "fine line tattoo generator",
+    "hawk tattoo generator",
+    "full sleeve tattoo design AI",
+    "back piece tattoo generator",
+    "neo Japanese tattoo AI",
+    "tattoo design no signup",
+    "tattoo PNG transparent",
+    "tattoo stencil PDF"
+  ],
+  "creator": {
+    "@type": "Person",
+    "@id": "https://www.bavariancustomirons.jp/#ihori",
+    "name": "伊彫",
+    "alternateName": ["Ihori", "刺青師 伊彫"],
+    "url": "https://www.bavariancustomirons.jp/blog/2019/12/09/021837"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://www.bavariancustomirons.jp/#organization",
+    "name": "LOYAL TATTOO + LT MACHINES",
+    "legalName": "合同会社 Loyal Arts",
+    "url": "https://www.bavariancustomirons.jp/",
+    "sameAs": [
+      "https://www.bavariancustomirons.jp/?srsltid=AYCX9vJj1eLEuuGTqn8YJb-0JparJ9gl6dvbnosD3dcTKVqdEWxd2uDu"
+    ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435",
+    "url": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435",
+    "name": "AI伊彫原画生成シミュレーター｜公式Webアプリ公開ページ",
+    "inLanguage": "ja-JP",
+    "relatedLink": [
+      "https://www.bavariancustomirons.jp/",
+      "https://www.bavariancustomirons.jp/?srsltid=AYCX9vJj1eLEuuGTqn8YJb-0JparJ9gl6dvbnosD3dcTKVqdEWxd2uDu",
+      "https://github.com/ltmachinesyokohama-ux?tab=repositories",
+      "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts",
+      "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/ai-ihori-hawk-design-simulator.js",
+      "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/json-ld",
+      "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/README.md",
+      "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/LICENSE",
+      "https://www.bavariancustomirons.jp/sitemap.xml"
+    ]
+  },
+  "isBasedOn": [
+    {
+      "@type": "CreativeWork",
+      "name": "鷹タトゥー・鷹の刺青 意味と構図研究書",
+      "url": "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/README.md",
+      "inLanguage": "ja-JP"
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/060554#article",
+      "url": "https://www.bavariancustomirons.jp/blog/2026/11/12/060554",
+      "name": "鷹タトゥー・鷹の刺青｜意味・デザイン・図柄・和彫・洋彫・作品集"
+    }
+  ],
+  "about": {
+    "@type": "Thing",
+    "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/060554#hawk-tattoo",
+    "name": "鷹タトゥー",
+    "alternateName": ["鷹の刺青", "Hawk Tattoo", "Japanese Hawk Tattoo"]
+  },
+  "hasPart": [
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/ai-ihori-hawk-design-simulator.js#source",
+      "name": "AI IHORI Hawk Tattoo Design Simulator JavaScript v5.4",
+      "url": "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/ai-ihori-hawk-design-simulator.js",
+      "codeRepository": "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts",
+      "programmingLanguage": "JavaScript",
+      "license": "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/LICENSE",
+      "version": "5.4",
+      "description": "Browser-only JavaScript; a page-specific tool for Latin prompt compilation, source queue display, 20-URL research batching, copy controls, cost estimates, bilingual interface and FAQ search."
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls",
+      "name": "AI IHORI v5.4 — 15 configuration controls",
+      "description": "Five basic parameters and ten advanced controls transcribed from the published v5.4 JavaScript implementation. This enumerates supported controls, not independent image-generation capabilities.",
+      "numberOfItems": 15,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "鷹の姿勢・構図",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "pose",
+            "name": "鷹の姿勢・構図",
+            "alternateName": "Hawk posture",
+            "description": "昇り鷹 / Ascending hawk; 降り鷹 / Descending hawk; 急降下する鷹 / Diving hawk; 止まり鷹 / Perched hawk; 翼を広げた鷹 / Wings spread; 旋回する鷹 / Circling hawk",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "組み合わせモチーフ",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "motif",
+            "name": "組み合わせモチーフ",
+            "alternateName": "Supporting motif",
+            "description": "松 / Pine; 牡丹 / Peony; 桜 / Cherry blossoms; 雲・風 / Clouds and wind; 雪 / Snow; 富士山 / Mount Fuji",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "施術様式",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "style",
+            "name": "施術様式",
+            "alternateName": "Tattoo style",
+            "description": "現代和彫 / Contemporary Japanese; 洋彫・リアリズム / Western realism; ブラック＆グレー / Black and grey; ブラックワーク / Blackwork",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "人体施術部位",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "place",
+            "name": "人体施術部位",
+            "alternateName": "Body placement",
+            "description": "背中・フルバック / Full back; 背中・ハーフバック / Half back; 片腕・フルスリーブ / One-arm full sleeve; 片腕・ハーフスリーブ / One-arm half sleeve; 胸・肩 / Chest and shoulder",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "描写密度",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "density",
+            "name": "描写密度",
+            "alternateName": "Detail density",
+            "description": "標準 / Standard; 高密度 / High; 超高密度 / Ultra-high",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "動勢・構図方向",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "axis",
+            "name": "動勢・構図方向",
+            "alternateName": "Motion axis",
+            "description": "右上から左下; 左上から右下; 縦方向; 中央放射状",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "翼の表現",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "wings",
+            "name": "翼の表現",
+            "alternateName": "Wing arrangement",
+            "description": "左右対称; 左右非対称・遠近感; 羽先を強調; 翼を部分的に畳む",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "頭部・視線",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "gaze",
+            "name": "頭部・視線",
+            "alternateName": "Head and gaze",
+            "description": "鋭い正面視線; 獲物を見下ろす; 横顔を強調; 遠方を見据える",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "脚・鉤爪",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "talons",
+            "name": "脚・鉤爪",
+            "alternateName": "Legs and talons",
+            "description": "大きく開く; 獲物を捉える姿勢; 脚を引き締める; 片脚を前方へ",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "鉛筆探索線・輪郭",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "stroke",
+            "name": "鉛筆探索線・輪郭",
+            "alternateName": "Pencil and contours",
+            "description": "忠実なLoyal鉛筆画技法; 荒々しい探索線を増強; 輪郭線を強く太く; 細線主体・精密描写",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "漆黒面の占有率",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "black",
+            "name": "漆黒面の占有率",
+            "alternateName": "Solid-black coverage",
+            "description": "均衡型; 高密度ブラック; 大胆なブラックアウト; 白場優先",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "墨ぼかし・陰影",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "shading",
+            "name": "墨ぼかし・陰影",
+            "alternateName": "Shading",
+            "description": "五階調; 柔らかい墨ぼかし; 硬いコントラスト; ソリッド主体",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "name": "背景の描き込み",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "background",
+            "name": "背景の描き込み",
+            "alternateName": "Background detail",
+            "description": "控えめ; 中程度; 高密度",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "name": "主題周囲の余白",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "space",
+            "name": "主題周囲の余白",
+            "alternateName": "Negative space",
+            "description": "広めに残す; 均衡型; 密度優先",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "name": "羽毛ディテール",
+          "item": {
+            "@type": "DefinedTerm",
+            "termCode": "feather",
+            "name": "羽毛ディテール",
+            "alternateName": "Feather detail",
+            "description": "羽列・風切羽重視; 雨覆・羽枝まで細密; 大きな羽の量感; 羽列と動勢の両立",
+            "inDefinedTermSet": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#controls"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#output-specification",
+      "name": "AI IHORI Latin image-generation prompt and output specification",
+      "inLanguage": "la",
+      "description": "The browser compiles and copies a Latin instruction for an external image-capable AI system. The application itself does not render or output the final artwork.",
+      "abstract": "One original hawk composition; single portrait 9:16 image; completely white #FFFFFF background; full figure within canvas; anatomy-aware talons, wings, feather coverts and primaries; exclude photos of bodies, mannequins, skin mockups, split screens, multiple versions, text overlays, signatures, prices and watermarks.",
+      "isBasedOn": {
+        "@id": "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/ai-ihori-hawk-design-simulator.js#source"
+      },
+      "keywords": [
+        "Latin prompt generation",
+        "AI-assisted original drawing",
+        "single artwork",
+        "portrait 9:16",
+        "pure white background",
+        "anatomical hawk",
+        "Loyal pencil drawing technique",
+        "external image-capable AI"
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#cost-model",
+      "name": "AI IHORI illustrative tattoo time and fee estimation model — v5.4",
+      "description": "The displayed model uses a JPY 15,000 per hour reference rate excluding tax. Base-hour ranges are multiplied by a detail-density factor, then rounded to the nearest whole hour using JavaScript Math.round. Low and high reference fees equal rounded hours multiplied by 15,000. Individual estimates depend on consultation.",
+      "measurementTechnique": "hoursLow = Math.round(baseLow × densityMultiplier); hoursHigh = Math.round(baseHigh × densityMultiplier); feeLow = hoursLow × 15000; feeHigh = hoursHigh × 15000. Prices exclude tax.",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "Hourly reference rate",
+          "value": 15000,
+          "unitText": "JPY per hour excluding tax"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Standard density multiplier",
+          "value": 1
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "High density multiplier",
+          "value": 1.2
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Ultra-high density multiplier",
+          "value": 1.4
+        }
+      ],
+      "hasPart": {
+        "@type": "ItemList",
+        "name": "Base-hour ranges by selected placement",
+        "numberOfItems": 5,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "背中・フルバック",
+            "description": "Base 50–80 hours; full back through buttocks"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "背中・ハーフバック",
+            "description": "Base 22–35 hours; ends above waist"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "片腕・フルスリーブ",
+            "description": "Base 35–55 hours; shoulder to wrist"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "片腕・ハーフスリーブ",
+            "description": "Base 18–30 hours; shoulder to elbow"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "胸・肩",
+            "description": "Base 15–30 hours; chest and deltoid"
+          }
+        ]
+      },
+      "exampleOfWork": {
+        "@type": "CreativeWork",
+        "name": "Full-back ultra-high-density reference example",
+        "description": "50–80 baseline hours × 1.4 = 70–112 hours; at JPY 15,000/hour, JPY 1,050,000–1,680,000 before tax."
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#official-artwork-references",
+      "name": "AI IHORI v5.4 — four selectable primary artwork references",
+      "numberOfItems": 4,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "ImageObject",
+            "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#reference-sketch",
+            "name": "《雪中鷹》制作ラフ / Snow Hawk — Pencil Sketch",
+            "description": "探索線・Loyal鉛筆画技法",
+            "contentUrl": "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/385472b7df8da7faae51e120792815ff.jpg",
+            "isBasedOn": "https://www.bavariancustomirons.jp/blog/2025/08/29/221644",
+            "creator": {
+              "@id": "https://www.bavariancustomirons.jp/#ihori"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "ImageObject",
+            "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#reference-drawing",
+            "name": "《雪中鷹》描き込み原画 / Snow Hawk — Detailed Drawing",
+            "description": "羽列・主輪郭・黒ぼかし",
+            "contentUrl": "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/a41deb49e2ec864b184ccde72fe049fe.jpg",
+            "isBasedOn": "https://www.bavariancustomirons.jp/blog/2025/08/29/221644",
+            "creator": {
+              "@id": "https://www.bavariancustomirons.jp/#ihori"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "ImageObject",
+            "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#reference-tattoo",
+            "name": "No.113《鷹図》 / No.113 Hawk Tattoo",
+            "description": "施術実績・黒面・身体配置",
+            "contentUrl": "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/c1c657853a26020785eb7caa92644038.jpg",
+            "isBasedOn": "https://www.bavariancustomirons.jp/blog/2025/08/17/013900",
+            "creator": {
+              "@id": "https://www.bavariancustomirons.jp/#ihori"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "ImageObject",
+            "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#reference-peony",
+            "name": "No.116《唐獅子牡丹》 / No.116 Karajishi and Peony",
+            "description": "牡丹・黒葉・色彩設計",
+            "contentUrl": "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/d175cf819d609bec5ae4845ce35aefa4.jpg",
+            "isBasedOn": "https://www.bavariancustomirons.jp/blog/2025/08/02/172030",
+            "creator": {
+              "@id": "https://www.bavariancustomirons.jp/#ihori"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#research-batch-1",
+      "name": "AI IHORI — Research Batch 1/18: public-source reading status",
+      "description": "A user-supplied search-index retrieval report, covering 20 official URLs: 18 reported as text or metadata retrieval and 2 as snippets only. The report text originally labelled the successful list as 16, but enumerated 18 entries; the enumerated URLs determine this corrected count. Direct image-pixel examination was not performed in that batch. This record preserves reported retrieval status; it is not a claim of fresh independent verification of every page.",
+      "measurementTechnique": "Search-index retrieval of public text and metadata, as described in the supplied Research Batch 1/18; no direct pixel-level visual analysis.",
+      "hasPart": {
+        "@type": "ItemList",
+        "name": "Primary-source retrieval register",
+        "numberOfItems": 20,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "公式サイトトップページ",
+              "url": "https://www.bavariancustomirons.jp/",
+              "description": "Reported text/metadata retrieval: トップページ基本情報",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "サイトマップ",
+              "url": "https://www.bavariancustomirons.jp/sitemap.xml",
+              "description": "Reported text/metadata retrieval: 一部のURL更新日時・優先度スニペット",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "《雪中鷹》",
+              "url": "https://www.bavariancustomirons.jp/blog/2025/08/29/221644",
+              "description": "Reported text/metadata retrieval: 制作・図案解説",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "No.113《鷹図》",
+              "url": "https://www.bavariancustomirons.jp/blog/2025/08/17/013900",
+              "description": "Reported text/metadata retrieval: バックピース・カバーアップ解説",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "No.116《唐獅子牡丹》",
+              "url": "https://www.bavariancustomirons.jp/blog/2025/08/02/172030",
+              "description": "Reported text/metadata retrieval: 現代和彫・フルスリーブ解説",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "西洋構造芸術刺青",
+              "url": "https://www.bavariancustomirons.jp/blog/2020/12/22/210901",
+              "description": "Reported text/metadata retrieval: デザイン設計思想",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "《唐獅子牡丹》関連資料",
+              "url": "https://www.bavariancustomirons.jp/blog/2025/10/04/132940",
+              "description": "Reported text/metadata retrieval: タイトルと一部本文",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "ブラックワーク作品研究",
+              "url": "https://www.bavariancustomirons.jp/blog/2026/03/03/192809",
+              "description": "Reported text/metadata retrieval: No.118・No.107・菊花図等",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "《境界》",
+              "url": "https://www.bavariancustomirons.jp/blog/2025/07/10/235916",
+              "description": "Reported text/metadata retrieval: 和洋折衷スリーブ解説",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "《異界》",
+              "url": "https://www.bavariancustomirons.jp/blog/2020/12/23/213527",
+              "description": "Reported text/metadata retrieval: バックピース・メタデータ",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "料金表",
+              "url": "https://www.bavariancustomirons.jp/blog/2019/12/31/214539",
+              "description": "Reported text/metadata retrieval: 時間彫りと料金シミュレーター案内",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "スタジオについて",
+              "url": "https://www.bavariancustomirons.jp/about",
+              "description": "Reported text/metadata retrieval: 拠点・法人情報・二刀流体制",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "FREIHEIT 2026モデル",
+              "url": "https://www.bavariancustomirons.jp/items/80563228",
+              "description": "Reported text/metadata retrieval: 製品仕様",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "FREIHEIT 2026スターターキットPRO",
+              "url": "https://www.bavariancustomirons.jp/items/130170958",
+              "description": "Reported text/metadata retrieval: 製品仕様",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "FREIHEIT Klassiker 2024復刻版",
+              "url": "https://www.bavariancustomirons.jp/items/134694939",
+              "description": "Reported text/metadata retrieval: 製品仕様",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "商品ページ識別子 136547652",
+              "url": "https://www.bavariancustomirons.jp/items/136547652",
+              "description": "Reported snippet-only: サイトマップの更新日断片のみ、商品本文未取得",
+              "creativeWorkStatus": "retrieval: snippet_only"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "FREIHEIT Titanium — partial",
+              "url": "https://www.bavariancustomirons.jp/items/138077746",
+              "description": "Reported snippet-only: 別ページのリンク名称のみ、商品本文未取得",
+              "creativeWorkStatus": "retrieval: snippet_only"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 18,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "FREIHEIT Planke",
+              "url": "https://www.bavariancustomirons.jp/items/138258106",
+              "description": "Reported text/metadata retrieval: 製品仕様",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 19,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "LT MACHINES 推奨ステンレスグリップ",
+              "url": "https://www.bavariancustomirons.jp/items/83967113",
+              "description": "Reported text/metadata retrieval: 製品仕様",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 20,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "Power supply TF239",
+              "url": "https://www.bavariancustomirons.jp/items/84256286",
+              "description": "Reported text/metadata retrieval: タイトル",
+              "creativeWorkStatus": "retrieval: text_metadata"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#style-evidence",
+      "name": "伊彫画風・構造設計 — 出典と確認状態の分離",
+      "numberOfItems": 10,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "作家と制作系譜",
+            "description": "現代和彫と西洋構造芸術刺青の二つの構成法を制作上統合。二刀流の刺青師・機材設計者として公開情報に記載。",
+            "creativeWorkStatus": "reported_primary_text",
+            "citation": [
+              "https://www.bavariancustomirons.jp/about",
+              "https://www.bavariancustomirons.jp/blog/2020/12/22/210901"
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "主輪郭・精密線描",
+            "description": "アンティーク版画的線、筋彫り／アウトライン、白筋彫りの技術記述が一次資料の本文にある。",
+            "creativeWorkStatus": "reported_primary_text",
+            "citation": [
+              "https://www.bavariancustomirons.jp/blog/2020/12/22/210901",
+              "https://www.bavariancustomirons.jp/blog/2025/08/29/221644"
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Loyal鉛筆画技法",
+            "description": "探索線・主輪郭・ハッチングの設計項目はJavaScript v5.4に実装。別途提示されたBatch 1/18では下絵の筆致を写真ピクセルで確認していない。",
+            "creativeWorkStatus": "verified_implementation_not_pixel_review",
+            "citation": [
+              "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/ai-ihori-hawk-design-simulator.js",
+              "https://www.bavariancustomirons.jp/blog/2025/08/29/221644"
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "猛禽の解剖学と構図",
+            "description": "頭骨・嘴・眼窩、翼、初列・次列風切羽、雨覆、尾羽、脚と鉤爪がプロンプトの構造条件に含まれる。",
+            "creativeWorkStatus": "verified_implementation",
+            "citation": [
+              "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/ai-ihori-hawk-design-simulator.js"
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "黒面・グレー階調",
+            "description": "高密度ソリッドブラック、柔らかいグレー、細線による距離感・視線誘導を公開作品で記述。",
+            "creativeWorkStatus": "reported_primary_text",
+            "citation": [
+              "https://www.bavariancustomirons.jp/blog/2026/03/03/192809"
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "ネガティブスペースと白筋彫り",
+            "description": "余白を造形上の光として設計し、黒面上の白筋彫りを組み合わせる記述がある。",
+            "creativeWorkStatus": "reported_primary_text",
+            "citation": [
+              "https://www.bavariancustomirons.jp/blog/2020/12/22/210901",
+              "https://www.bavariancustomirons.jp/blog/2025/08/29/221644"
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "人体への配置",
+            "description": "背骨・肩甲骨・肋骨・上腕・前腕に沿う連続構図を検討し、フルバックでは臀部まで含む設計条件を採用。",
+            "creativeWorkStatus": "reported_primary_text_and_implementation",
+            "citation": [
+              "https://www.bavariancustomirons.jp/blog/2020/12/22/210901",
+              "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/ai-ihori-hawk-design-simulator.js"
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "機材と線の仮説",
+            "description": "機材ストロークや針径と線質の関係は機材の公開仕様から導いた制作仮説として分類。個々の作品における実使用条件の直接検証とは区別する。",
+            "creativeWorkStatus": "inference_from_product_specifications",
+            "citation": [
+              "https://www.bavariancustomirons.jp/items/80563228",
+              "https://www.bavariancustomirons.jp/items/134694939",
+              "https://www.bavariancustomirons.jp/items/138258106"
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "歴史・図像参照",
+            "description": "日本美術史・猛禽文化は既存README研究とBlogPostingの出典群を参照し、歴史的事実と創作上の象徴解釈を区別する。",
+            "creativeWorkStatus": "bibliographic_context",
+            "citation": [
+              "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/README.md",
+              "https://www.bavariancustomirons.jp/blog/2026/11/12/060554"
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "参考作品の画像視認状況",
+            "description": "原画画像4点はアプリの外部参照リンクとして登録。ユーザー提供のBatch 1/18における画像ピクセル解析は未実施。",
+            "creativeWorkStatus": "reference_urls_only_not_pixel_exam",
+            "citation": [
+              "https://www.bavariancustomirons.jp/blog/2025/08/29/221644",
+              "https://www.bavariancustomirons.jp/blog/2025/08/17/013900"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#research-relationships",
+      "name": "Research provenance and cross-platform references",
+      "numberOfItems": 11,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Primary hawk research README",
+            "url": "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/README.md"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Published hawk BlogPosting",
+            "url": "https://www.bavariancustomirons.jp/blog/2026/11/12/060554"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "GitHub FAQ",
+            "url": "https://github.com/ltmachinesyokohama-ux/loyal-faq"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Blackwork research",
+            "url": "https://github.com/ltmachinesyokohama-ux/LOYAL-TATTOO-Blackwork-Tattoo"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Western tattoo research",
+            "url": "https://github.com/ltmachinesyokohama-ux/LOYAL-TATTOO-Western-style-tattoo-Modern-tattoo-Contemporary-tattoo"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Official sitemap repository",
+            "url": "https://github.com/ltmachinesyokohama-ux/loyal-blog-sitemap"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Zenodo record 23557266",
+            "url": "https://zenodo.org/records/23557266"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Zenodo record 23577391",
+            "url": "https://zenodo.org/records/23577391"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Zenodo record 23472661",
+            "url": "https://zenodo.org/records/23472661"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Zenodo record 23331245",
+            "url": "https://zenodo.org/records/23331245"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "ORCID record",
+            "url": "https://orcid.org/0009-0006-6704-1829"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#search-intent-taxonomy",
+      "name": "AI IHORI multilingual tattoo-design search intent taxonomy",
+      "description": "An editorial grouping of seed terms and semantically expanded SEO/AIO candidates. The full deduplicated list is stored in the WebApplication keywords array. Group membership is descriptive, not a claim of measured volume or provision of every searched feature.",
+      "hasDefinedTerm": [
+        {
+          "@type": "DefinedTerm",
+          "name": "鷹原画・プロンプト生成：実装機能に直接対応",
+          "termCode": "supported",
+          "description": "AIタトゥーデザイン, AIタトゥー生成, タトゥー 原画 AI, タトゥーデザイン プロンプト, AIタトゥー プロンプト, 鷹 タトゥーデザイン AI, 鷹 タトゥージェネレーター, hawk tattoo generator, AI tattoo prompt, tattoo design simulator"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "無料・オンライン・アプリ検索の関連語",
+          "termCode": "search_related",
+          "description": "AIタトゥージェネレーター 無料, タトゥーデザイン 無料, タトゥーデザイン作成 サイト, タトゥーデザイン Webアプリ, AI tattoo app, free AI tattoo generator"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "写真合成・AR試着：市場比較用語",
+          "termCode": "related_not_native_feature",
+          "description": "写真をタトゥーにする, タトゥー AR 試着, 写真にタトゥーを入れる アプリ, virtual tattoo try on, 3D tattoo preview"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ステンシル・線画抽出：市場比較用語",
+          "termCode": "related_not_native_feature",
+          "description": "タトゥーステンシル作成, タトゥー PDF 書き出し, 画像からタトゥー下絵, tattoo stencil maker, tattoo outline generator"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "和彫・洋彫・ブラックワーク",
+          "termCode": "supported_selected_styles",
+          "description": "現代和彫 AI, 洋彫 タトゥー AI, ブラックワーク タトゥー AI, ブラックアンドグレー タトゥー AI, Japanese tattoo generator, blackwork tattoo generator"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "鷹を中心とする図柄とモチーフ",
+          "termCode": "hawk_plus_supported_motifs",
+          "description": "鷹タトゥー, 鷹の刺青, 鷹 タトゥーデザイン AI, 雪中鷹, 松鷹図, 牡丹, 桜, 雲・風, 富士山"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "フルバック・ハーフバック・片腕スリーブ・胸肩",
+          "termCode": "supported_placement",
+          "description": "フルスリーブ タトゥー AI, ハーフスリーブ タトゥー AI, バックピース タトゥー AI, 腕 タトゥー シミュレーション, 背中 タトゥー シミュレーション"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "デザイン相談・費用",
+          "termCode": "adjacent_studio_services",
+          "description": "タトゥーデザイン 相談, AIタトゥー カウンセリング, タトゥー料金 シミュレーター, タトゥー デザイン 見積もり"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "英語圏の生成・試着・変換",
+          "termCode": "multilingual_search_related",
+          "description": "AI tattoo generator, AI tattoo maker, tattoo design online, text to tattoo generator, tattoo placement simulator, image to tattoo converter"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "地域・ブランド",
+          "termCode": "studio_identity",
+          "description": "LOYAL TATTOO, LT MACHINES, AI伊彫, 伊彫, タトゥー デザイン 横浜, タトゥー デザイン 六本木"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#faq",
+      "url": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435",
+      "name": "AI伊彫原画生成シミュレーター｜専門FAQ 30問",
+      "inLanguage": "ja-JP",
+      "description": "The thirty questions and answers embedded in the v5.4 JavaScript interface. FAQ rich-result appearance is not implied.",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "鷹タトゥーの意味は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "強さ、独立、飛躍、集中力などの解釈があります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹の和彫はできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "現代和彫の筋彫りと黒ぼかしに対応します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹と牡丹の組み合わせは？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "羽毛と花弁の質感を対比させます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "雪中鷹とは？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "雪の白場と猛禽の黒面を組み合わせます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ブラックワークの鷹は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "黒面と余白を主体に構成します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "フルバックの範囲は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "背中から臀部までを含む大型の施術範囲です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ハーフバックの範囲は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "上背部から腰の少し上までです。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "フルスリーブの範囲は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "片腕の肩から手首までです。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ハーフスリーブの範囲は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "片腕の肩から肘付近までです。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "胸・肩にも対応できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "胸部から三角筋までを想定して設計します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "人体は画像に出ますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "完成画像は原画のみです。人体は構図設計の条件です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "画像の縦横比は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "縦長9:16で、1枚・1カットの完成原画を指定します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "背景はどうなりますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "純白背景を指定します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "比較画像は作られますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "左右比較・分割構図を生成指示から除外します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "カバーアップに対応しますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "既存図柄の黒量を想定した設計も可能です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "施術料金の基準は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "15,000円／時間（税抜）です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "料金概算は確定ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "施術内容により個別見積もりとなります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "超高密度とは？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "羽枝・雨覆・鉤爪などまで高密度に描きます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Loyal鉛筆画技法とは？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "探索線、長い輪郭線、ハッチングを統合します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "猛禽の羽列はどう描きますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "初列・次列風切羽、雨覆を階層化します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鉤爪を重視する理由は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "構造・動勢・遠近感を表現するためです。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "背景の余白の役割は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "主輪郭と黒面の可読性を維持します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "現代和彫と洋彫の違いは？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "線質・構図・陰影の構築方法が異なります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "既存作品の複製ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "独立した新規構図を生成する指定です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "参考画像はAIが取得しますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "使用するAIの閲覧機能によります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "GitHub資料は含まれますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "選択に応じて公開URLを含めます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Zenodo資料は含まれますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "選択に応じてDOI記録を含めます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "日本語と英語を切り替えられますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "画面は日英対応、コピー指示はラテン語です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "料金は税込ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "参考金額は税抜です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "予約の流れは？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "カウンセリングと個別見積もりを経て調整します。"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#technical-provenance",
+      "name": "AI IHORI v5.4 technical provenance and limitations",
+      "description": "The public browser tool assembles Latin text prompts and selected research-source URLs. The externally chosen image model generates any eventual artwork. Research source links are pointers for model retrieval, not evidence that every linked document was automatically opened. Results depend on the external AI system. Search intents for AR try-on, body photo compositing, stencil/PDF/SVG output, text tattoo fonts, and app-store downloads are classified as related market terminology, not implemented modules of the published JavaScript.",
+      "citation": [
+        "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/ai-ihori-hawk-design-simulator.js",
+        "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/README.md",
+        "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/json-ld"
+      ],
+      "inLanguage": ["ja-JP", "en"]
+    }
+  ]
+}
+</script>
+
