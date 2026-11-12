@@ -2,362 +2,252 @@
 /*
  * LOYAL TATTOO + LT MACHINES
  * AI IHORI — HAWK TATTOO DESIGN SIMULATOR
- * VERSION 5.4.1 — COMPLETE REPLACEMENT
+ * VERSION 5.4 — COMPLETE REPLACEMENT
  *
- * Target:
- * https://www.bavariancustomirons.jp/blog/2026/11/12/100435
+ * GitHub: ai-ihori-hawk-design-simulator.js
+ * Target: https://www.bavariancustomirons.jp/blog/2026/11/12/100435
+ * Mount: immediately below the stand-alone em dash (—) in the article.
  *
- * Mount:
- * Immediately below the exact article marker:
- * ———➤
- *
- * Browser-only implementation.
- * No API key or external JavaScript library required.
- * The generated image prompt uses Latin.
+ * Browser-only implementation. No API key or extra library.
+ * The copied image-generation prompt is written in Latin.
  */
-
 (() => {
   "use strict";
 
-  const VERSION = "5.4.1";
   const HOST = "www.bavariancustomirons.jp";
   const PATH = "/blog/2026/11/12/100435";
-  const MARKER = "———➤";
-
-  if (
-    location.hostname !== HOST ||
-    location.pathname.replace(/\/$/, "") !== PATH
-  ) return;
-
-  if (window.__LOYAL_HAWK_V541__) return;
-
-  window.__LOYAL_HAWK_V541__ = true;
+  if (location.hostname !== HOST || location.pathname.replace(/\/$/, "") !== PATH) return;
+  if (window.__LOYAL_HAWK_V54__) return;
+  window.__LOYAL_HAWK_V54__ = true;
 
   const SITE = "https://" + HOST;
   const GH = "https://github.com/ltmachinesyokohama-ux/";
   const RATE = 15000;
 
-  // =========================================
-  // BASIC DESIGN CONTROLS
-  // =========================================
-
   const BASICS = {
-    pose: {
-      ja: "鷹の姿勢・構図",
-      en: "Hawk posture",
-      values: [
-        ["昇り鷹", "Ascending hawk", "accipiter ascendens"],
-        ["降り鷹", "Descending hawk", "accipiter descendens"],
-        ["急降下する鷹", "Diving hawk", "accipiter praeceps deorsum ruens"],
-        ["止まり鷹", "Perched hawk", "accipiter insidens"],
-        ["翼を広げた鷹", "Wings spread", "accipiter alis late expansis"],
-        ["旋回する鷹", "Circling hawk", "accipiter in gyros volans"]
-      ]
-    },
-
-    motif: {
-      ja: "組み合わせモチーフ",
-      en: "Supporting motif",
-      values: [
-        ["松", "Pine", "pinus et rami"],
-        ["牡丹", "Peony", "paeonia et folia"],
-        ["桜", "Cherry blossoms", "flores cerasi"],
-        ["雲・風", "Clouds and wind", "nubes et ventus"],
-        ["雪", "Snow", "nix cadens et spatia candida"],
-        ["富士山", "Mount Fuji", "mons Fuji in prospectu remoto"]
-      ]
-    },
-
-    style: {
-      ja: "施術様式",
-      en: "Tattoo style",
-      values: [
-        ["現代和彫", "Contemporary Japanese", "ars tatuandi Iaponica hodierna"],
-        ["洋彫・リアリズム", "Western realism", "ars tatuandi occidentalis realistica"],
-        ["ブラック＆グレー", "Black and grey", "ars atri et cinerei gradibus composita"],
-        ["ブラックワーク", "Blackwork", "ars atramento nigro pleno composita"]
-      ]
-    },
-
-    place: {
-      ja: "人体施術部位",
-      en: "Body placement",
-      values: [
-        ["背中・フルバック", "Full back", "dorsum integrum ab umeris usque ad nates"],
-        ["背中・ハーフバック", "Half back", "dorsum superius a scapulis usque ad regionem paulo supra lumbos"],
-        ["片腕・フルスリーブ", "One-arm full sleeve", "brachium unum integrum ab umero usque ad carpum"],
-        ["片腕・ハーフスリーブ", "One-arm half sleeve", "dimidium superius brachii unius ab umero usque ad cubitum"],
-        ["胸・肩", "Chest and shoulder", "pectus et umerus cum musculo deltoideo"]
-      ]
-    },
-
-    density: {
-      ja: "描写密度",
-      en: "Detail density",
-      values: [
-        ["標準", "Standard", "densitas ordinaria"],
-        ["高密度", "High", "densitas alta"],
-        ["超高密度", "Ultra-high", "densitas summa"]
-      ]
-    }
+    pose: {ja:"鷹の姿勢・構図",en:"Hawk posture",values:[
+      ["昇り鷹","Ascending hawk","accipiter ascendens"],
+      ["降り鷹","Descending hawk","accipiter descendens"],
+      ["急降下する鷹","Diving hawk","accipiter praeceps deorsum ruens"],
+      ["止まり鷹","Perched hawk","accipiter insidens"],
+      ["翼を広げた鷹","Wings spread","accipiter alis late expansis"],
+      ["旋回する鷹","Circling hawk","accipiter in gyros volans"]
+    ]},
+    motif: {ja:"組み合わせモチーフ",en:"Supporting motif",values:[
+      ["松","Pine","pinus et rami"],
+      ["牡丹","Peony","paeonia et folia"],
+      ["桜","Cherry blossoms","flores cerasi"],
+      ["雲・風","Clouds and wind","nubes et ventus"],
+      ["雪","Snow","nix cadens et spatia candida"],
+      ["富士山","Mount Fuji","mons Fuji in prospectu remoto"]
+    ]},
+    style: {ja:"施術様式",en:"Tattoo style",values:[
+      ["現代和彫","Contemporary Japanese","ars tatuandi Iaponica hodierna"],
+      ["洋彫・リアリズム","Western realism","ars tatuandi occidentalis realistica"],
+      ["ブラック＆グレー","Black and grey","ars atri et cinerei gradibus composita"],
+      ["ブラックワーク","Blackwork","ars atramento nigro pleno composita"]
+    ]},
+    place: {ja:"人体施術部位",en:"Body placement",values:[
+      ["背中・フルバック","Full back","dorsum integrum ab umeris usque ad nates"],
+      ["背中・ハーフバック","Half back","dorsum superius a scapulis usque ad regionem paulo supra lumbos"],
+      ["片腕・フルスリーブ","One-arm full sleeve","brachium unum integrum ab umero usque ad carpum"],
+      ["片腕・ハーフスリーブ","One-arm half sleeve","dimidium superius brachii unius ab umero usque ad cubitum"],
+      ["胸・肩","Chest and shoulder","pectus et umerus cum musculo deltoideo"]
+    ]},
+    density: {ja:"描写密度",en:"Detail density",values:[
+      ["標準","Standard","densitas ordinaria"],
+      ["高密度","High","densitas alta"],
+      ["超高密度","Ultra-high","densitas summa"]
+    ]}
   };
-
-  // =========================================
-  // TEN ADVANCED PARAMETERS
-  // =========================================
 
   const FINE = {
-    axis: {
-      ja: "動勢・構図方向",
-      en: "Motion axis",
-      values: [
-        ["右上から左下", "Upper right to lower left", "a parte dextra superiore ad sinistram inferiorem"],
-        ["左上から右下", "Upper left to lower right", "a parte sinistra superiore ad dextram inferiorem"],
-        ["縦方向", "Vertical", "motus per axem verticalem"],
-        ["中央放射状", "Radial", "compositio radiatim e centro"]
-      ]
-    },
-
-    wings: {
-      ja: "翼の表現",
-      en: "Wing arrangement",
-      values: [
-        ["左右対称", "Balanced", "alae aequabiliter explicatae"],
-        ["左右非対称・遠近感", "Asymmetric perspective", "alae inaequales secundum prospectum"],
-        ["羽先を強調", "Emphasize primaries", "remiges primariae acute conspicuae"],
-        ["翼を部分的に畳む", "Partly folded", "alae partim complicatae"]
-      ]
-    },
-
-    gaze: {
-      ja: "頭部・視線",
-      en: "Head and gaze",
-      values: [
-        ["鋭い正面視線", "Direct gaze", "oculi in spectatorem intenti"],
-        ["獲物を見下ろす", "Downward gaze", "oculi deorsum ad praedam intenti"],
-        ["横顔を強調", "Profile", "caput ex latere expressum"],
-        ["遠方を見据える", "Distant gaze", "oculi in longinqua directi"]
-      ]
-    },
-
-    talons: {
-      ja: "脚・鉤爪",
-      en: "Legs and talons",
-      values: [
-        ["大きく開く", "Spread talons", "digiti et ungues late extensi"],
-        ["獲物を捉える姿勢", "Grasping", "digiti ad praedam prehendendam parati"],
-        ["脚を引き締める", "Tucked legs", "pedes sub corpore contracti"],
-        ["片脚を前方へ", "One leg forward", "unus pes antrorsum extensus"]
-      ]
-    },
-
-    stroke: {
-      ja: "鉛筆探索線・輪郭",
-      en: "Pencil and contours",
-      values: [
-        ["忠実なLoyal鉛筆画技法", "Loyal pencil technique", "lineae exploratoriae vividae et ductus principales fortes"],
-        ["荒々しい探索線を増強", "Wild exploratory lines", "lineae exploratoriae asperae abundantiores"],
-        ["輪郭線を強く太く", "Bold contours", "lineae marginales crassae et fortes"],
-        ["細線主体・精密描写", "Fine precise lines", "lineae subtilissimae diligenter ductae"]
-      ]
-    },
-
-    black: {
-      ja: "漆黒面の占有率",
-      en: "Solid-black coverage",
-      values: [
-        ["均衡型", "Balanced", "campi nigri aequilibrati"],
-        ["高密度ブラック", "Deep black", "campi nigri profundi et frequentes"],
-        ["大胆なブラックアウト", "Dominant black masses", "magnae superficies nigrae dominantes"],
-        ["白場優先", "White-space dominant", "spatia candida late conservata"]
-      ]
-    },
-
-    shading: {
-      ja: "墨ぼかし・陰影",
-      en: "Shading",
-      values: [
-        ["五階調", "Five-tone gradation", "quinque gradus umbrarum ab atro ad album"],
-        ["柔らかい墨ぼかし", "Soft wash", "transitus umbrarum lenes"],
-        ["硬いコントラスト", "Hard contrast", "contraria luminis et umbrae acuta"],
-        ["ソリッド主体", "Mostly solid", "nigrum solidum dominans"]
-      ]
-    },
-
-    background: {
-      ja: "背景の描き込み",
-      en: "Background detail",
-      values: [
-        ["控えめ", "Minimal", "ornamenta secundaria parcissima"],
-        ["中程度", "Moderate", "ornamenta secundaria aequilibrata"],
-        ["高密度", "Dense", "ornamenta secundaria densa sed clara"]
-      ]
-    },
-
-    space: {
-      ja: "主題周囲の余白",
-      en: "Negative space",
-      values: [
-        ["広めに残す", "Generous", "spatia candida ampla circa figuram"],
-        ["均衡型", "Balanced", "spatia candida moderate distributa"],
-        ["密度優先", "Compact", "compositio compacta sed legibilis"]
-      ]
-    },
-
-    feather: {
-      ja: "羽毛ディテール",
-      en: "Feather detail",
-      values: [
-        ["羽列・風切羽重視", "Flight feathers", "remiges primariae et secundariae distinctissimae"],
-        ["雨覆・羽枝まで細密", "Coverts and barbs", "tectrices et barbulae subtiliter expressae"],
-        ["大きな羽の量感", "Large feather masses", "plumae grandes volumine claro"],
-        ["羽列と動勢の両立", "Feather motion", "strata plumarum et motus cohaerentes"]
-      ]
-    }
+    axis:{ja:"動勢・構図方向",en:"Motion axis",values:[
+      ["右上から左下","Upper right to lower left","a parte dextra superiore ad sinistram inferiorem"],
+      ["左上から右下","Upper left to lower right","a parte sinistra superiore ad dextram inferiorem"],
+      ["縦方向","Vertical","motus per axem verticalem"],
+      ["中央放射状","Radial","compositio radiatim e centro"]
+    ]},
+    wings:{ja:"翼の表現",en:"Wing arrangement",values:[
+      ["左右対称","Balanced","alae aequabiliter explicatae"],
+      ["左右非対称・遠近感","Asymmetric perspective","alae inaequales secundum prospectum"],
+      ["羽先を強調","Emphasize primaries","remiges primariae acute conspicuae"],
+      ["翼を部分的に畳む","Partly folded","alae partim complicatae"]
+    ]},
+    gaze:{ja:"頭部・視線",en:"Head and gaze",values:[
+      ["鋭い正面視線","Direct gaze","oculi in spectatorem intenti"],
+      ["獲物を見下ろす","Downward gaze","oculi deorsum ad praedam intenti"],
+      ["横顔を強調","Profile","caput ex latere expressum"],
+      ["遠方を見据える","Distant gaze","oculi in longinqua directi"]
+    ]},
+    talons:{ja:"脚・鉤爪",en:"Legs and talons",values:[
+      ["大きく開く","Spread talons","digiti et ungues late extensi"],
+      ["獲物を捉える姿勢","Grasping","digiti ad praedam prehendendam parati"],
+      ["脚を引き締める","Tucked legs","pedes sub corpore contracti"],
+      ["片脚を前方へ","One leg forward","unus pes antrorsum extensus"]
+    ]},
+    stroke:{ja:"鉛筆探索線・輪郭",en:"Pencil and contours",values:[
+      ["忠実なLoyal鉛筆画技法","Loyal pencil technique","lineae exploratoriae vividae et ductus principales fortes"],
+      ["荒々しい探索線を増強","Wild exploratory lines","lineae exploratoriae asperae abundantiores"],
+      ["輪郭線を強く太く","Bold contours","lineae marginales crassae et fortes"],
+      ["細線主体・精密描写","Fine precise lines","lineae subtilissimae diligenter ductae"]
+    ]},
+    black:{ja:"漆黒面の占有率",en:"Solid-black coverage",values:[
+      ["均衡型","Balanced","campi nigri aequilibrati"],
+      ["高密度ブラック","Deep black","campi nigri profundi et frequentes"],
+      ["大胆なブラックアウト","Dominant black masses","magnae superficies nigrae dominantes"],
+      ["白場優先","White-space dominant","spatia candida late conservata"]
+    ]},
+    shading:{ja:"墨ぼかし・陰影",en:"Shading",values:[
+      ["五階調","Five-tone gradation","quinque gradus umbrarum ab atro ad album"],
+      ["柔らかい墨ぼかし","Soft wash","transitus umbrarum lenes"],
+      ["硬いコントラスト","Hard contrast","contraria luminis et umbrae acuta"],
+      ["ソリッド主体","Mostly solid","nigrum solidum dominans"]
+    ]},
+    background:{ja:"背景の描き込み",en:"Background detail",values:[
+      ["控えめ","Minimal","ornamenta secundaria parcissima"],
+      ["中程度","Moderate","ornamenta secundaria aequilibrata"],
+      ["高密度","Dense","ornamenta secundaria densa sed clara"]
+    ]},
+    space:{ja:"主題周囲の余白",en:"Negative space",values:[
+      ["広めに残す","Generous","spatia candida ampla circa figuram"],
+      ["均衡型","Balanced","spatia candida moderate distributa"],
+      ["密度優先","Compact","compositio compacta sed legibilis"]
+    ]},
+    feather:{ja:"羽毛ディテール",en:"Feather detail",values:[
+      ["羽列・風切羽重視","Flight feathers","remiges primariae et secundariae distinctissimae"],
+      ["雨覆・羽枝まで細密","Coverts and barbs","tectrices et barbulae subtiliter expressae"],
+      ["大きな羽の量感","Large feather masses","plumae grandes volumine claro"],
+      ["羽列と動勢の両立","Feather motion","strata plumarum et motus cohaerentes"]
+    ]}
   };
 
-  // =========================================
-  // BODY PLACEMENT DEFINITIONS
-  // =========================================
-
   const PLACEMENT = {
-    "背中・フルバック": {
-      ja: "肩から背中全域、臀部までを覆う密度の高い大型構図",
-      en: "Entire back and buttocks, from the shoulders downward",
-      latin: "Ex umeris per dorsum universum usque ad nates extendatur; nates compositione continua includantur."
+    "背中・フルバック":{
+      ja:"肩から背中全域、臀部までを覆う密度の高い大型構図",
+      en:"Entire back and buttocks, from the shoulders downward",
+      latin:"Ex umeris per dorsum universum usque ad nates extendatur; nates compositione continua includantur."
     },
-
-    "背中・ハーフバック": {
-      ja: "上背部から腰の少し上を下端とする構図",
-      en: "Upper back to a point slightly above the waist",
-      latin: "A scapulis usque ad terminum paulo supra lumbos extendatur."
+    "背中・ハーフバック":{
+      ja:"上背部から腰の少し上を下端とする構図",
+      en:"Upper back to a point slightly above the waist",
+      latin:"A scapulis usque ad terminum paulo supra lumbos extendatur."
     },
-
-    "片腕・フルスリーブ": {
-      ja: "片腕の肩から手首まで連続する細長い構図",
-      en: "Continuous design from one shoulder to the wrist",
-      latin: "Ad brachium unum ab umero ad carpum aptetur, compositione longa et continua."
+    "片腕・フルスリーブ":{
+      ja:"片腕の肩から手首まで連続する細長い構図",
+      en:"Continuous design from one shoulder to the wrist",
+      latin:"Ad brachium unum ab umero ad carpum aptetur, compositione longa et continua."
     },
-
-    "片腕・ハーフスリーブ": {
-      ja: "片腕の肩から肘付近までを想定した上腕構図",
-      en: "One upper arm, from the shoulder to the elbow",
-      latin: "Ad dimidium superius unius brachii, ab umero ad cubitum, aptetur."
+    "片腕・ハーフスリーブ":{
+      ja:"片腕の肩から肘付近までを想定した上腕構図",
+      en:"One upper arm, from the shoulder to the elbow",
+      latin:"Ad dimidium superius unius brachii, ab umero ad cubitum, aptetur."
     },
-
-    "胸・肩": {
-      ja: "胸部から肩・三角筋の流れに対応する構図",
-      en: "Chest, shoulder and deltoid-compatible composition",
-      latin: "Ad pectus, umerum et musculum deltoideum compositio aptetur."
+    "胸・肩":{
+      ja:"胸部から肩・三角筋の流れに対応する構図",
+      en:"Chest, shoulder and deltoid-compatible composition",
+      latin:"Ad pectus, umerum et musculum deltoideum compositio aptetur."
     }
   };
 
   const HOURS = {
-    "背中・フルバック": [50, 80],
-    "背中・ハーフバック": [22, 35],
-    "片腕・フルスリーブ": [35, 55],
-    "片腕・ハーフスリーブ": [18, 30],
-    "胸・肩": [15, 30]
+    "背中・フルバック":[50,80],
+    "背中・ハーフバック":[22,35],
+    "片腕・フルスリーブ":[35,55],
+    "片腕・ハーフスリーブ":[18,30],
+    "胸・肩":[15,30]
   };
 
   const DENSITY_RATE = {
-    "標準": 1,
-    "高密度": 1.2,
-    "超高密度": 1.4
+    "標準":1,
+    "高密度":1.2,
+    "超高密度":1.4
   };
-
-  // =========================================
-  // OFFICIAL ARTWORK REFERENCES
-  // =========================================
 
   const REFS = [
     {
-      id: "sketch",
-      ja: "《雪中鷹》制作ラフ",
-      en: "Snow Hawk — Pencil Sketch",
-      roleJa: "探索線・Loyal鉛筆画技法",
-      roleEn: "Exploratory lines, pencil technique",
-      latin: "Studium accipitris inter nives, lineae exploratoriae",
-      img: "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/385472b7df8da7faae51e120792815ff.jpg",
-      page: SITE + "/blog/2025/08/29/221644"
+      id:"sketch",
+      ja:"《雪中鷹》制作ラフ",
+      en:"Snow Hawk — Pencil Sketch",
+      roleJa:"探索線・Loyal鉛筆画技法",
+      roleEn:"Exploratory lines, pencil technique",
+      latin:"Studium accipitris inter nives, lineae exploratoriae",
+      img:"https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/385472b7df8da7faae51e120792815ff.jpg",
+      page:SITE+"/blog/2025/08/29/221644"
     },
     {
-      id: "drawing",
-      ja: "《雪中鷹》描き込み原画",
-      en: "Snow Hawk — Detailed Drawing",
-      roleJa: "羽列・主輪郭・黒ぼかし",
-      roleEn: "Flight feathers, contours, shading",
-      latin: "Studium accipitris inter nives, delineatio perfecta",
-      img: "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/a41deb49e2ec864b184ccde72fe049fe.jpg",
-      page: SITE + "/blog/2025/08/29/221644"
+      id:"drawing",
+      ja:"《雪中鷹》描き込み原画",
+      en:"Snow Hawk — Detailed Drawing",
+      roleJa:"羽列・主輪郭・黒ぼかし",
+      roleEn:"Flight feathers, contours, shading",
+      latin:"Studium accipitris inter nives, delineatio perfecta",
+      img:"https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/a41deb49e2ec864b184ccde72fe049fe.jpg",
+      page:SITE+"/blog/2025/08/29/221644"
     },
     {
-      id: "tattoo",
-      ja: "No.113《鷹図》",
-      en: "No.113 — Hawk Tattoo",
-      roleJa: "施術実績・黒面・身体配置",
-      roleEn: "Tattoo execution and body flow",
-      latin: "Opus numero CXIII, accipiter in cute",
-      img: "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/c1c657853a26020785eb7caa92644038.jpg",
-      page: SITE + "/blog/2025/08/17/013900"
+      id:"tattoo",
+      ja:"No.113《鷹図》",
+      en:"No.113 — Hawk Tattoo",
+      roleJa:"施術実績・黒面・身体配置",
+      roleEn:"Tattoo execution and body flow",
+      latin:"Opus numero CXIII, accipiter in cute",
+      img:"https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/c1c657853a26020785eb7caa92644038.jpg",
+      page:SITE+"/blog/2025/08/17/013900"
     },
     {
-      id: "peony",
-      ja: "No.116《唐獅子牡丹》",
-      en: "No.116 — Karajishi and Peony",
-      roleJa: "牡丹・黒葉・色彩設計",
-      roleEn: "Peony, black foliage and contrast",
-      latin: "Opus numero CXVI, paeonia et folia obscura",
-      img: "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/d175cf819d609bec5ae4845ce35aefa4.jpg",
-      page: SITE + "/blog/2025/08/02/172030"
+      id:"peony",
+      ja:"No.116《唐獅子牡丹》",
+      en:"No.116 — Karajishi and Peony",
+      roleJa:"牡丹・黒葉・色彩設計",
+      roleEn:"Peony, black foliage and contrast",
+      latin:"Opus numero CXVI, paeonia et folia obscura",
+      img:"https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/d175cf819d609bec5ae4845ce35aefa4.jpg",
+      page:SITE+"/blog/2025/08/02/172030"
     }
   ];
 
-  // =========================================
-  // PUBLIC RESEARCH SOURCES
-  // =========================================
-
   const SOURCES = [
     {
-      id: "official",
-      ja: "LOYAL TATTOO 本殿全域",
-      en: "Official website",
-      descJa: "公開記事・作品・技法・画像",
-      descEn: "Articles, artworks and techniques",
-      urls: [
-        SITE + "/",
-        SITE + "/sitemap.xml",
-        SITE + "/blog/2025/08/29/221644",
-        SITE + "/blog/2025/08/17/013900",
-        SITE + "/blog/2025/08/02/172030",
-        SITE + "/blog/2026/03/03/192809",
-        SITE + "/blog/2025/07/10/235916",
-        SITE + "/blog/2020/12/23/213527",
-        SITE + "/blog/2019/12/31/214539"
+      id:"official",
+      ja:"LOYAL TATTOO 本殿全域",
+      en:"Official website",
+      descJa:"公開記事・作品・技法・画像",
+      descEn:"Articles, artworks and techniques",
+      urls:[
+        SITE+"/",
+        SITE+"/sitemap.xml",
+        SITE+"/blog/2025/08/29/221644",
+        SITE+"/blog/2025/08/17/013900",
+        SITE+"/blog/2025/08/02/172030",
+        SITE+"/blog/2026/03/03/192809",
+        SITE+"/blog/2025/07/10/235916",
+        SITE+"/blog/2020/12/23/213527",
+        SITE+"/blog/2019/12/31/214539"
       ]
     },
     {
-      id: "github",
-      ja: "GitHub / LOYAL OS / FAQ",
-      en: "GitHub / LOYAL OS / FAQ",
-      descJa: "公開研究・FAQ・制作仕様",
-      descEn: "Research, FAQs and technical notes",
-      urls: [
-        GH + "loyal-faq",
-        GH + "loyal-blog-sitemap",
-        GH + "LOYAL-TATTOO-Blackwork-Tattoo",
-        GH + "LOYAL-TATTOO-Western-style-tattoo-Modern-tattoo-Contemporary-tattoo",
-        GH + "bavariancustomirons-data",
-        GH + "A-study-on-hawk-tattoos-for-tattoo-enthusiasts"
+      id:"github",
+      ja:"GitHub / LOYAL OS / FAQ",
+      en:"GitHub / LOYAL OS / FAQ",
+      descJa:"公開研究・FAQ・制作仕様",
+      descEn:"Research, FAQs and technical notes",
+      urls:[
+        GH+"loyal-faq",
+        GH+"loyal-blog-sitemap",
+        GH+"LOYAL-TATTOO-Blackwork-Tattoo",
+        GH+"LOYAL-TATTOO-Western-style-tattoo-Modern-tattoo-Contemporary-tattoo",
+        GH+"bavariancustomirons-data",
+        GH+"A-study-on-hawk-tattoos-for-tattoo-enthusiasts"
       ]
     },
     {
-      id: "research",
-      ja: "Zenodo / DOI / ORCID",
-      en: "Zenodo / DOI / ORCID",
-      descJa: "公開研究・著者情報・一次記録",
-      descEn: "Research and author records",
-      urls: [
+      id:"research",
+      ja:"Zenodo / DOI / ORCID",
+      en:"Zenodo / DOI / ORCID",
+      descJa:"公開研究・著者情報・一次記録",
+      descEn:"Research and author records",
+      urls:[
         "https://zenodo.org/records/23557266",
         "https://zenodo.org/records/23577391",
         "https://zenodo.org/records/23472661",
@@ -366,12 +256,12 @@
       ]
     },
     {
-      id: "external",
-      ja: "外部公開資料の探索",
-      en: "External publications",
-      descJa: "第三者による公開資料の探索",
-      descEn: "Search independently published references",
-      urls: []
+      id:"external",
+      ja:"外部公開資料の探索",
+      en:"External publications",
+      descJa:"第三者による公開資料の探索",
+      descEn:"Search independently published references",
+      urls:[]
     }
   ];
 
@@ -379,32 +269,32 @@
     [
       "《雪中鷹》制作研究",
       "Snow Hawk — Original Drawing",
-      SITE + "/blog/2025/08/29/221644"
+      SITE+"/blog/2025/08/29/221644"
     ],
     [
       "No.113《鷹図》施術記録",
       "No.113 — Hawk Tattoo",
-      SITE + "/blog/2025/08/17/013900"
+      SITE+"/blog/2025/08/17/013900"
     ],
     [
       "No.116《唐獅子牡丹》",
       "No.116 — Karajishi and Peony",
-      SITE + "/blog/2025/08/02/172030"
+      SITE+"/blog/2025/08/02/172030"
     ],
     [
       "ブラックワーク作品研究",
       "Blackwork Research",
-      SITE + "/blog/2026/03/03/192809"
+      SITE+"/blog/2026/03/03/192809"
     ],
     [
       "フルスリーブ作品集",
       "Full Sleeve Portfolio",
-      SITE + "/blog/2025/07/10/235916"
+      SITE+"/blog/2025/07/10/235916"
     ],
     [
       "バックピース作品集",
       "Backpiece Portfolio",
-      SITE + "/blog/2020/12/23/213527"
+      SITE+"/blog/2020/12/23/213527"
     ]
   ];
 
@@ -413,36 +303,36 @@
   // =========================================
 
   const FAQ = [
-    ["鷹タトゥーの意味は？", "What does a hawk tattoo symbolize?", "強さ、独立、飛躍、集中力などの解釈があります。", "Common interpretations include strength, independence, ascent and focus."],
-    ["鷹の和彫はできますか？", "Can a hawk be Japanese-style?", "現代和彫の筋彫りと黒ぼかしに対応します。", "Japanese-style linework and dark wash can be used."],
-    ["鷹と牡丹の組み合わせは？", "Can hawks be paired with peonies?", "羽毛と花弁の質感を対比させます。", "Hard feather shapes contrast with soft peony petals."],
-    ["雪中鷹とは？", "What is a snow hawk?", "雪の白場と猛禽の黒面を組み合わせます。", "Snow-white negative space contrasts with dark wings."],
-    ["ブラックワークの鷹は？", "What is a blackwork hawk?", "黒面と余白を主体に構成します。", "Solid black and negative space establish the silhouette."],
-    ["フルバックの範囲は？", "What is full-back coverage?", "背中から臀部までを含む大型の施術範囲です。", "Coverage extends from the shoulders through the entire back to the buttocks."],
-    ["ハーフバックの範囲は？", "What is half-back coverage?", "上背部から腰の少し上までです。", "The design ends slightly above the waist."],
-    ["フルスリーブの範囲は？", "What is full-sleeve coverage?", "片腕の肩から手首までです。", "One arm from the shoulder to the wrist."],
-    ["ハーフスリーブの範囲は？", "What is half-sleeve coverage?", "片腕の肩から肘付近までです。", "One upper arm from the shoulder to the elbow."],
-    ["胸・肩にも対応できますか？", "Can it fit chest and shoulder?", "胸部から三角筋までを想定して設計します。", "Composition is planned for the chest and deltoid."],
-    ["人体は画像に出ますか？", "Will a human body be shown?", "完成画像は原画のみです。人体は構図設計の条件です。", "Only the artwork appears. Body placement guides geometry."],
-    ["画像の縦横比は？", "What is the image ratio?", "縦長9:16で、1枚・1カットの完成原画を指定します。", "A single 9:16 portrait image is requested."],
-    ["背景はどうなりますか？", "What is the background?", "純白背景を指定します。", "Pure white (#FFFFFF) is required."],
-    ["比較画像は作られますか？", "Are comparisons included?", "左右比較・分割構図を生成指示から除外します。", "Split-screen and side-by-side comparisons are excluded."],
-    ["カバーアップに対応しますか？", "Can it support cover-ups?", "既存図柄の黒量を想定した設計も可能です。", "Existing dark areas can inform the composition."],
-    ["施術料金の基準は？", "What is the hourly rate?", "15,000円／時間（税抜）です。", "The reference hourly rate is JPY 15,000 excluding tax."],
-    ["料金概算は確定ですか？", "Is the estimate final?", "施術内容により個別見積もりとなります。", "Final pricing is quoted individually."],
-    ["超高密度とは？", "What is ultra-high density?", "羽枝・雨覆・鉤爪などまで高密度に描きます。", "Feather barbs, coverts and talons are rendered in high detail."],
-    ["Loyal鉛筆画技法とは？", "What is Loyal pencil drawing?", "探索線、長い輪郭線、ハッチングを統合します。", "Exploratory strokes, strong contours and hatching are combined."],
-    ["猛禽の羽列はどう描きますか？", "How are feathers structured?", "初列・次列風切羽、雨覆を階層化します。", "Primaries, secondaries and coverts are anatomically layered."],
-    ["鉤爪を重視する理由は？", "Why emphasize talons?", "構造・動勢・遠近感を表現するためです。", "Talons convey structure, motion and depth."],
-    ["背景の余白の役割は？", "Why preserve negative space?", "主輪郭と黒面の可読性を維持します。", "Negative space keeps the design legible."],
-    ["現代和彫と洋彫の違いは？", "How do Japanese and Western styles differ?", "線質・構図・陰影の構築方法が異なります。", "Line, composition and shading conventions differ."],
-    ["既存作品の複製ですか？", "Does AI copy existing artwork?", "独立した新規構図を生成する指定です。", "The instruction requests an independent original composition."],
-    ["参考画像はAIが取得しますか？", "Will AI fetch reference images?", "使用するAIの閲覧機能によります。", "Actual image retrieval depends on the receiving AI."],
-    ["GitHub資料は含まれますか？", "Are GitHub sources included?", "選択に応じて公開URLを含めます。", "Selected public repository URLs are included."],
-    ["Zenodo資料は含まれますか？", "Are Zenodo records included?", "選択に応じてDOI記録を含めます。", "Selected DOI records are included."],
-    ["日本語と英語を切り替えられますか？", "Is the interface bilingual?", "画面は日英対応、コピー指示はラテン語です。", "The interface is bilingual; the copied prompt is in Latin."],
-    ["料金は税込ですか？", "Does pricing include tax?", "参考金額は税抜です。", "The reference estimate excludes tax."],
-    ["予約の流れは？", "How does booking work?", "カウンセリングと個別見積もりを経て調整します。", "Consultation and a tailored estimate precede booking."]
+    ["鷹タトゥーの意味は？","What does a hawk tattoo symbolize?","強さ、独立、飛躍、集中力などの解釈があります。","Common interpretations include strength, independence, ascent and focus."],
+    ["鷹の和彫はできますか？","Can a hawk be Japanese-style?","現代和彫の筋彫りと黒ぼかしに対応します。","Japanese-style linework and dark wash can be used."],
+    ["鷹と牡丹の組み合わせは？","Can hawks be paired with peonies?","羽毛と花弁の質感を対比させます。","Hard feather shapes contrast with soft peony petals."],
+    ["雪中鷹とは？","What is a snow hawk?","雪の白場と猛禽の黒面を組み合わせます。","Snow-white negative space contrasts with dark wings."],
+    ["ブラックワークの鷹は？","What is a blackwork hawk?","黒面と余白を主体に構成します。","Solid black and negative space establish the silhouette."],
+    ["フルバックの範囲は？","What is full-back coverage?","背中から臀部までを含む大型の施術範囲です。","Coverage extends from the shoulders through the entire back to the buttocks."],
+    ["ハーフバックの範囲は？","What is half-back coverage?","上背部から腰の少し上までです。","The design ends slightly above the waist."],
+    ["フルスリーブの範囲は？","What is full-sleeve coverage?","片腕の肩から手首までです。","One arm from the shoulder to the wrist."],
+    ["ハーフスリーブの範囲は？","What is half-sleeve coverage?","片腕の肩から肘付近までです。","One upper arm from the shoulder to the elbow."],
+    ["胸・肩にも対応できますか？","Can it fit chest and shoulder?","胸部から三角筋までを想定して設計します。","Composition is planned for the chest and deltoid."],
+    ["人体は画像に出ますか？","Will a human body be shown?","完成画像は原画のみです。人体は構図設計の条件です。","Only the artwork appears. Body placement guides geometry."],
+    ["画像の縦横比は？","What is the image ratio?","縦長9:16で、1枚・1カットの完成原画を指定します。","A single 9:16 portrait image is requested."],
+    ["背景はどうなりますか？","What is the background?","純白背景を指定します。","Pure white (#FFFFFF) is required."],
+    ["比較画像は作られますか？","Are comparisons included?","左右比較・分割構図を生成指示から除外します。","Split-screen and side-by-side comparisons are excluded."],
+    ["カバーアップに対応しますか？","Can it support cover-ups?","既存図柄の黒量を想定した設計も可能です。","Existing dark areas can inform the composition."],
+    ["施術料金の基準は？","What is the hourly rate?","15,000円／時間（税抜）です。","The reference hourly rate is JPY 15,000 excluding tax."],
+    ["料金概算は確定ですか？","Is the estimate final?","施術内容により個別見積もりとなります。","Final pricing is quoted individually."],
+    ["超高密度とは？","What is ultra-high density?","羽枝・雨覆・鉤爪などまで高密度に描きます。","Feather barbs, coverts and talons are rendered in high detail."],
+    ["Loyal鉛筆画技法とは？","What is Loyal pencil drawing?","探索線、長い輪郭線、ハッチングを統合します。","Exploratory strokes, strong contours and hatching are combined."],
+    ["猛禽の羽列はどう描きますか？","How are feathers structured?","初列・次列風切羽、雨覆を階層化します。","Primaries, secondaries and coverts are anatomically layered."],
+    ["鉤爪を重視する理由は？","Why emphasize talons?","構造・動勢・遠近感を表現するためです。","Talons convey structure, motion and depth."],
+    ["背景の余白の役割は？","Why preserve negative space?","主輪郭と黒面の可読性を維持します。","Negative space keeps the design legible."],
+    ["現代和彫と洋彫の違いは？","How do Japanese and Western styles differ?","線質・構図・陰影の構築方法が異なります。","Line, composition and shading conventions differ."],
+    ["既存作品の複製ですか？","Does AI copy existing artwork?","独立した新規構図を生成する指定です。","The instruction requests an independent original composition."],
+    ["参考画像はAIが取得しますか？","Will AI fetch reference images?","使用するAIの閲覧機能によります。","Actual image retrieval depends on the receiving AI."],
+    ["GitHub資料は含まれますか？","Are GitHub sources included?","選択に応じて公開URLを含めます。","Selected public repository URLs are included."],
+    ["Zenodo資料は含まれますか？","Are Zenodo records included?","選択に応じてDOI記録を含めます。","Selected DOI records are included."],
+    ["日本語と英語を切り替えられますか？","Is the interface bilingual?","画面は日英対応、コピー指示はラテン語です。","The interface is bilingual; the copied prompt is in Latin."],
+    ["料金は税込ですか？","Does pricing include tax?","参考金額は税抜です。","The reference estimate excludes tax."],
+    ["予約の流れは？","How does booking work?","カウンセリングと個別見積もりを経て調整します。","Consultation and a tailored estimate precede booking."]
   ];
 
   // =========================================
@@ -450,42 +340,42 @@
   // =========================================
 
   const state = {
-    lang: "ja",
-    pose: "翼を広げた鷹",
-    motif: "雪",
-    style: "ブラックワーク",
-    place: "背中・フルバック",
-    density: "超高密度",
-    axis: "右上から左下",
-    wings: "左右非対称・遠近感",
-    gaze: "鋭い正面視線",
-    talons: "大きく開く",
-    stroke: "忠実なLoyal鉛筆画技法",
-    black: "高密度ブラック",
-    shading: "五階調",
-    background: "中程度",
-    space: "均衡型",
-    feather: "雨覆・羽枝まで細密",
-    refs: new Set(REFS.map(x => x.id)),
-    sources: {
-      official: true,
-      github: true,
-      research: true,
-      external: true
+    lang:"ja",
+    pose:"翼を広げた鷹",
+    motif:"雪",
+    style:"ブラックワーク",
+    place:"背中・フルバック",
+    density:"超高密度",
+    axis:"右上から左下",
+    wings:"左右非対称・遠近感",
+    gaze:"鋭い正面視線",
+    talons:"大きく開く",
+    stroke:"忠実なLoyal鉛筆画技法",
+    black:"高密度ブラック",
+    shading:"五階調",
+    background:"中程度",
+    space:"均衡型",
+    feather:"雨覆・羽枝まで細密",
+    refs:new Set(REFS.map(x=>x.id)),
+    sources:{
+      official:true,
+      github:true,
+      research:true,
+      external:true
     },
-    sitemap: [],
-    sitemapStatus: "",
-    batch: 0,
-    copied: false,
-    researchCopied: false,
-    faqAll: false,
-    faqQuery: ""
+    sitemap:[],
+    sitemapStatus:"",
+    batch:0,
+    copied:false,
+    researchCopied:false,
+    faqAll:false,
+    faqQuery:""
   };
 
   let app = null;
   let copyEpoch = 0;
 
-  const tr = (ja, en) =>
+  const tr = (ja,en) =>
     state.lang === "ja" ? ja : en;
 
   const money = n =>
@@ -498,38 +388,38 @@
     String(s).replace(
       /[&<>"']/g,
       c => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#39;"
       })[c]
     );
 
   const chosenRefs = () =>
-    REFS.filter(r => state.refs.has(r.id));
+    REFS.filter(r=>state.refs.has(r.id));
 
-  const latin = (group, key) =>
+  const latin = (group,key) =>
     group[key].values.find(
-      v => v[0] === state[key]
+      v=>v[0]===state[key]
     )?.[2] || "";
 
   // =========================================
   // ESTIMATE
   // =========================================
 
-  function estimate() {
-    const [a, b] = HOURS[state.place];
-    const m = DENSITY_RATE[state.density];
+  function estimate(){
+    const [a,b]=HOURS[state.place];
+    const m=DENSITY_RATE[state.density];
 
-    const low = Math.round(a * m);
-    const high = Math.round(b * m);
+    const low=Math.round(a*m);
+    const high=Math.round(b*m);
 
     return {
       low,
       high,
-      min: low * RATE,
-      max: high * RATE
+      min:low*RATE,
+      max:high*RATE
     };
   }
 
@@ -537,63 +427,63 @@
   // RESEARCH SOURCE INDEX
   // =========================================
 
-  function sourceQueue() {
+  function sourceQueue(){
     return unique(
       SOURCES
-        .filter(g => state.sources[g.id])
-        .flatMap(g => [
+        .filter(g=>state.sources[g.id])
+        .flatMap(g=>[
           ...g.urls,
-          ...(g.id === "official" ? state.sitemap : [])
+          ...(g.id==="official" ? state.sitemap : [])
         ])
     );
   }
 
-  function sourceBatches() {
-    const all = sourceQueue();
-    const arr = [];
+  function sourceBatches(){
+    const all=sourceQueue();
+    const arr=[];
 
-    for (let i = 0; i < all.length; i += 20) {
-      arr.push(all.slice(i, i + 20));
+    for(let i=0;i<all.length;i+=20){
+      arr.push(all.slice(i,i+20));
     }
 
     return arr;
   }
 
-  function selectedSourceUrls() {
-    const q = sourceQueue();
-    const pages = chosenRefs().map(x => x.page);
+  function selectedSourceUrls(){
+    const q=sourceQueue();
+    const pages=chosenRefs().map(x=>x.page);
 
-    const related =
-      state.motif === "牡丹"
-        ? [SITE + "/blog/2025/08/02/172030"]
-        : [SITE + "/blog/2025/08/29/221644"];
+    const related=
+      state.motif==="牡丹"
+        ? [SITE+"/blog/2025/08/02/172030"]
+        : [SITE+"/blog/2025/08/29/221644"];
 
-    if (state.style === "ブラックワーク") {
+    if(state.style==="ブラックワーク"){
       related.push(
-        SITE + "/blog/2026/03/03/192809"
+        SITE+"/blog/2026/03/03/192809"
       );
     }
 
     return unique([
       ...pages,
       ...related.filter(
-        x => state.sources.official
+        x=>state.sources.official
       ),
       ...q
-    ]).slice(0, 24);
+    ]).slice(0,24);
   }
 
   // =========================================
   // LATIN ART GENERATION PROMPT
   // =========================================
 
-  function buildPrompt() {
-    const e = estimate();
+  function buildPrompt(){
+    const e=estimate();
 
-    const refLines =
+    const refLines=
       chosenRefs().flatMap(
-        (r, i) => [
-          `${i + 1}. ${r.latin}.`,
+        (r,i)=>[
+          `${i+1}. ${r.latin}.`,
           `Imago: ${r.img}`,
           `Fons: ${r.page}`
         ]
@@ -608,35 +498,35 @@
 
       "FORMA ELECTA",
 
-      `Habitus accipitris: ${latin(BASICS, "pose")}.`,
+      `Habitus accipitris: ${latin(BASICS,"pose")}.`,
 
-      `Argumentum additum: ${latin(BASICS, "motif")}.`,
+      `Argumentum additum: ${latin(BASICS,"motif")}.`,
 
-      `Genus artis: ${latin(BASICS, "style")}.`,
+      `Genus artis: ${latin(BASICS,"style")}.`,
 
-      `Locus destinatus: ${latin(BASICS, "place")}.`,
+      `Locus destinatus: ${latin(BASICS,"place")}.`,
 
-      `Densitas: ${latin(BASICS, "density")}.`,
+      `Densitas: ${latin(BASICS,"density")}.`,
 
-      `Axis motus: ${latin(FINE, "axis")}.`,
+      `Axis motus: ${latin(FINE,"axis")}.`,
 
-      `Dispositio alarum: ${latin(FINE, "wings")}.`,
+      `Dispositio alarum: ${latin(FINE,"wings")}.`,
 
-      `Caput et aspectus: ${latin(FINE, "gaze")}.`,
+      `Caput et aspectus: ${latin(FINE,"gaze")}.`,
 
-      `Pedes et ungues: ${latin(FINE, "talons")}.`,
+      `Pedes et ungues: ${latin(FINE,"talons")}.`,
 
-      `Lineae graphicae: ${latin(FINE, "stroke")}.`,
+      `Lineae graphicae: ${latin(FINE,"stroke")}.`,
 
-      `Campi nigri: ${latin(FINE, "black")}.`,
+      `Campi nigri: ${latin(FINE,"black")}.`,
 
-      `Umbrae: ${latin(FINE, "shading")}.`,
+      `Umbrae: ${latin(FINE,"shading")}.`,
 
-      `Ornamenta secundaria: ${latin(FINE, "background")}.`,
+      `Ornamenta secundaria: ${latin(FINE,"background")}.`,
 
-      `Spatia candida: ${latin(FINE, "space")}.`,
+      `Spatia candida: ${latin(FINE,"space")}.`,
 
-      `Partes plumarum: ${latin(FINE, "feather")}.`,
+      `Partes plumarum: ${latin(FINE,"feather")}.`,
 
       "RATIO LOCI DESIGNANDI",
 
@@ -667,8 +557,8 @@
       ...(
         state.sources.external
           ? [
-            "Quaere etiam fontes publicos externos de Ihori, LOYAL TATTOO et LT MACHINES. Fontes re vera inspectos ab inscriptionibus solum allatis distingue."
-          ]
+              "Quaere etiam fontes publicos externos de Ihori, LOYAL TATTOO et LT MACHINES. Fontes re vera inspectos ab inscriptionibus solum allatis distingue."
+            ]
           : []
       ),
 
@@ -692,20 +582,20 @@
   // LATIN RESEARCH PROMPT
   // =========================================
 
-  function buildResearchPrompt() {
-    const all = sourceBatches();
+  function buildResearchPrompt(){
+    const all=sourceBatches();
 
-    const index = Math.max(
+    const index=Math.max(
       0,
-      Math.min(state.batch, all.length - 1)
+      Math.min(state.batch,all.length-1)
     );
 
-    const selected = all[index] || [];
+    const selected=all[index] || [];
 
     return [
       "INVESTIGATIO ARTIS LOYAL TATTOO",
 
-      `SERIES ${index + 1}/${all.length}`,
+      `SERIES ${index+1}/${all.length}`,
 
       "Hos fontes publicos singillatim inspice, si instrumenta id permittunt. Fontes inspectos et inaccessibiles clare distingue.",
 
@@ -1115,12 +1005,12 @@
   // UI COMPONENTS
   // =========================================
 
-  function fieldHTML(key, info) {
+  function fieldHTML(key,info){
     return `
       <div class="lh-field">
 
         <label for="lh-${key}">
-          ${escapeHTML(tr(info.ja, info.en))}
+          ${escapeHTML(tr(info.ja,info.en))}
         </label>
 
         <select
@@ -1129,9 +1019,9 @@
         >
 
           ${info.values.map(
-            x => `
+            x=>`
               <option value="${escapeHTML(x[0])}">
-                ${escapeHTML(tr(x[0], x[1]))}
+                ${escapeHTML(tr(x[0],x[1]))}
               </option>
             `
           ).join("")}
@@ -1142,7 +1032,7 @@
     `;
   }
 
-  function toggleHTML(id, ja, en) {
+  function toggleHTML(id,ja,en){
     return `
       <button
         class="lh-toggle"
@@ -1151,7 +1041,7 @@
         aria-expanded="false"
       >
         <span>
-          ${escapeHTML(tr(ja, en))}
+          ${escapeHTML(tr(ja,en))}
         </span>
 
         <span
@@ -1168,23 +1058,23 @@
   // MAIN INTERFACE
   // =========================================
 
-  function render() {
-    if (!app) return;
+  function render(){
+    if(!app) return;
 
-    const open = Object.fromEntries(
-      ["advanced", "research", "archive", "faq"].map(
-        id => [
+    const open=Object.fromEntries(
+      ["advanced","research","archive","faq"].map(
+        id=>[
           id,
           app.querySelector(
             `#lh-${id}-body`
-          )?.hidden === false
+          )?.hidden===false
         ]
       )
     );
 
-    const e = estimate();
+    const e=estimate();
 
-    app.innerHTML = `
+    app.innerHTML=`
       <div class="lh-head">
 
         <div class="lh-top">
@@ -1197,7 +1087,7 @@
             type="button"
             data-lang
           >
-            ${tr("English", "日本語")}
+            ${tr("English","日本語")}
           </button>
         </div>
 
@@ -1220,13 +1110,13 @@
       <section class="lh-section">
 
         <h3>
-          ${tr("構図設計", "Composition")}
+          ${tr("構図設計","Composition")}
         </h3>
 
         <div class="lh-grid">
 
-          ${["pose", "motif", "style", "place"].map(
-            key => fieldHTML(key, BASICS[key])
+          ${["pose","motif","style","place"].map(
+            key=>fieldHTML(key,BASICS[key])
           ).join("")}
 
         </div>
@@ -1268,14 +1158,14 @@
         <div class="lh-segments">
 
           ${BASICS.density.values.map(
-            x => `
+            x=>`
               <button
                 type="button"
                 class="lh-chip"
                 data-density="${escapeHTML(x[0])}"
-                aria-pressed="${state.density === x[0]}"
+                aria-pressed="${state.density===x[0]}"
               >
-                ${escapeHTML(tr(x[0], x[1]))}
+                ${escapeHTML(tr(x[0],x[1]))}
               </button>
             `
           ).join("")}
@@ -1301,7 +1191,7 @@
             style="margin:12px 0"
           >
             ${Object.entries(FINE).map(
-              ([key, info]) => fieldHTML(key, info)
+              ([key,info])=>fieldHTML(key,info)
             ).join("")}
           </div>
         </div>
@@ -1438,24 +1328,24 @@
         </p>
 
         ${SOURCES.map(
-          g => `
+          g=>`
             <div class="lh-source">
 
               <label>
                 <input
                   type="checkbox"
                   data-source="${g.id}"
-                  ${state.sources[g.id] ? "checked" : ""}
+                  ${state.sources[g.id]?"checked":""}
                 >
 
                 <span>
-                  ${escapeHTML(tr(g.ja, g.en))}
+                  ${escapeHTML(tr(g.ja,g.en))}
                 </span>
               </label>
 
               <p>
                 ${escapeHTML(
-                  tr(g.descJa, g.descEn)
+                  tr(g.descJa,g.descEn)
                 )}
               </p>
 
@@ -1624,13 +1514,13 @@
         <div class="lh-refs">
 
           ${REFS.map(
-            r => `
+            r=>`
               <div class="lh-ref">
 
                 <img
                   loading="lazy"
                   src="${r.img}"
-                  alt="${escapeHTML(tr(r.ja, r.en))}"
+                  alt="${escapeHTML(tr(r.ja,r.en))}"
                 >
 
                 <label>
@@ -1638,16 +1528,16 @@
                   <input
                     type="checkbox"
                     data-ref="${r.id}"
-                    ${state.refs.has(r.id) ? "checked" : ""}
+                    ${state.refs.has(r.id)?"checked":""}
                   >
 
-                  ${escapeHTML(tr(r.ja, r.en))}
+                  ${escapeHTML(tr(r.ja,r.en))}
 
                 </label>
 
                 <p>
                   ${escapeHTML(
-                    tr(r.roleJa, r.roleEn)
+                    tr(r.roleJa,r.roleEn)
                   )}
                 </p>
 
@@ -1688,13 +1578,13 @@
           >
 
             ${HISTORY.map(
-              r => `
+              r=>`
                 <a
                   href="${r[2]}"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  ${escapeHTML(tr(r[0], r[1]))}
+                  ${escapeHTML(tr(r[0],r[1]))}
                 </a>
               `
             ).join("")}
@@ -1773,27 +1663,27 @@
     app.querySelectorAll(
       "[data-field]"
     ).forEach(
-      el => {
-        el.value = state[el.dataset.field];
+      el=>{
+        el.value=state[el.dataset.field];
       }
     );
 
-    for (
-      const [id, value] of
+    for(
+      const [id,value] of
       Object.entries(open)
-    ) {
-      setOpen(id, value);
+    ){
+      setOpen(id,value);
     }
 
     refreshPlacement();
     refreshResearch();
     renderFAQ();
 
-    if (state.copied) {
+    if(state.copied){
       showCopied(false);
     }
 
-    if (state.researchCopied) {
+    if(state.researchCopied){
       showCopied(true);
     }
   }
@@ -1802,30 +1692,30 @@
   // ACCORDION CONTROL
   // =========================================
 
-  function setOpen(id, open) {
-    const body = app.querySelector(
+  function setOpen(id,open){
+    const body=app.querySelector(
       `#lh-${id}-body`
     );
 
-    const btn = app.querySelector(
+    const btn=app.querySelector(
       `[data-toggle="${id}"]`
     );
 
-    if (!body || !btn) return;
+    if(!body || !btn) return;
 
-    body.hidden = !open;
+    body.hidden=!open;
 
     btn.setAttribute(
       "aria-expanded",
       String(open)
     );
 
-    const arrow = btn.querySelector(
+    const arrow=btn.querySelector(
       ".lh-chevron"
     );
 
-    if (arrow) {
-      arrow.textContent = open ? "⌃" : "⌄";
+    if(arrow){
+      arrow.textContent=open?"⌃":"⌄";
     }
   }
 
@@ -1833,44 +1723,44 @@
   // LIVE ESTIMATE AND BODY COVERAGE
   // =========================================
 
-  function refreshPlacement() {
-    const node = app.querySelector(
+  function refreshPlacement(){
+    const node=app.querySelector(
       "#lh-coverage"
     );
 
-    if (node) {
-      node.textContent = tr(
+    if(node){
+      node.textContent=tr(
         PLACEMENT[state.place].ja,
         PLACEMENT[state.place].en
       );
     }
 
-    const e = estimate();
+    const e=estimate();
 
-    const h = app.querySelector(
+    const h=app.querySelector(
       "#lh-hours"
     );
 
-    const p = app.querySelector(
+    const p=app.querySelector(
       "#lh-price"
     );
 
-    if (h) {
-      h.textContent = `${e.low}〜${e.high}h`;
+    if(h){
+      h.textContent=`${e.low}〜${e.high}h`;
     }
 
-    if (p) {
-      p.textContent =
+    if(p){
+      p.textContent=
         `¥${money(e.min)}〜¥${money(e.max)}`;
     }
 
     app.querySelectorAll(
       "[data-density]"
     ).forEach(
-      el => el.setAttribute(
+      el=>el.setAttribute(
         "aria-pressed",
         String(
-          el.dataset.density === state.density
+          el.dataset.density===state.density
         )
       )
     );
@@ -1880,40 +1770,40 @@
   // RESEARCH INDEX DISPLAY
   // =========================================
 
-  function refreshResearch() {
-    const b = sourceBatches();
+  function refreshResearch(){
+    const b=sourceBatches();
 
-    state.batch = Math.min(
+    state.batch=Math.min(
       state.batch,
-      Math.max(0, b.length - 1)
+      Math.max(0,b.length-1)
     );
 
-    const num = app.querySelector(
+    const num=app.querySelector(
       "#lh-urlcount"
     );
 
-    const count = app.querySelector(
+    const count=app.querySelector(
       "#lh-batchcount"
     );
 
-    const sel = app.querySelector(
+    const sel=app.querySelector(
       "#lh-batch"
     );
 
-    const note = app.querySelector(
+    const note=app.querySelector(
       "#lh-sitemap"
     );
 
-    if (num) {
-      num.textContent = sourceQueue().length;
+    if(num){
+      num.textContent=sourceQueue().length;
     }
 
-    if (count) {
-      count.textContent = b.length;
+    if(count){
+      count.textContent=b.length;
     }
 
-    if (note) {
-      note.textContent =
+    if(note){
+      note.textContent=
         state.sitemapStatus ||
         tr(
           "既知の公開URLを索引化しています。",
@@ -1921,18 +1811,18 @@
         );
     }
 
-    if (sel) {
-      sel.innerHTML = b.map(
-        (urls, i) => `
+    if(sel){
+      sel.innerHTML=b.map(
+        (urls,i)=>`
           <option value="${i}">
-            ${tr("バッチ", "Batch")}
-            ${i + 1}/${b.length}
+            ${tr("バッチ","Batch")}
+            ${i+1}/${b.length}
             — ${urls.length} URLs
           </option>
         `
       ).join("");
 
-      sel.value = String(state.batch);
+      sel.value=String(state.batch);
     }
   }
 
@@ -1940,41 +1830,41 @@
   // FAQ DISPLAY
   // =========================================
 
-  function renderFAQ() {
-    const q = state.faqQuery
+  function renderFAQ(){
+    const q=state.faqQuery
       .trim()
       .toLocaleLowerCase();
 
-    const filtered = FAQ.filter(
-      r => r.join(" ")
+    const filtered=FAQ.filter(
+      r=>r.join(" ")
         .toLocaleLowerCase()
         .includes(q)
     );
 
-    const list = state.faqAll
+    const list=state.faqAll
       ? filtered
-      : filtered.slice(0, 5);
+      : filtered.slice(0,5);
 
-    const holder = app.querySelector(
+    const holder=app.querySelector(
       "#lh-faqs"
     );
 
-    const more = app.querySelector(
+    const more=app.querySelector(
       "#lh-faqmore"
     );
 
-    if (holder) {
-      holder.innerHTML =
+    if(holder){
+      holder.innerHTML=
         list.map(
-          r => `
+          r=>`
             <details class="lh-faq">
 
               <summary>
-                ${escapeHTML(tr(r[0], r[1]))}
+                ${escapeHTML(tr(r[0],r[1]))}
               </summary>
 
               <p>
-                ${escapeHTML(tr(r[2], r[3]))}
+                ${escapeHTML(tr(r[2],r[3]))}
               </p>
 
             </details>
@@ -1988,18 +1878,18 @@
         </p>`;
     }
 
-    if (more) {
-      more.hidden = filtered.length <= 5;
+    if(more){
+      more.hidden=filtered.length<=5;
 
-      more.textContent = state.faqAll
+      more.textContent=state.faqAll
         ? tr(
-          "表示を減らす",
-          "Show fewer"
-        )
+            "表示を減らす",
+            "Show fewer"
+          )
         : tr(
-          `全${filtered.length}件を表示`,
-          `Show all ${filtered.length}`
-        );
+            `全${filtered.length}件を表示`,
+            `Show all ${filtered.length}`
+          );
     }
   }
 
@@ -2007,66 +1897,66 @@
   // CLIPBOARD STATE
   // =========================================
 
-  function clearCopied() {
+  function clearCopied(){
     copyEpoch++;
 
-    state.copied = false;
-    state.researchCopied = false;
+    state.copied=false;
+    state.researchCopied=false;
 
-    for (
+    for(
       const id of [
         "lh-copied",
         "lh-research-result"
       ]
-    ) {
-      const box = app.querySelector(
-        "#" + id
+    ){
+      const box=app.querySelector(
+        "#"+id
       );
 
-      if (box) {
+      if(box){
         box.classList.remove(
           "lh-visible"
         );
 
-        box.textContent = "";
+        box.textContent="";
       }
     }
 
-    const err = app.querySelector(
+    const err=app.querySelector(
       "#lh-error"
     );
 
-    if (err) {
-      err.textContent = "";
+    if(err){
+      err.textContent="";
     }
   }
 
-  async function copyToClipboard(value) {
-    try {
-      if (
+  async function copyToClipboard(value){
+    try{
+      if(
         navigator.clipboard &&
         window.isSecureContext
-      ) {
+      ){
         await navigator.clipboard.writeText(
           value
         );
 
         return true;
       }
-    } catch (_) {}
+    }catch(_){}
 
-    const ta = document.createElement(
+    const ta=document.createElement(
       "textarea"
     );
 
-    ta.value = value;
+    ta.value=value;
 
     ta.setAttribute(
       "readonly",
       ""
     );
 
-    ta.style.cssText =
+    ta.style.cssText=
       "position:fixed;" +
       "top:0;" +
       "left:0;" +
@@ -2080,11 +1970,11 @@
     ta.focus();
     ta.select();
 
-    let ok = false;
+    let ok=false;
 
-    try {
-      ok = document.execCommand("copy");
-    } catch (_) {}
+    try{
+      ok=document.execCommand("copy");
+    }catch(_){}
 
     ta.remove();
 
@@ -2095,84 +1985,84 @@
   // SUCCESS MESSAGE
   // =========================================
 
-  function showCopied(research) {
-    const box = app.querySelector(
+  function showCopied(research){
+    const box=app.querySelector(
       research
         ? "#lh-research-result"
         : "#lh-copied"
     );
 
-    if (!box) return;
+    if(!box) return;
 
-    box.textContent = research
+    box.textContent=research
       ? tr(
-        "研究指示をコピーしました。お持ちのAIアプリに貼り付けて実行できます。",
-        "Research instruction copied. Paste it into your AI app."
-      )
+          "研究指示をコピーしました。お持ちのAIアプリに貼り付けて実行できます。",
+          "Research instruction copied. Paste it into your AI app."
+        )
       : tr(
-        "コピーしました。お持ちのAIアプリにペースト・実行すると、タトゥーデザインが出力されます。",
-        "Copied. Paste and run the prompt in your image-capable AI app to generate the tattoo design."
-      );
+          "コピーしました。お持ちのAIアプリにペースト・実行すると、タトゥーデザインが出力されます。",
+          "Copied. Paste and run the prompt in your image-capable AI app to generate the tattoo design."
+        );
 
     box.classList.add(
       "lh-visible"
     );
   }
 
-  async function handleCopy(research) {
-    const btn = app.querySelector(
+  async function handleCopy(research){
+    const btn=app.querySelector(
       research
         ? '[data-copy="research"]'
         : '[data-copy="prompt"]'
     );
 
-    const token = ++copyEpoch;
+    const token=++copyEpoch;
 
-    if (btn) {
-      btn.disabled = true;
+    if(btn){
+      btn.disabled=true;
     }
 
-    if (!research) {
-      state.copied = false;
+    if(!research){
+      state.copied=false;
 
-      const box = app.querySelector(
+      const box=app.querySelector(
         "#lh-copied"
       );
 
-      if (box) {
+      if(box){
         box.classList.remove(
           "lh-visible"
         );
       }
     }
 
-    const result = await copyToClipboard(
+    const result=await copyToClipboard(
       research
         ? buildResearchPrompt()
         : buildPrompt()
     );
 
-    if (btn) {
-      btn.disabled = false;
+    if(btn){
+      btn.disabled=false;
     }
 
-    if (token !== copyEpoch) return;
+    if(token!==copyEpoch) return;
 
-    if (result) {
-      if (research) {
-        state.researchCopied = true;
-      } else {
-        state.copied = true;
+    if(result){
+      if(research){
+        state.researchCopied=true;
+      }else{
+        state.copied=true;
       }
 
       showCopied(research);
-    } else {
-      const err = app.querySelector(
+    }else{
+      const err=app.querySelector(
         "#lh-error"
       );
 
-      if (err) {
-        err.textContent = tr(
+      if(err){
+        err.textContent=tr(
           "コピーできませんでした。ブラウザーのクリップボード設定をご確認ください。",
           "Clipboard access failed; check browser permissions."
         );
@@ -2184,24 +2074,24 @@
   // FORM EVENTS
   // =========================================
 
-  function handleChange(event) {
-    const el = event.target;
+  function handleChange(event){
+    const el=event.target;
 
-    if (!el) return;
+    if(!el) return;
 
-    if (el.dataset.field) {
-      state[el.dataset.field] = el.value;
+    if(el.dataset.field){
+      state[el.dataset.field]=el.value;
 
       clearCopied();
       refreshPlacement();
     }
 
-    else if (el.dataset.ref) {
-      if (el.checked) {
+    else if(el.dataset.ref){
+      if(el.checked){
         state.refs.add(
           el.dataset.ref
         );
-      } else {
+      }else{
         state.refs.delete(
           el.dataset.ref
         );
@@ -2209,54 +2099,54 @@
 
       clearCopied();
 
-      const n = app.querySelector(
+      const n=app.querySelector(
         "#lh-refcount"
       );
 
-      if (n) {
-        n.textContent =
+      if(n){
+        n.textContent=
           `${state.refs.size}/4`;
       }
     }
 
-    else if (el.dataset.source) {
-      state.sources[el.dataset.source] =
+    else if(el.dataset.source){
+      state.sources[el.dataset.source]=
         el.checked;
 
       clearCopied();
 
-      state.batch = 0;
+      state.batch=0;
       refreshResearch();
     }
 
-    else if (el.id === "lh-batch") {
-      state.batch =
-        Number(el.value) || 0;
+    else if(el.id==="lh-batch"){
+      state.batch=
+        Number(el.value)||0;
 
-      state.researchCopied = false;
+      state.researchCopied=false;
     }
   }
 
-  function handleClick(event) {
-    const btn = event.target.closest(
+  function handleClick(event){
+    const btn=event.target.closest(
       "button"
     );
 
-    if (
+    if(
       !btn ||
       !app.contains(btn)
     ) return;
 
-    if (btn.hasAttribute("data-lang")) {
-      state.lang =
-        state.lang === "ja" ? "en" : "ja";
+    if(btn.hasAttribute("data-lang")){
+      state.lang=
+        state.lang==="ja"?"en":"ja";
 
       render();
       return;
     }
 
-    if (btn.dataset.density) {
-      state.density =
+    if(btn.dataset.density){
+      state.density=
         btn.dataset.density;
 
       clearCopied();
@@ -2264,8 +2154,8 @@
       return;
     }
 
-    if (btn.dataset.toggle) {
-      const id = btn.dataset.toggle;
+    if(btn.dataset.toggle){
+      const id=btn.dataset.toggle;
 
       setOpen(
         id,
@@ -2277,16 +2167,16 @@
       return;
     }
 
-    if (btn.dataset.copy) {
+    if(btn.dataset.copy){
       handleCopy(
-        btn.dataset.copy === "research"
+        btn.dataset.copy==="research"
       );
 
       return;
     }
 
-    if (btn.hasAttribute("data-faqmore")) {
-      state.faqAll =
+    if(btn.hasAttribute("data-faqmore")){
+      state.faqAll=
         !state.faqAll;
 
       renderFAQ();
@@ -2294,27 +2184,17 @@
   }
 
   // =========================================
-  // ARTICLE PLACEMENT — VERSION 5.4.1
-  // =========================================
-  //
-  // Exact target:
-  //
-  // ———➤
-  //
-  // Whitespace is ignored around and inside
-  // the marker. Markup used for visual styling
-  // is also supported.
-  //
-  // Other dash-only separators are ignored.
+  // ARTICLE PLACEMENT
   // =========================================
 
-  function normalizeMarker(value) {
-    return String(value || "")
-      .replace(/[\s\u00a0\u200b\uFEFF]/g, "");
-  }
+  function findAnchor(){
+    const explicit=document.querySelector(
+      "#loyal-hawk-anchor,[data-loyal-hawk-anchor]"
+    );
 
-  function findAnchor() {
-    const scopes = [
+    if(explicit) return explicit;
+
+    const scopes=[
       "article",
       ".blog-detail",
       ".blog-content",
@@ -2323,149 +2203,138 @@
       "body"
     ];
 
-    for (const scopeSelector of scopes) {
-      const scope = document.querySelector(
+    for(const scopeSelector of scopes){
+      const scope=document.querySelector(
         scopeSelector
       );
 
-      if (!scope) continue;
+      if(!scope) continue;
 
-      const matches = scope.querySelectorAll(
-        "p,div,span,strong,b,li,h2,h3"
-      );
+      for(
+        const selector of [
+          "p",
+          "div",
+          "span"
+        ]
+      ){
+        const matches=scope.querySelectorAll(
+          selector
+        );
 
-      for (const el of matches) {
-        if (
-          el.closest(
-            "#lh-app,header,footer,nav,aside,script,style"
-          )
-        ) continue;
+        for(const el of matches){
+          if(
+            el.closest(
+              "#lh-app,header,footer,nav,aside"
+            )
+          ) continue;
 
-        if (
-          normalizeMarker(el.textContent) !==
-          MARKER
-        ) continue;
+          if(
+            el.textContent.trim()!=="—"
+          ) continue;
 
-        const paragraph = el.closest("p");
+          if(
+            selector==="div" &&
+            el.querySelector("p,div")
+          ) continue;
 
-        if (
-          paragraph &&
-          scope.contains(paragraph) &&
-          normalizeMarker(paragraph.textContent) ===
-          MARKER
-        ) {
-          return paragraph;
+          return el.closest("p")||el;
         }
-
-        if (
-          el.tagName === "DIV" &&
-          el.querySelector("p,div,li")
-        ) continue;
-
-        return el;
       }
     }
 
-    // Explicit element fallback.
-    // The textual marker above has priority.
-
-    const explicit = document.querySelector(
-      "#loyal-hawk-anchor,[data-loyal-hawk-anchor]"
-    );
-
-    return explicit || null;
+    return null;
   }
 
   // =========================================
   // SITEMAP COLLECTION
   // =========================================
 
-  async function loadSitemap() {
-    const found = new Set();
-    const seen = new Set();
+  async function loadSitemap(){
+    const found=new Set();
+    const seen=new Set();
 
-    async function walk(url, depth) {
-      if (
-        depth > 3 ||
+    async function walk(url,depth){
+      if(
+        depth>3 ||
         seen.has(url) ||
-        seen.size >= 12
+        seen.size>=12
       ) return;
 
       seen.add(url);
 
-      const controller = new AbortController();
+      const controller=new AbortController();
 
-      const timer = setTimeout(
-        () => controller.abort(),
+      const timer=setTimeout(
+        ()=>controller.abort(),
         12000
       );
 
       let response;
 
-      try {
-        response = await fetch(
+      try{
+        response=await fetch(
           url,
           {
-            credentials: "same-origin",
-            signal: controller.signal
+            credentials:"same-origin",
+            signal:controller.signal
           }
         );
-      } finally {
+      }finally{
         clearTimeout(timer);
       }
 
-      if (!response.ok) {
+      if(!response.ok){
         throw Error(
           `HTTP ${response.status}`
         );
       }
 
-      const xml = new DOMParser()
+      const xml=new DOMParser()
         .parseFromString(
           await response.text(),
           "application/xml"
         );
 
-      if (
+      if(
         xml.querySelector("parsererror")
-      ) {
+      ){
         throw Error("Invalid XML");
       }
 
-      const urls = [
+      const urls=[
         ...xml.getElementsByTagName("loc")
       ].map(
-        el => {
-          try {
-            const u = new URL(
+        el=>{
+          try{
+            const u=new URL(
               el.textContent.trim(),
               SITE
             );
 
             return (
-              u.protocol === "https:" &&
-              u.hostname === HOST
+              u.protocol==="https:" &&
+              u.hostname===HOST
             )
               ? u.href
               : null;
 
-          } catch (_) {
+          }catch(_){
             return null;
           }
         }
       ).filter(Boolean);
 
-      if (
-        xml.documentElement.localName ===
+      if(
+        xml.documentElement.localName===
         "sitemapindex"
-      ) {
-        for (const child of urls) {
-          try {
+      ){
+        for(const child of urls){
+          try{
             await walk(
               child,
-              depth + 1
+              depth+1
             );
-          } catch (error) {
+          }catch(error){
             console.warn(
               "[AI IHORI] Sitemap child:",
               error
@@ -2474,36 +2343,36 @@
         }
       }
 
-      else if (
-        xml.documentElement.localName ===
+      else if(
+        xml.documentElement.localName===
         "urlset"
-      ) {
-        for (const u of urls) {
-          if (found.size >= 10000) break;
+      ){
+        for(const u of urls){
+          if(found.size>=10000) break;
 
           found.add(u);
         }
       }
     }
 
-    try {
+    try{
       await walk(
-        SITE + "/sitemap.xml",
+        SITE+"/sitemap.xml",
         0
       );
 
-      state.sitemap = [
+      state.sitemap=[
         ...found
       ];
 
-      state.sitemapStatus = tr(
+      state.sitemapStatus=tr(
         `公式サイトマップ：${found.size}件のURLを取得しました。`,
         `Official sitemap: ${found.size} URLs indexed.`
       );
     }
 
-    catch (error) {
-      state.sitemapStatus = tr(
+    catch(error){
+      state.sitemapStatus=tr(
         "サイトマップの取得に失敗しました。既知の公開URLを利用します。",
         "Sitemap unavailable; known public URLs remain available."
       );
@@ -2514,10 +2383,10 @@
       );
     }
 
-    if (
+    if(
       app &&
       app.isConnected
-    ) {
+    ){
       refreshResearch();
     }
   }
@@ -2526,43 +2395,41 @@
   // MOUNT
   // =========================================
 
-  function mount() {
-    if (
+  function mount(){
+    if(
       app &&
       app.isConnected
     ) return true;
 
-    const point = findAnchor();
+    const point=findAnchor();
 
-    if (!point) return false;
+    if(!point) return false;
 
-    if (
+    if(
       !document.getElementById(
-        "lh-v541-css"
+        "lh-v54-css"
       )
-    ) {
-      const s = document.createElement(
+    ){
+      const s=document.createElement(
         "style"
       );
 
-      s.id = "lh-v541-css";
-      s.textContent = CSS;
+      s.id="lh-v54-css";
+      s.textContent=CSS;
 
       document.head.appendChild(s);
     }
 
-    app = document.createElement(
+    app=document.createElement(
       "section"
     );
 
-    app.id = "lh-app";
+    app.id="lh-app";
 
     app.setAttribute(
       "aria-label",
       "AI IHORI Hawk Tattoo Design Simulator"
     );
-
-    // Place the simulator directly AFTER ———➤.
 
     point.insertAdjacentElement(
       "afterend",
@@ -2581,21 +2448,21 @@
 
     app.addEventListener(
       "input",
-      event => {
-        if (
-          event.target.id ===
+      event=>{
+        if(
+          event.target.id===
           "lh-search"
-        ) {
-          state.faqQuery =
+        ){
+          state.faqQuery=
             event.target.value;
 
-          state.faqAll = false;
+          state.faqAll=false;
           renderFAQ();
         }
       }
     );
 
-    state.sitemapStatus = tr(
+    state.sitemapStatus=tr(
       "公式サイトマップを取得中です。",
       "Loading official sitemap."
     );
@@ -2610,10 +2477,10 @@
   // BOOT
   // =========================================
 
-  if (!mount()) {
-    const observer = new MutationObserver(
-      () => {
-        if (mount()) {
+  if(!mount()){
+    const observer=new MutationObserver(
+      ()=>{
+        if(mount()){
           observer.disconnect();
         }
       }
@@ -2622,38 +2489,38 @@
     observer.observe(
       document.documentElement,
       {
-        subtree: true,
-        childList: true
+        subtree:true,
+        childList:true
       }
     );
 
     document.addEventListener(
       "DOMContentLoaded",
-      () => {
-        if (mount()) {
+      ()=>{
+        if(mount()){
           observer.disconnect();
         }
       },
-      {once: true}
+      {once:true}
     );
 
     window.addEventListener(
       "load",
-      () => {
-        if (mount()) {
+      ()=>{
+        if(mount()){
           observer.disconnect();
         }
       },
-      {once: true}
+      {once:true}
     );
 
     setTimeout(
-      () => {
+      ()=>{
         observer.disconnect();
 
-        if (!app) {
+        if(!app){
           console.warn(
-            "[AI IHORI] Marker ———➤ not found."
+            "[AI IHORI] Stand-alone — marker not found."
           );
         }
       },
@@ -2665,8 +2532,8 @@
   // PUBLIC INTERFACE
   // =========================================
 
-  window.LOYAL_IHORI_HAWK = {
-    version: VERSION,
+  window.LOYAL_IHORI_HAWK={
+    version:"5.4",
 
     buildPrompt,
 
@@ -2674,16 +2541,16 @@
 
     sourceQueue,
 
-    references: REFS,
+    references:REFS,
 
-    getState: () => ({
+    getState:()=>({
       ...state,
 
-      refs: [
+      refs:[
         ...state.refs
       ],
 
-      sources: {
+      sources:{
         ...state.sources
       }
     })
