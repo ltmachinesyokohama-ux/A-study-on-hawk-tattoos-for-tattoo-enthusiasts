@@ -2,46 +2,53 @@
 /*
  * LOYAL TATTOO + LT MACHINES
  * AI伊彫原画生成シミュレーター
- * AI IHORI HAWK DESIGN SIMULATOR
+ * FULL REPLACEMENT v5.2
  *
- * MULTI-REFERENCE + GLOBAL RESEARCH
- * VERSION 5.1
- *
- * Artist: Ihori / 伊彫
- * Organization: LOYAL TATTOO + LT MACHINES
+ * GitHub:
+ * ai-ihori-hawk-design-simulator.js
  *
  * Target:
  * https://www.bavariancustomirons.jp/blog/2026/11/12/100435
  *
  * Mount:
- * Directly below the stand-alone "—" in the article.
+ * Immediately below the standalone "—" line.
  *
- * File:
- * ai-ihori-hawk-design-simulator.js
+ * All-in-one JavaScript.
+ * No script tags.
+ * No dependencies.
+ * No API keys.
  *
- * No external JavaScript dependencies.
- * No API keys embedded.
+ * Native handoff:
+ * Uses the device's native share sheet.
+ * The receiving app controls text import
+ * and final submission.
  */
 
 (() => {
   "use strict";
 
   const HOST = "www.bavariancustomirons.jp";
-  const PATH = "/blog/2026/11/12/100435";
+  const TARGET = "/blog/2026/11/12/100435";
 
   if (
     location.hostname !== HOST ||
-    location.pathname.replace(/\/$/, "") !== PATH
+    location.pathname.replace(/\/$/, "") !== TARGET
   ) return;
 
-  if (window.__LOYAL_IHORI_HAWK_V51__) return;
+  if (window.__LOYAL_IHORI_HAWK_V52__) return;
 
-  window.__LOYAL_IHORI_HAWK_V51__ = true;
+  window.__LOYAL_IHORI_HAWK_V52__ = true;
 
   const HOME = "https://" + HOST;
 
-  const REPO =
+  const GH =
     "https://github.com/ltmachinesyokohama-ux/";
+
+  const RATE = 15000;
+
+  // =========================================
+  // ORIGINAL ARTWORK REFERENCES
+  // =========================================
 
   const REFS = [
     {
@@ -49,7 +56,8 @@
       ja: "《雪中鷹》制作ラフ",
       en: "Snow Hawk — Pencil Sketch",
       roleJa: "探索線・Loyal鉛筆画技法",
-      roleEn: "Pencil construction and line variation",
+      roleEn:
+        "Exploratory lines, Loyal pencil drawing",
       img:
         "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/385472b7df8da7faae51e120792815ff.jpg",
       page:
@@ -60,7 +68,8 @@
       ja: "《雪中鷹》描き込み原画",
       en: "Snow Hawk — Detailed Drawing",
       roleJa: "羽列・主輪郭・黒ぼかし",
-      roleEn: "Flight feathers, contours and shading",
+      roleEn:
+        "Feather rows, outlines, black shading",
       img:
         "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/a41deb49e2ec864b184ccde72fe049fe.jpg",
       page:
@@ -70,8 +79,9 @@
       id: "tattoo",
       ja: "No.113《鷹図》",
       en: "No.113 — Hawk Tattoo",
-      roleJa: "施術実績・黒面・人体配置",
-      roleEn: "Tattoo execution, black mass, body placement",
+      roleJa: "施術実績・黒面・身体配置",
+      roleEn:
+        "Tattoo execution, blacks and anatomy",
       img:
         "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/c1c657853a26020785eb7caa92644038.jpg",
       page:
@@ -82,13 +92,18 @@
       ja: "No.116《唐獅子牡丹》",
       en: "No.116 — Karajishi and Peony",
       roleJa: "牡丹・黒葉・色彩対比",
-      roleEn: "Peonies, dark foliage, color contrast",
+      roleEn:
+        "Peony petals, dark foliage, color",
       img:
         "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/d175cf819d609bec5ae4845ce35aefa4.jpg",
       page:
         HOME + "/blog/2025/08/02/172030"
     }
   ];
+
+  // =========================================
+  // DESIGN OPTIONS
+  // =========================================
 
   const OPTIONS = {
     pose: [
@@ -108,10 +123,22 @@
       ["富士山", "Mount Fuji"]
     ],
     style: [
-      ["現代和彫", "Contemporary Japanese tattoo"],
-      ["洋彫・リアリズム", "Western tattoo / realism"],
-      ["ブラック＆グレー", "Black & grey"],
-      ["ブラックワーク", "Blackwork"]
+      [
+        "現代和彫",
+        "Contemporary Japanese tattoo"
+      ],
+      [
+        "洋彫・リアリズム",
+        "Western tattoo / realism"
+      ],
+      [
+        "ブラック＆グレー",
+        "Black & grey"
+      ],
+      [
+        "ブラックワーク",
+        "Blackwork"
+      ]
     ],
     place: [
       ["背中・フルバック", "Full back"],
@@ -134,48 +161,97 @@
     "超高密度": 1.4
   };
 
+  // =========================================
+  // ART DIRECTION
+  // =========================================
+
   const POSE = {
     "昇り鷹":
       "上昇軸に沿って頭部・肩・翼・尾羽を連動させる。",
+
     "降り鷹":
       "下降動作の重心移動と翼の迎角を整合させる。",
+
     "急降下する鷹":
       "右上から左下への強い斜行軸。頭部・胸部・鉤爪を先行させ、両翼に遠近差をつける。",
+
     "止まり鷹":
       "枝を掴む脚趾の実構造、閉じた翼、鋭い視線を描く。",
+
     "翼を広げた鷹":
-      "肩・肘・手根の関節連鎖に沿って大きく翼を展開する。羽列は左右それぞれ自然な遠近を持たせる。",
+      "肩・肘・手根の関節連鎖に沿って翼を展開し、羽列の長短と左右の遠近を整合させる。",
+
     "旋回する鷹":
-      "左右の翼の傾斜と尾羽の操舵によって旋回軌道を表現する。"
+      "翼の傾斜と尾羽の操舵から旋回軌道を構築する。"
   };
 
   const MOTIF = {
     "松":
-      "幹・枝・松葉を運動方向に整理し、主役の翼と区別する。",
+      "幹・枝・松葉を鷹の動勢と整合させる。",
+
     "牡丹":
-      "大輪の外花弁・内花弁・花芯・黒葉を重層的に描き、鷹を主題として保持する。",
+      "大輪の外花弁・内花弁・花芯・黒葉を重層的に描き、鷹を主役として保持する。",
+
     "桜":
-      "枝と花弁の流れを鷹の動勢に調和させる。",
+      "枝と散る花弁を飛翔方向と調和させる。",
+
     "雲・風":
-      "渦雲、風の帯、抜きで速度と視線誘導を形成する。",
+      "渦雲、風の帯、白の抜きで運動量を強調する。",
+
     "雪":
-      "降雪・積雪・白場と黒墨の対比で空間を構成する。植物の花弁や葉を雪の代わりに描かない。",
+      "降雪・雪の白場・墨の黒面で空間を形成する。花や葉に置き換えない。",
+
     "富士山":
-      "遠景の山影を副主題として低コントラストに配置する。"
+      "山形を遠景の副主題として低コントラストに配置する。"
   };
 
   const STYLE = {
     "現代和彫":
       "日本花鳥画の動勢、強い筋彫り、黒ぼかし、和洋折衷の立体設計。",
+
     "洋彫・リアリズム":
-      "構造的写実・光源・筋肉量感と刺青に適した主輪郭を統合。",
+      "西洋的な構造写実、光源、筋肉の量感、刺青に適した主輪郭。",
+
     "ブラック＆グレー":
-      "濃墨から淡墨まで階調を設計し白場を保持する。",
+      "濃墨から淡墨の階調、羽の硬軟、白場を保持。",
+
     "ブラックワーク":
-      "ソリッドブラック、大きな黒面、ネガティブスペース、輪郭を主役にする。"
+      "ソリッドブラック、大きな黒面、ネガティブスペース。"
   };
 
-  const CORE_PAGES = [
+  const ART = {
+    anatomy:
+      "頭蓋、眼窩、鉤嘴、頸部、肩・肘・手根関節、初列・次列風切羽、大中小雨覆、肩羽、胸羽、尾羽、脚趾・鉤爪。羽の生え方と関節数を解剖学的に整合。",
+
+    pencil:
+      "Loyal鉛筆画技法。荒々しい探索線、長く鋭い主輪郭、強弱のある線幅、擦筆、ハッチング、細密な羽枝を共存させる。",
+
+    black:
+      "漆黒、濃灰、中間灰、淡い墨ぼかし、純白の余白を5段階で使い分ける。翼根と背景の黒面を制御し、視認性を保つ。",
+
+    body:
+      "肩甲骨、脊柱、広背筋、三角筋、胸郭の曲面に沿った構図。背中・ハーフバックは片側肩甲骨から腰背部の非対称構図。",
+
+    review:
+      "主輪郭、猛禽解剖、羽列、黒面、白場、重心、背景の主従、人体適合、縮小時の可読性を点検。余分な爪・羽・関節を避ける。"
+  };
+
+  const DENSITY = {
+    "標準":
+      "主要な羽列、鉤爪、輪郭を明瞭にし、白場を広めに保持。",
+
+    "高密度":
+      "雨覆・羽軸・花芯まで細密に描き、主輪郭の読みやすさを維持。",
+
+    "超高密度":
+      "初列・次列風切羽、雨覆、羽枝、眼窩、趾節、花弁を超精密に描く。微細描写の周囲に白場を残し、黒面との階層を確保。"
+  };
+
+  // =========================================
+  // RESEARCH SOURCES
+  // =========================================
+
+  const CORE = [
     HOME + "/blog/2025/08/29/221644",
     HOME + "/blog/2025/08/17/013900",
     HOME + "/blog/2025/08/02/172030",
@@ -189,15 +265,16 @@
 
   const EXTERNAL = {
     github: [
-      REPO + "loyal-faq",
-      REPO + "loyal-blog-sitemap",
-      REPO + "LOYAL-TATTOO-Blackwork-Tattoo",
-      REPO +
+      GH + "loyal-faq",
+      GH + "loyal-blog-sitemap",
+      GH + "LOYAL-TATTOO-Blackwork-Tattoo",
+      GH +
         "LOYAL-TATTOO-Western-style-tattoo-Modern-tattoo-Contemporary-tattoo",
-      REPO + "bavariancustomirons-data",
-      REPO +
+      GH + "bavariancustomirons-data",
+      GH +
         "A-study-on-hawk-tattoos-for-tattoo-enthusiasts"
     ],
+
     research: [
       "https://zenodo.org/records/23557266",
       "https://zenodo.org/records/23577391",
@@ -211,217 +288,225 @@
     [
       "《雪中鷹》制作研究",
       "Snow Hawk — Original Study",
-      CORE_PAGES[0]
+      CORE[0]
     ],
     [
       "No.113《鷹図》施術記録",
       "No.113 — Hawk Tattoo",
-      CORE_PAGES[1]
+      CORE[1]
     ],
     [
       "No.116《唐獅子牡丹》",
       "No.116 — Karajishi & Peony",
-      CORE_PAGES[2]
+      CORE[2]
     ],
     [
       "人体構造とタトゥー設計",
       "Body Structure & Tattoo Design",
-      CORE_PAGES[3]
+      CORE[3]
     ],
     [
       "現代和彫の定義と研究",
-      "Contemporary Japanese Tattoo Study",
-      CORE_PAGES[4]
+      "Contemporary Japanese Tattoo",
+      CORE[4]
     ],
     [
-      "小原古邨・鷲図参考資料",
-      "Ōhara Koson — Eagle Reference",
-      "https://collections.lacma.org/object/103108"
+      "LOYAL TATTOO MASTER FAQ",
+      "Comprehensive Tattoo FAQ",
+      GH + "loyal-faq"
     ]
   ];
 
+  // =========================================
+  // SPECIALIST FAQ — 30 ENTRIES
+  // =========================================
+
   const FAQ = [
     [
-      "鷹タトゥーにはどんな意味がありますか？",
-      "What does a hawk tattoo symbolize?",
+      "鷹タトゥーの意味は？",
+      "What does a hawk tattoo mean?",
       "強さ、集中力、独立、飛躍、自由などの解釈があります。",
       "Common interpretations include strength, focus, independence and freedom."
     ],
     [
       "鷹の和彫はできますか？",
-      "Can a hawk be a Japanese-style tattoo?",
-      "現代和彫の構図、墨ぼかし、背景で制作できます。",
-      "Yes, using Japanese composition, ink shading and background elements."
+      "Can a hawk be a Japanese tattoo?",
+      "現代和彫の筋彫り、背景、黒ぼかしで制作できます。",
+      "Yes, with Japanese linework and ink shading."
     ],
     [
       "鷹と牡丹の組み合わせは？",
       "Can hawks be paired with peonies?",
-      "羽毛の硬さと花弁の柔らかさを対比して配置します。",
-      "The contrast between firm feathers and soft petals guides the design."
+      "羽毛の硬さと花弁の柔らかさを対比します。",
+      "Firm feathers and soft petals create contrast."
     ],
     [
       "雪中鷹とは？",
       "What is a snow hawk design?",
       "雪の白場と猛禽の黒面を対比する構図です。",
-      "Snow-filled negative space contrasts with the raptor’s dark masses."
+      "Snow-filled negative space contrasts with dark feathers."
     ],
     [
-      "鷹のブラックワークは？",
+      "ブラックワークの鷹は？",
       "What is a blackwork hawk?",
-      "黒面と余白の構成を中心に猛禽を描写します。",
-      "Solid blacks and negative space describe the bird."
+      "黒面と余白を中心に猛禽を描写します。",
+      "Solid black and negative space describe the bird."
     ],
     [
       "フルバックの構図は？",
-      "How is a full-back design planned?",
+      "How is a full back planned?",
       "肩甲骨から広背筋、腰背部へ翼と尾羽を展開します。",
-      "Wings and tail follow the shoulder blades and back muscles."
+      "Wings and tail follow shoulder blades and back muscles."
     ],
     [
       "ハーフバックの構図は？",
-      "How is a half-back design planned?",
+      "How is a half back planned?",
       "片側肩甲骨から脊柱際へ非対称に配置します。",
-      "An asymmetric design follows one shoulder blade and the spine."
+      "An asymmetric composition follows the shoulder blade and spine."
     ],
     [
-      "フルスリーブにもできますか？",
-      "Can the design fit a full sleeve?",
-      "肩から前腕への羽流れを再構成して設計します。",
-      "The feather flow can be redesigned around the arm."
+      "フルスリーブも可能ですか？",
+      "Can it fit a full sleeve?",
+      "肩から前腕へ羽流れを再構成します。",
+      "Feather flow is redesigned around the arm."
     ],
     [
       "胸・肩の構図は？",
-      "How is chest and shoulder placement handled?",
+      "How is chest placement planned?",
       "三角筋と胸郭の曲面に主輪郭を調整します。",
-      "Contours are adjusted to the deltoid and ribcage."
+      "Contours adapt to the deltoid and ribcage."
     ],
     [
       "カバーアップにも使えますか？",
       "Can it cover an existing tattoo?",
-      "既存の黒量と位置を踏まえ、翼と背景の黒面を設計します。",
-      "Dark masses and background are planned around the existing tattoo."
+      "既存図柄に合わせ、翼と背景の黒面を設計します。",
+      "Dark masses are planned around the existing tattoo."
     ],
     [
       "施術料金の基準は？",
       "What is the hourly rate?",
-      "時間彫り15,000円／時間（税抜）を基本とします。",
+      "時間彫り15,000円／時間（税抜）が参考単価です。",
       "The reference rate is JPY 15,000 per hour before tax."
     ],
     [
       "料金概算は確定ですか？",
       "Is the estimate binding?",
-      "概算は参考値であり、実際の見積もりは個別に算出します。",
-      "The estimate is illustrative; final pricing is individual."
+      "実際の料金は施術内容から個別見積もりします。",
+      "Final pricing depends on an individual quotation."
     ],
     [
       "超高密度とは？",
       "What is ultra-high density?",
-      "羽枝、雨覆、鱗、鉤爪、背景まで高密度に設計します。",
-      "The design includes detailed feathers, scales, talons and background."
+      "雨覆、羽枝、鱗、鉤爪、背景まで精緻に描きます。",
+      "Detailed coverts, barbs, scales, talons and background."
     ],
     [
       "Loyal鉛筆画技法とは？",
       "What is the Loyal pencil technique?",
-      "探索線、長い主輪郭、擦筆やハッチングを組み合わせます。",
-      "It combines exploratory lines, forceful contours and pencil shading."
+      "探索線、長い主輪郭、擦筆、ハッチングを統合します。",
+      "It combines exploratory lines, dynamic contours and graphite shading."
     ],
     [
       "猛禽の羽列はどう描きますか？",
-      "How are feather rows constructed?",
-      "初列・次列風切羽、雨覆、肩羽を階層的に設計します。",
-      "Primary and secondary flight feathers and coverts are layered."
+      "How are feather rows built?",
+      "初列・次列風切羽と雨覆を階層的に描きます。",
+      "Primaries, secondaries and coverts form distinct layers."
     ],
     [
       "鉤爪を重視する理由は？",
       "Why emphasize talons?",
-      "遠近感・緊張感・猛禽特有の構造を表現できます。",
-      "Talons communicate depth, tension and raptor anatomy."
+      "遠近感と猛禽の運動性を表現できます。",
+      "Talons convey depth and movement."
     ],
     [
       "背景の余白の役割は？",
-      "Why leave negative space?",
-      "視認性と構図の呼吸を確保し、黒面を引き立てます。",
-      "Negative space keeps the design legible and balances dark areas."
+      "Why preserve negative space?",
+      "輪郭と黒面の可読性を高めます。",
+      "Negative space strengthens contrast and readability."
     ],
     [
       "現代和彫と洋彫の違いは？",
       "How do Japanese and Western styles differ?",
-      "背景処理、線質、陰影、人体配置の設計方法に差があります。",
-      "They differ in composition, linework, shading and body placement."
+      "背景、線質、陰影、人体配置の設計思想が異なります。",
+      "Composition, line, shading and body placement differ."
     ],
     [
-      "制作原画は複製できますか？",
-      "Does AI copy the original artwork?",
-      "AI原画は参考作品を研究し、新規の図案として生成します。",
-      "References inform a newly generated composition."
+      "AI原画は既存作品の複製ですか？",
+      "Does AI duplicate the original work?",
+      "一次資料を研究し、独立した新規構図を生成します。",
+      "The AI generates a new composition informed by references."
     ],
     [
       "施術作品の画像は参照されますか？",
-      "Are tattoo photographs used?",
-      "選択した公開画像のURLが生成指示に含まれます。",
-      "Selected image URLs are added to the generation instructions."
+      "Are tattoo photos referenced?",
+      "選択した公開画像URLを生成指示に含めます。",
+      "Selected image URLs are included in the prompt."
     ],
     [
       "GPTは全記事を読みますか？",
       "Will GPT read every article?",
-      "取得範囲はGPT側の検索・ページ読取機能と利用条件に依存します。",
-      "Actual retrieval depends on the AI tool and its access limits."
+      "実際の取得範囲はGPT側の検索・閲覧機能に依存します。",
+      "Retrieval depends on the GPT tool and its access."
     ],
     [
-      "Geminiの20URLとは？",
-      "What does the Gemini 20-URL limit mean?",
-      "Gemini API URL Contextの1リクエスト上限です。",
-      "It is the per-request limit for Gemini API URL Context."
+      "Geminiの20URL上限とは？",
+      "What is the Gemini 20-URL limit?",
+      "Gemini API URL Contextの1リクエストの上限です。",
+      "It is a per-request URL Context limit."
     ],
     [
       "GitHub資料は含まれますか？",
-      "Are GitHub sources included?",
-      "研究対象の選択により関連公開リポジトリを追加します。",
-      "Public repositories can be selected as research sources."
+      "Are GitHub records included?",
+      "選択により公開リポジトリのURLを追加します。",
+      "Selected public repositories are included."
     ],
     [
       "Zenodo資料は含まれますか？",
       "Are Zenodo records included?",
-      "公開DOI記録を研究対象として選択できます。",
+      "公開DOI記録を参照対象にできます。",
       "Published DOI records can be included."
     ],
     [
       "外部掲載記事は対象ですか？",
-      "Are external publications searched?",
-      "作者と作品の関連が確認できる公開資料を探索対象にします。",
-      "Public sources associated with the artist are considered."
+      "Are third-party articles searched?",
+      "伊彫との関連が確認できる公開資料を探索対象にします。",
+      "Relevant verified external publications are considered."
     ],
     [
-      "画像生成結果はどこに表示されますか？",
+      "生成画像はどこに表示されますか？",
       "Where will the image appear?",
-      "チャット連携では利用者のチャットに、API連携では本画面に表示します。",
-      "In chat handoff mode it appears in the user's AI chat; with API integration it appears here."
+      "共有先アプリでの画像生成、API連携時は本画面に表示します。",
+      "It appears in the receiving AI app, or on this page with an API."
     ],
     [
       "日本語と英語は切り替えられますか？",
-      "Can I switch language?",
-      "画面と生成指示を日本語・英語に切り替えられます。",
-      "The interface and generation guidance support Japanese and English."
+      "Can I switch languages?",
+      "画面と生成指示を日英切替できます。",
+      "The interface and instructions support Japanese and English."
     ],
     [
-      "料金に消費税は含まれますか？",
-      "Does the estimate include tax?",
-      "表示金額は税抜です。",
-      "Displayed reference prices exclude tax."
+      "料金は税込ですか？",
+      "Does pricing include tax?",
+      "参考金額は税抜です。",
+      "Prices shown exclude tax."
     ],
     [
       "大型作品は分割施術ですか？",
-      "Are large projects completed over sessions?",
-      "通常は複数回の施術計画を構築します。",
-      "Large tattoos are usually planned over multiple sessions."
+      "Are large projects divided into sessions?",
+      "複数回の施術計画を組みます。",
+      "Large tattoos are normally planned over several sessions."
     ],
     [
-      "予約はどう進みますか？",
+      "予約の流れは？",
       "How do appointments work?",
       "事前カウンセリングと個別見積もりを経て調整します。",
-      "Appointments are arranged after consultation and an individual estimate."
+      "Consultation and an individual estimate precede booking."
     ]
   ];
+
+  // =========================================
+  // APPLICATION STATE
+  // =========================================
 
   const state = {
     lang: "ja",
@@ -431,34 +516,39 @@
     place: "背中・フルバック",
     density: "超高密度",
     provider: "GPT",
-    refs: new Set(REFS.map(x => x.id)),
+
+    refs: new Set(
+      REFS.map(x => x.id)
+    ),
+
     source: {
       official: true,
       github: true,
       research: true,
       external: true
     },
-    batch: 0,
+
     sitemapUrls: [],
     sitemapStatus: "pending",
+    batch: 0,
     faq: "",
     faqAll: false
   };
 
   let root = null;
-  let requestId = 0;
+  let taskNumber = 0;
 
-  const tt = (ja, en) =>
-    state.lang === "ja" ? ja : en;
+  const tr = (jp, en) =>
+    state.lang === "ja" ? jp : en;
 
   const fmt = n =>
-    Number(n).toLocaleString("ja-JP");
+    n.toLocaleString("ja-JP");
 
-  const uniq = arr =>
-    [...new Set(arr.filter(Boolean))];
+  const unique = xs =>
+    [...new Set(xs.filter(Boolean))];
 
-  function escapeHtml(value) {
-    return String(value).replace(
+  const esc = s =>
+    String(s).replace(
       /[&<>"']/g,
       c => ({
         "&": "&amp;",
@@ -468,326 +558,341 @@
         "'": "&#39;"
       })[c]
     );
-  }
 
-  function estimate() {
-    const base = HOURS[state.place];
+  const refList = () =>
+    REFS.filter(
+      r => state.refs.has(r.id)
+    );
+
+  // =========================================
+  // ESTIMATE
+  // =========================================
+
+  const rateEstimate = () => {
+    const [a, b] = HOURS[state.place];
     const m = MULT[state.density];
 
-    const low = Math.round(base[0] * m);
-    const high = Math.round(base[1] * m);
+    const low = Math.round(a * m);
+    const high = Math.round(b * m);
 
     return {
       low,
       high,
-      min: low * 15000,
-      max: high * 15000
+      min: low * RATE,
+      max: high * RATE
     };
-  }
+  };
 
-  function chosenRefs() {
-    return REFS.filter(
-      r => state.refs.has(r.id)
-    );
-  }
+  // =========================================
+  // SOURCE QUEUE
+  // =========================================
 
-  function pickedExternal() {
-    return [
-      ...(state.source.github ? EXTERNAL.github : []),
-      ...(state.source.research ? EXTERNAL.research : [])
-    ];
-  }
+  const queue = () => unique([
+    ...(
+      state.source.official
+        ? [
+            HOME + "/",
+            HOME + "/sitemap.xml",
+            ...CORE,
+            ...state.sitemapUrls
+          ]
+        : []
+    ),
 
-  function sourceQueue() {
-    const official = state.source.official
-      ? [
-          HOME + "/",
-          HOME + "/sitemap.xml",
-          ...CORE_PAGES,
-          ...state.sitemapUrls
-        ]
-      : [];
+    ...(
+      state.source.github
+        ? EXTERNAL.github
+        : []
+    ),
 
-    return uniq([
-      ...official,
-      ...pickedExternal()
-    ]);
-  }
+    ...(
+      state.source.research
+        ? EXTERNAL.research
+        : []
+    )
+  ]);
 
-  function batches() {
-    const urls = sourceQueue();
-    const result = [];
+  const batches = () => {
+    const q = queue();
+    const a = [];
 
-    for (let i = 0; i < urls.length; i += 20) {
-      result.push(urls.slice(i, i + 20));
+    for (
+      let i = 0;
+      i < q.length;
+      i += 20
+    ) {
+      a.push(
+        q.slice(i, i + 20)
+      );
     }
 
-    return result;
-  }
+    return a;
+  };
 
-  function selectedPromptUrls() {
-    return uniq([
-      ...(state.source.official
-        ? [HOME + "/", ...CORE_PAGES]
-        : []),
-      ...pickedExternal()
-    ]).slice(0, 16);
-  }
+  const promptSources = () => unique([
+    ...(
+      state.source.official
+        ? [
+            HOME + "/",
+            HOME + "/sitemap.xml",
+            ...CORE
+          ]
+        : []
+    ),
 
-  // =====================================
+    ...(
+      state.source.github
+        ? EXTERNAL.github
+        : []
+    ),
+
+    ...(
+      state.source.research
+        ? EXTERNAL.research
+        : []
+    )
+  ]).slice(0, 20);
+
+  // =========================================
   // ART GENERATION PROMPT
-  // =====================================
+  // =========================================
 
-  function buildPrompt() {
-    const e = estimate();
-    const jp = state.lang === "ja";
+  function prompt() {
+    const e = rateEstimate();
+    const refs = refList();
+    const sources = promptSources();
 
-    const refsText = chosenRefs()
-      .map((r, i) => [
-        `${i + 1}. ${r.ja} / ${r.en}`,
-        `IMAGE: ${r.img}`,
-        `SOURCE: ${r.page}`,
-        `FOCUS: ${r.roleJa}`
-      ].join("\n"))
-      .join("\n\n");
+    const refText = refs.length
+      ? refs.map(
+          (r, i) => [
+            `${i + 1}. ${r.ja} / ${r.en}`,
+            `IMAGE: ${r.img}`,
+            `SOURCE: ${r.page}`,
+            `FOCUS: ${r.roleJa}`
+          ].join("\n")
+        ).join("\n\n")
+      : "No individual images selected.";
 
-    const urls = selectedPromptUrls();
+    return `
+${tr(
+  "画像生成ツールを使用し、LOYAL TATTOO／刺青師伊彫の公開原画・技術研究を踏まえた完全新規の鷹タトゥー原画を1枚、実際に画像生成して出力してください。",
+  "Generate ONE original, high-detail hawk tattoo drawing using the image tool, informed by published LOYAL TATTOO / Ihori artwork and research. Return the actual image."
+)}
 
-    const guide = [
-      `POSE: ${state.pose} — ${POSE[state.pose]}`,
-      `MOTIF: ${state.motif} — ${MOTIF[state.motif]}`,
-      `STYLE: ${state.style} — ${STYLE[state.style]}`,
+AI IHORI — HAWK DESIGN / GLOBAL ART RESEARCH
 
-      `PLACEMENT: ${state.place};
-Adapt to shoulder blades, spine,
-latissimus dorsi, chest and shoulder
-curvature as appropriate.`,
-
-      `DENSITY: ${state.density};
-Preserve readable main outlines and
-negative space.`,
-
-      `ANATOMY:
-Authentic raptor skull, orbital socket,
-hooked beak, cervical region,
-shoulder/elbow/wrist joints,
-primaries, secondaries,
-greater/median/lesser coverts,
-tail, tarsus, toes and talons.
-Coherent feather-growth direction
-and realistic joint count.`,
-
-      `LOYAL PENCIL DRAWING:
-Dynamic exploratory pencil strokes;
-long forceful outer contour;
-uneven line weight;
-dry graphite hatching;
-deep blacks;
-dark/medium/light ink washes;
-intentional open white areas.`,
-
-      `COMPOSITION:
-Combine Japanese painting's motion
-and spacing with Western anatomical
-volumetric construction.
-Design for tattoo readability on
-a curved body.`,
-
-      `INSPECTION:
-Avoid redundant feathers,
-invented joints, extra toes,
-dense decorative noise or loss
-of silhouette.`,
-
-      `FINISH:
-Vertically composed original drawing
-on pure white.
-No text, watermark, signature
-or photo background.`
-    ].join("\n\n");
-
-    return [
-      jp
-        ? "画像生成ツールでLOYAL TATTOO／刺青師・伊彫の画風研究に基づく完全新規の鷹タトゥー原画を1枚生成してください。画像を実際に出力してください。"
-        : "Use the image-generation tool to create ONE new original hawk tattoo drawing informed by LOYAL TATTOO artist Ihori's published art research. Return the actual image.",
-
-      "\nAI IHORI — GLOBAL HAWK DESIGN",
-
-      `Posture: ${state.pose}
+Pose: ${state.pose}
 Motif: ${state.motif}
 Style: ${state.style}
 Placement: ${state.place}
-Density: ${state.density}`,
+Detail density: ${state.density}
 
-      `Reference tattoo time:
-${e.low}–${e.high} hours.
-Estimated fee:
+Illustrative time: ${e.low}–${e.high} h
+Illustrative fee excluding tax:
 JPY ${fmt(e.min)}–${fmt(e.max)}
-excluding tax (illustrative only).`,
 
-      "\nPRIMARY VISUAL REFERENCES:\n" +
-        (refsText || "No selected image references."),
+PRIMARY VISUAL REFERENCES (${refs.length}):
 
-      "\nPRIMARY RESEARCH SOURCES:\n" +
-        (urls.join("\n") || "No research sources selected."),
+${refText}
 
-      state.source.external
-        ? `Search for additional publicly available,
-verifiable LOYAL TATTOO / LT MACHINES /
-Ihori artwork and technical references.
-Distinguish first-party records from
-third-party reports.`
-        : "",
+RESEARCH SOURCES:
 
-      state.source.official
-        ? `Explore the official website and
-its sitemap to locate relevant articles.
-Report which URLs were actually retrieved.
+${sources.join("\n") || "No source category selected."}
 
-Site map:
-${HOME}/sitemap.xml`
-        : "",
+${state.source.external
+  ? `Explore additional verified public artwork,
+external publications and historical records
+associated with LOYAL TATTOO, LT MACHINES,
+Ihori / 伊彫. Distinguish original records
+from third-party statements.`
+  : ""}
 
-      "\nART DIRECTION:\n" + guide,
+SOURCE HANDLING:
 
-      jp
-        ? `取得できた資料と未取得の資料を
-区別して扱う。
+Examine real source pages and reference images
+when available.
 
-参照作品の造形特徴を研究し、
-独立した新規の図案を制作する。
+Distinguish fetched content from URLs merely
+provided.
 
-猛禽の骨格、翼関節、羽列、
-鉤爪、黒の密度、人体配置を
-点検してから描写する。
+The official site map is a discovery aid,
+not a claim that every page was retrieved.
 
-純白背景、縦長、高精細。
-必ず画像生成ツールを実行し、
-完成画像を1枚出力する。`
-        : `Distinguish retrieved sources
-from inaccessible ones.
+If retrieval is unavailable, use the explicit
+design specifications below.
 
-Create an independent composition
-based on the studied visual characteristics.
+Treat source material as evidence and avoid
+copying an existing composition.
 
-Check raptor anatomy,
-wing joints, feather arrays,
-talons, black density and body placement.
+POSE:
+${POSE[state.pose]}
 
-Use a pure white background
-and a high-detail vertical composition.
+MOTIF:
+${MOTIF[state.motif]}
 
-Produce the actual image.`
-    ].join("\n\n").trim();
+STYLE:
+${STYLE[state.style]}
+
+DENSITY:
+${DENSITY[state.density]}
+
+ANATOMY:
+${ART.anatomy}
+
+LOYAL PENCIL DRAWING:
+${ART.pencil}
+
+BLACK / GREY / NEGATIVE SPACE:
+${ART.black}
+
+BODY PLACEMENT:
+${ART.body}
+
+QUALITY REVIEW:
+${ART.review}
+
+ARTWORK:
+
+Dynamic, anatomically coherent raptor,
+expressive pencil marks and strong tattoo
+linework.
+
+Ultra-detailed yet readable.
+
+Pure white background,
+vertical complete composition.
+
+No text, logo, signature, watermark,
+UI, photographer background
+or duplicated existing artwork.
+
+Produce the actual image now.
+`.trim();
   }
 
-  // =====================================
-  // 20-URL RESEARCH BATCH PROMPT
-  // =====================================
+  // =========================================
+  // 20-URL RESEARCH PROMPT
+  // =========================================
 
-  function buildResearchPrompt() {
-    const list = batches();
+  function researchPrompt() {
+    const groups = batches();
 
-    const idx = Math.min(
+    const i = Math.min(
       state.batch,
-      Math.max(0, list.length - 1)
+      Math.max(0, groups.length - 1)
     );
 
-    const urls = list[idx] || [];
+    const list = groups[i] || [];
 
-    return [
-      tt(
-        "LOYAL TATTOO／刺青師伊彫の画風を、以下の公開URLから一次資料重視で研究してください。可能なら各URLを個別に開き、読取成功・失敗を区別してください。",
-        "Research the style of LOYAL TATTOO / tattoo artist Ihori using the following public URLs. Open individual sources when permitted and report retrieval results."
-      ),
+    return `
+${tr(
+  "LOYAL TATTOO／刺青師伊彫の公開一次資料を個別に取得・研究してください。取得できたURLとできなかったURLを区別して報告してください。",
+  "Study the following public first-party and external LOYAL TATTOO/Ihori sources. Distinguish successfully retrieved URLs from inaccessible URLs."
+)}
 
-      `RESEARCH BATCH ${idx + 1}/${list.length}`,
+BATCH ${i + 1}/${groups.length}
+URL COUNT: ${list.length}
 
-      `EXACT URL COUNT: ${urls.length}`,
+${list.join("\n")}
 
-      ...urls,
-
-      `Extract:
-- Source URL
-- Artist and work
-- Context and provenance
-- Outline shape
-- Pencil marks and line variation
-- Wing anatomy
-- Black density and negative space
-- Japanese motifs
+Analyze:
+- Provenance
+- Original artwork
+- Loyal pencil technique
+- Contour hierarchy
+- Raptor anatomical accuracy
+- Layered flight feathers
+- Solid black density
+- Grey wash
+- Negative space
+- Peony construction
 - Body placement
-- Verified and inferred observations
+- Primary versus third-party assertions
 
-Distinguish current retrieval
-from model training.
+Provide verified source URLs.
 
-Never claim inaccessible pages
-have been read.
+Summarize findings as reusable
+art-direction research.
 
-Summarize as reusable art-direction
-research with full source URLs.`
-    ].join("\n");
+The 20-URL batch is a request group.
+
+Actual retrieval coverage depends
+on the selected AI.
+`.trim();
   }
 
-  // =====================================
-  // COMPONENT STYLES
-  // =====================================
+  // =========================================
+  // CSS
+  // =========================================
 
-  const css = `
+  const CSS = `
 #lh-app{
   box-sizing:border-box;
   max-width:1040px;
-  margin:26px auto 36px;
+  width:100%;
+  margin:24px auto 40px;
   padding:16px;
-  border:1px solid #2c313b;
-  border-radius:16px;
   background:#101319;
-  color:#eceef2;
-  font:inherit;
+  border:1px solid #2e343e;
+  border-radius:15px;
+  color:#eef0f4;
+  font-family:inherit;
   line-height:1.6;
   clear:both
 }
-#lh-app *{box-sizing:border-box}
-#lh-app h2,#lh-app h3,#lh-app p{margin:0}
+#lh-app *{
+  box-sizing:border-box
+}
+#lh-app p,
+#lh-app h2,
+#lh-app h3{
+  margin:0
+}
 #lh-app a{
-  color:#e1be57;
+  color:#e6c45d;
   text-decoration:underline;
   text-underline-offset:3px
 }
-#lh-app a:hover{color:#ffe6a4}
 #lh-app .lh-head{
-  padding:20px;
-  background:#171a22;
-  border:1px solid #343945;
-  border-radius:12px
+  padding:19px;
+  background:#191c24;
+  border:1px solid #3b404b;
+  border-radius:11px
+}
+#lh-app .lh-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px
 }
 #lh-app .lh-brand{
-  font-size:11px;
   font-weight:700;
-  letter-spacing:1.2px;
-  color:#e0ba46
+  font-size:11px;
+  letter-spacing:1px;
+  color:#dbb94f
 }
 #lh-app h2{
-  font-size:clamp(21px,4vw,29px);
-  line-height:1.35;
-  margin:8px 0 12px;
+  margin:9px 0;
+  font-size:clamp(21px,3vw,29px);
+  line-height:1.4;
   color:#fff
 }
 #lh-app .lh-desc{
   font-size:13px;
-  color:#c8ccd4
+  color:#c2c9d3
 }
 #lh-app .lh-section{
-  border-bottom:1px solid #363b43;
-  padding:22px 2px
+  padding:22px 0;
+  border-bottom:1px solid #3c424e
 }
-#lh-app .lh-section:last-child{border-bottom:0}
+#lh-app .lh-section:last-child{
+  border-bottom:0
+}
 #lh-app h3{
+  color:#fff;
   font-size:19px;
-  color:white;
-  margin:0 0 13px;
-  font-weight:700
+  font-weight:700;
+  margin:0 0 13px
 }
 #lh-app .lh-grid{
   display:grid;
@@ -796,103 +901,118 @@ research with full source URLs.`
 }
 #lh-app .lh-field{
   display:grid;
-  gap:5px
+  gap:6px
 }
-#lh-app label,#lh-app .lh-label{
-  color:#d5d8df;
+#lh-app label,
+#lh-app .lh-label{
+  color:#cfd4dd;
   font-size:12px
 }
 #lh-app select,
 #lh-app input[type=search],
 #lh-app textarea{
-  width:100%;
-  background:#1d222b;
-  color:#f8f8fa;
-  border:1px solid #4a515e;
   border-radius:8px;
+  border:1px solid #4c525f;
+  background:#20242d;
+  color:#fff;
   padding:11px;
+  width:100%;
   font:inherit;
   font-size:14px
 }
-#lh-app select{min-height:46px}
-#lh-app .lh-density{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap
+#lh-app select{
+  min-height:46px
 }
-#lh-app .lh-chip{
-  cursor:pointer;
-  border:1px solid #4a515e;
-  background:#222630;
-  color:#f3f3f4;
-  padding:9px 15px;
-  border-radius:9px;
-  font-size:13px;
-  flex:1;
-  min-width:80px
-}
-#lh-app .lh-chip[aria-pressed=true]{
-  border-color:#d4ae42;
-  background:#40351c;
-  color:#ffe09a
-}
+#lh-app .lh-density,
 #lh-app .lh-engines{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  display:flex;
   gap:8px
 }
-#lh-app .lh-engine{
-  border:1px solid #444954;
+#lh-app button{
+  font:inherit;
+  cursor:pointer
+}
+#lh-app .lh-chip{
+  flex:1;
+  min-width:0;
+  padding:9px 8px;
+  border:1px solid #4b515e;
+  border-radius:8px;
   background:#252a34;
-  color:#f5f6f8;
-  padding:12px;
-  cursor:pointer;
+  color:#fff;
+  font-size:12px
+}
+#lh-app .lh-chip[aria-pressed=true],
+#lh-app .lh-engine[aria-pressed=true]{
+  color:#ffe39c;
+  border-color:#d4ab36;
+  background:#463922
+}
+#lh-app .lh-engine{
+  flex:1;
+  padding:11px;
   border-radius:9px;
+  border:1px solid #454a54;
+  background:#282c35;
+  color:#f4f4f5;
   font-weight:700
 }
-#lh-app .lh-engine[aria-pressed=true]{
-  background:#4d4024;
-  border-color:#d9b447;
-  color:#ffe3a1
+#lh-app .lh-panel{
+  border:1px solid #3f4550;
+  background:#1a1e27;
+  border-radius:11px;
+  padding:14px
 }
 #lh-app .lh-btn{
   width:100%;
-  padding:13px 14px;
+  background:#d7b54b;
+  color:#171717;
+  border:1px solid #d7b54b;
   border-radius:9px;
-  border:1px solid #c79e32;
-  background:#d9b64d;
-  color:#17191d;
-  font:inherit;
+  padding:13px;
   font-size:14px;
   font-weight:800;
-  cursor:pointer
+  margin-top:9px
 }
 #lh-app .lh-secondary{
-  border:1px solid #7b7160;
-  background:#25272d;
-  color:#e9d197
-}
-#lh-app .lh-btn:disabled{
-  opacity:.5;
-  cursor:wait
-}
-#lh-app .lh-panel{
-  background:#191d26;
-  border:1px solid #3c414b;
-  border-radius:12px;
-  padding:14px
+  background:#2a2a2e;
+  border-color:#756a51;
+  color:#f1d99f
 }
 #lh-app .lh-note{
+  color:#b4bdc9;
   font-size:12px;
-  color:#b6bcc7;
-  line-height:1.65;
-  margin:7px 0
+  margin:9px 0;
+  line-height:1.75
 }
-#lh-app .lh-actionrow{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:10px
+#lh-app .lh-status{
+  min-height:20px;
+  font-size:12px;
+  color:#edd28e;
+  margin:8px 0
+}
+#lh-app .lh-prompt{
+  display:none;
+  font-size:11px;
+  white-space:pre-wrap;
+  max-height:260px;
+  overflow:auto
+}
+#lh-app .lh-output{
+  margin-top:12px;
+  min-height:65px;
+  border:1px dashed #4a4f59;
+  border-radius:9px;
+  padding:12px;
+  color:#b9c0c9;
+  font-size:12px;
+  text-align:center
+}
+#lh-app .lh-output img{
+  display:block;
+  width:100%;
+  max-width:720px;
+  margin:auto
 }
 #lh-app .lh-refs{
   display:grid;
@@ -900,57 +1020,60 @@ research with full source URLs.`
   gap:10px
 }
 #lh-app .lh-ref{
-  padding:8px;
+  border:1px solid #3e444d;
   border-radius:10px;
-  border:1px solid #3d434b;
-  background:#1c2029;
+  background:#1e222a;
+  padding:8px;
   min-width:0
 }
 #lh-app .lh-ref img{
-  display:block;
+  height:150px;
   width:100%;
-  height:148px;
   object-fit:contain;
-  background:#292c33;
-  border-radius:6px
+  background:#2b2f35;
+  border-radius:7px
 }
 #lh-app .lh-ref label{
   display:flex;
-  align-items:flex-start;
   gap:6px;
-  font-weight:700;
+  align-items:flex-start;
   font-size:12px;
-  margin-top:8px
+  font-weight:700;
+  padding:7px 0
 }
 #lh-app input[type=checkbox]{
-  accent-color:#d4b04c;
-  width:17px;
-  height:17px;
-  flex:none
+  accent-color:#d6af43;
+  width:16px;
+  height:16px;
+  flex-shrink:0
 }
 #lh-app .lh-ref p{
   font-size:11px;
-  color:#b1b8c2;
-  margin:5px 0
+  color:#b8c1ca;
+  margin:0 0 5px
+}
+#lh-app .lh-ref a{
+  font-size:11px
 }
 #lh-app .lh-source{
-  border:1px solid #414652;
-  background:#1c2029;
-  padding:11px 12px;
+  margin-top:8px;
+  border:1px solid #414855;
+  background:#1c2129;
   border-radius:9px;
-  margin:8px 0
+  padding:11px
 }
 #lh-app .lh-source label{
   display:flex;
   gap:9px;
   align-items:center;
-  font-size:13px;
-  font-weight:700
+  font-weight:700;
+  font-size:13px
 }
 #lh-app .lh-source p{
   font-size:12px;
-  color:#b4bac3;
-  margin:5px 0 0 26px
+  color:#b7bdc6;
+  padding-left:25px;
+  margin-top:5px
 }
 #lh-app .lh-stats{
   display:grid;
@@ -959,46 +1082,14 @@ research with full source URLs.`
 }
 #lh-app .lh-stat{
   padding:14px;
-  border:1px solid #454955;
-  background:#1e222b;
-  border-radius:10px
+  border:1px solid #444b54;
+  background:#202530;
+  border-radius:9px
 }
 #lh-app .lh-stat strong{
   display:block;
-  font-size:clamp(16px,3vw,22px);
-  color:#fff;
-  margin-top:4px
-}
-#lh-app .lh-status{
-  color:#e7ce8b;
-  font-size:12px;
-  min-height:20px;
-  margin:10px 0
-}
-#lh-app .lh-preview{
-  text-align:center;
-  border:1px dashed #4c525e;
-  border-radius:10px;
-  padding:16px;
-  margin-top:10px;
-  color:#aab1bb;
-  font-size:12px
-}
-#lh-app .lh-preview img{
-  display:block;
-  width:100%;
-  max-width:700px;
-  margin:auto;
-  object-fit:contain
-}
-#lh-app .lh-output{
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-  min-height:120px;
-  max-height:270px;
-  overflow:auto;
-  font-size:11px;
-  display:none
+  font-size:clamp(16px,3vw,21px);
+  color:#fff
 }
 #lh-app .lh-history{
   display:grid;
@@ -1007,18 +1098,18 @@ research with full source URLs.`
 }
 #lh-app .lh-history a{
   display:block;
+  border:1px solid #414953;
+  border-radius:8px;
   padding:10px;
-  border:1px solid #3d434b;
-  border-radius:9px;
-  font-size:12px;
-  background:#1b2028
+  background:#1d222c;
+  font-size:12px
 }
 #lh-app .lh-faq{
-  margin:7px 0;
-  border:1px solid #414751;
+  border:1px solid #454a54;
   border-radius:8px;
-  padding:9px 11px;
-  background:#1b2028
+  padding:9px;
+  margin:7px 0;
+  background:#1d222c
 }
 #lh-app .lh-faq summary{
   font-size:13px;
@@ -1026,73 +1117,86 @@ research with full source URLs.`
   cursor:pointer
 }
 #lh-app .lh-faq p{
-  color:#bfc5cd;
   font-size:12px;
+  color:#b7bec9;
   margin-top:7px
+}
+#lh-app .lh-actionrow{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px
+}
+#lh-app .lh-counter{
+  color:#b7c0cb;
+  font-size:11px
 }
 #lh-app .lh-meta{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:6px;
-  margin-bottom:10px
+  gap:10px
 }
-#lh-app .lh-counter{
-  font-size:11px;
-  color:#b0b8c3
+#lh-app button:disabled{
+  opacity:.6;
+  cursor:progress
 }
 @media(max-width:640px){
   #lh-app{
-    padding:11px;
-    margin:24px 0
+    margin:20px 0;
+    padding:11px
   }
-  #lh-app .lh-head{padding:15px}
-  #lh-app .lh-refs{
-    grid-template-columns:repeat(2,minmax(0,1fr))
+  #lh-app .lh-head{
+    padding:14px
   }
   #lh-app .lh-grid,
+  #lh-app .lh-actionrow,
   #lh-app .lh-history{
     grid-template-columns:1fr
   }
-  #lh-app .lh-actionrow{
-    grid-template-columns:1fr
+  #lh-app .lh-refs{
+    grid-template-columns:repeat(2,minmax(0,1fr))
   }
-  #lh-app .lh-stat{padding:10px}
-  #lh-app .lh-ref img{height:165px}
-}`;
-
-  // =====================================
-  // UI RENDERER
-  // =====================================
-
-  function selectField(field, labelJa, labelEn) {
-    const options = OPTIONS[field]
-      .map(([jp, en]) => `
-        <option value="${escapeHtml(jp)}">
-          ${escapeHtml(tt(jp, en))}
-        </option>
-      `)
-      .join("");
-
-    return `
-      <div class="lh-field">
-        <label for="lh-${field}">
-          ${escapeHtml(tt(labelJa, labelEn))}
-        </label>
-        <select
-          id="lh-${field}"
-          data-field="${field}"
-        >
-          ${options}
-        </select>
-      </div>
-    `;
+  #lh-app .lh-ref img{
+    height:165px
   }
+  #lh-app .lh-stat{
+    padding:10px
+  }
+}
+`;
 
-  function render() {
+  // =========================================
+  // SELECT FIELD
+  // =========================================
+
+  const sel = (key, jp, en) => `
+    <div class="lh-field">
+      <label for="lh-${key}">
+        ${tr(jp, en)}
+      </label>
+      <select
+        id="lh-${key}"
+        data-field="${key}"
+      >
+        ${OPTIONS[key].map(
+          ([a, b]) => `
+            <option value="${esc(a)}">
+              ${esc(tr(a, b))}
+            </option>
+          `
+        ).join("")}
+      </select>
+    </div>
+  `;
+
+  // =========================================
+  // MAIN RENDERER
+  // =========================================
+
+  function show() {
     if (!root) return;
 
-    const e = estimate();
+    const e = rateEstimate();
     const b = batches();
 
     state.batch = Math.min(
@@ -1103,7 +1207,8 @@ research with full source URLs.`
     root.innerHTML = `
       <div class="lh-head">
 
-        <div class="lh-meta">
+        <div class="lh-top">
+
           <span class="lh-brand">
             LOYAL TATTOO + LT MACHINES
           </span>
@@ -1111,252 +1216,317 @@ research with full source URLs.`
           <button
             type="button"
             class="lh-chip"
-            id="lh-language"
-            style="flex:none"
+            data-action="language"
+            style="flex:none;min-width:80px"
           >
-            ${tt("English", "日本語")}
+            ${tr("English", "日本語")}
           </button>
+
         </div>
 
         <h2>
-          ${tt(
+          ${tr(
             "AI伊彫原画生成シミュレーター",
             "AI IHORI — Hawk Tattoo Design Simulator"
           )}
         </h2>
 
         <p class="lh-desc">
-          ${tt(
+          ${tr(
             "伊彫の造形研究、Loyal鉛筆画技法、猛禽の解剖学的構造、黒の密度、羽流れ、人体への配置を統合した原画案をAI伊彫が生成します。",
-            "AI Ihori develops original concepts informed by Ihori's art research, Loyal pencil technique, raptor anatomy, blackwork, feather structure and body placement."
+            "AI Ihori creates original artwork informed by Ihori’s research, Loyal pencil drawing, raptor anatomy, black density, feather flow and anatomical placement."
           )}
         </p>
+
       </div>
 
       <section class="lh-section">
-        <h3>${tt("構図設計", "Composition")}</h3>
+
+        <h3>
+          ${tr("構図設計", "Composition")}
+        </h3>
 
         <div class="lh-grid">
-          ${selectField(
+
+          ${sel(
             "pose",
             "鷹の姿勢・構図",
             "Hawk posture"
           )}
 
-          ${selectField(
+          ${sel(
             "motif",
             "組み合わせモチーフ",
             "Background motif"
           )}
 
-          ${selectField(
+          ${sel(
             "style",
             "施術様式",
             "Tattoo style"
           )}
 
-          ${selectField(
+          ${sel(
             "place",
             "人体施術部位",
             "Body placement"
           )}
+
         </div>
 
         <p
           class="lh-label"
-          style="margin-top:14px"
+          style="margin:14px 0 7px"
         >
-          ${tt("デザイン密度", "Detail density")}
+          ${tr(
+            "デザイン密度",
+            "Detail density"
+          )}
         </p>
 
         <div class="lh-density">
+
           ${[
             ["標準", "Standard"],
             ["高密度", "High"],
             ["超高密度", "Ultra-high"]
-          ].map(([jp, en]) => `
-            <button
-              class="lh-chip"
-              type="button"
-              data-density="${jp}"
-              aria-pressed="${state.density === jp}"
-            >
-              ${tt(jp, en)}
-            </button>
-          `).join("")}
+          ].map(
+            ([a, b]) => `
+              <button
+                type="button"
+                class="lh-chip"
+                data-density="${esc(a)}"
+                aria-pressed="${state.density === a}"
+              >
+                ${tr(a, b)}
+              </button>
+            `
+          ).join("")}
+
         </div>
+
       </section>
 
       <section class="lh-section">
+
         <h3>
-          ${tt(
+          ${tr(
             "AI伊彫原画生成",
             "AI Ihori Art Generation"
           )}
         </h3>
 
         <div class="lh-panel">
-          <p class="lh-label">
-            ${tt("生成エンジン", "AI engine")}
+
+          <p
+            class="lh-label"
+            style="margin-bottom:8px"
+          >
+            ${tr(
+              "生成エンジン",
+              "AI engine"
+            )}
           </p>
 
           <div class="lh-engines">
-            ${["GPT", "Gemini"].map(v => `
-              <button
-                type="button"
-                class="lh-engine"
-                data-provider="${v}"
-                aria-pressed="${state.provider === v}"
-              >
-                ${v}
-              </button>
-            `).join("")}
+
+            ${["GPT", "Gemini"].map(
+              p => `
+                <button
+                  type="button"
+                  class="lh-engine"
+                  data-provider="${p}"
+                  aria-pressed="${state.provider === p}"
+                >
+                  ${p}
+                </button>
+              `
+            ).join("")}
+
           </div>
 
           <p
             class="lh-note"
-            id="lh-configuration"
+            id="lh-config"
           ></p>
 
           <button
             type="button"
-            id="lh-generate"
+            data-action="generate"
             class="lh-btn"
           >
-            ${tt(
+            ${tr(
               "AI伊彫で鷹タトゥー原画を生成する",
               "Generate original hawk tattoo artwork"
             )}
           </button>
 
           <p class="lh-note">
-            ${tt(
-              "現在の選択条件・参照画像・公式研究資料を生成指示へ統合します。API接続時はこの画面に表示し、通常はGPT／Geminiへ引き渡します。",
-              "The current selections, reference images and research URLs are included. A configured API displays the image here; otherwise the prompt is handed off to the chosen AI."
+            ${tr(
+              "iPhoneでは共有画面に生成指示を渡します。共有先アプリでの入力・送信は各アプリの対応状況に従います。API接続済みの場合は本画面で直接生成します。",
+              "On iPhone this shares the full prompt through the native share sheet. Prefill and submission depend on the receiving app. A configured image API renders here."
             )}
           </p>
 
           <div class="lh-actionrow">
+
             <button
               type="button"
-              id="lh-copy"
+              data-action="open"
               class="lh-btn lh-secondary"
             >
-              ${tt(
+              ${tr(
+                "コピーして選択AIを開く",
+                "Copy and open selected AI"
+              )}
+            </button>
+
+            <button
+              type="button"
+              data-action="copy"
+              class="lh-btn lh-secondary"
+            >
+              ${tr(
                 "超高精細プロンプトをコピー",
                 "Copy detailed art prompt"
               )}
             </button>
 
-            <button
-              type="button"
-              id="lh-detail"
-              class="lh-btn lh-secondary"
-            >
-              ${tt(
-                "画風研究・生成指示を表示",
-                "View art research prompt"
-              )}
-            </button>
           </div>
 
+          <button
+            type="button"
+            data-action="detail"
+            class="lh-btn lh-secondary"
+          >
+            ${tr(
+              "画風研究・生成指示を表示",
+              "View research / generation prompt"
+            )}
+          </button>
+
           <p
-            class="lh-status"
             id="lh-status"
+            class="lh-status"
             role="status"
             aria-live="polite"
           ></p>
 
           <textarea
             id="lh-prompt"
-            class="lh-output"
+            class="lh-prompt"
             readonly
-            aria-label="Generation prompt"
+            aria-label="Full generation prompt"
           ></textarea>
 
           <div
-            class="lh-preview"
-            id="lh-preview"
+            id="lh-output"
+            class="lh-output"
           >
-            ${tt(
-              "生成原画の表示領域／チャット連携時は選択したAIで画像が表示されます。",
-              "Artwork preview / chat handoff results appear in the selected AI."
+            ${tr(
+              "原画の表示領域。AIアプリ連携時は共有先に画像が表示されます。",
+              "Artwork preview. Native-app generation appears in the receiving app."
             )}
           </div>
+
         </div>
+
       </section>
 
       <section class="lh-section">
 
         <div class="lh-meta">
+
           <h3>
-            ${tt(
+            ${tr(
               "伊彫の参考画像",
               "Ihori Artwork References"
             )}
           </h3>
 
           <span class="lh-counter">
-            ${state.refs.size} / 4
+            ${state.refs.size}/4
           </span>
+
         </div>
 
         <p class="lh-note">
-          ${tt(
-            "4枚の実作品を核とし、参考画像を個別に選択できます。原画の輪郭・羽列・黒面・牡丹の研究に使用します。",
-            "Select each of the four original references for line, feather, blackwork and peony research."
+          ${tr(
+            "制作ラフ・描き込み・施術作品・牡丹の4点を個別に選択できます。",
+            "Select the four foundational sketch, drawing, tattoo and botanical references."
           )}
         </p>
 
         <div class="lh-refs">
-          ${REFS.map(r => `
-            <div class="lh-ref">
 
-              <img
-                loading="lazy"
-                alt="${escapeHtml(tt(r.ja, r.en))}"
-                src="${r.img}"
-              >
+          ${REFS.map(
+            r => `
+              <div class="lh-ref">
 
-              <label>
-                <input
-                  type="checkbox"
-                  data-ref="${r.id}"
-                  ${state.refs.has(r.id) ? "checked" : ""}
+                <img
+                  src="${r.img}"
+                  loading="lazy"
+                  alt="${esc(tr(r.ja, r.en))}"
                 >
-                ${escapeHtml(tt(r.ja, r.en))}
-              </label>
 
-              <p>
-                ${escapeHtml(
-                  tt(r.roleJa, r.roleEn)
-                )}
-              </p>
+                <label>
+                  <input
+                    type="checkbox"
+                    data-ref="${r.id}"
+                    ${state.refs.has(r.id)
+                      ? "checked"
+                      : ""}
+                  >
 
-              <a
-                href="${r.page}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                ${tt("公式作品", "Original source")}
-              </a>
-            </div>
-          `).join("")}
+                  ${esc(tr(r.ja, r.en))}
+                </label>
+
+                <p>
+                  ${esc(
+                    tr(r.roleJa, r.roleEn)
+                  )}
+                </p>
+
+                <a
+                  href="${r.page}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ${tr(
+                    "公式作品",
+                    "Source"
+                  )}
+                </a>
+
+              </div>
+            `
+          ).join("")}
+
         </div>
+
       </section>
 
       <section class="lh-section">
-        <h3>
-          ${tt(
-            "全域AI画風研究",
-            "Global Art Research"
-          )}
-        </h3>
+
+        <div class="lh-meta">
+
+          <h3>
+            ${tr(
+              "全域AI画風研究",
+              "Global Art Research"
+            )}
+          </h3>
+
+          <span class="lh-counter">
+            20 URLs / batch
+          </span>
+
+        </div>
 
         <p class="lh-note">
-          ${tt(
-            "本殿のサイトマップから公開URLを収集し、GitHub・Zenodo・外部公開研究へ拡張します。各研究バッチは20URL以内です。",
-            "Collect official URLs from the site map and include GitHub, Zenodo and other public sources. Each research batch contains up to 20 URLs."
+          ${tr(
+            "本殿サイトマップ、GitHub、Zenodo、外部掲載資料を研究対象に設定します。実際の全件一括処理にはサーバー側の研究APIが必要です。",
+            "Select the official site map, GitHub, Zenodo and external publications. Full automated processing requires a research backend."
           )}
         </p>
 
@@ -1365,151 +1535,171 @@ research with full source URLs.`
             "official",
             "LOYAL TATTOO 本殿全域",
             "Official Website / Full Corpus",
-            "公開記事・制作画像・技法・施術記録",
-            "Published articles, artwork and techniques"
+            "公開記事・施術画像・制作解説",
+            "Published works and artwork"
           ],
           [
             "github",
             "GitHub / LOYAL OS / MASTER FAQ",
             "GitHub / LOYAL OS / FAQ",
-            "研究リポジトリ・FAQ・作品仕様書",
-            "Repositories, FAQs and technical notes"
+            "FAQ・技法・製品仕様",
+            "FAQ, technique and product specifications"
           ],
           [
             "research",
             "Zenodo / DOI / ORCID",
             "Zenodo / DOI / ORCID",
-            "公開研究・著者情報・制作記録",
-            "Published research and author records"
+            "研究・著者情報・制作記録",
+            "Research and author records"
           ],
           [
             "external",
             "外部掲載・公開資料の探索",
             "External Source Discovery",
-            "外部作品掲載・取材・研究言及をAIで探索",
-            "Discover verified external publications"
+            "公開された第三者掲載資料の追加探索",
+            "Find verified external publications"
           ]
-        ].map(([id, jp, en, noteJa, noteEn]) => `
-          <div class="lh-source">
-            <label>
-              <input
-                type="checkbox"
-                data-source="${id}"
-                ${state.source[id] ? "checked" : ""}
-              >
+        ].map(
+          ([id, j, e1, n, n2]) => `
+            <div class="lh-source">
 
-              ${escapeHtml(tt(jp, en))}
-            </label>
+              <label>
+                <input
+                  type="checkbox"
+                  data-source="${id}"
+                  ${state.source[id]
+                    ? "checked"
+                    : ""}
+                >
 
-            <p>
-              ${escapeHtml(tt(noteJa, noteEn))}
-            </p>
-          </div>
-        `).join("")}
+                ${tr(j, e1)}
+              </label>
+
+              <p>
+                ${tr(n, n2)}
+              </p>
+
+            </div>
+          `
+        ).join("")}
 
         <div
           class="lh-panel"
-          style="margin-top:14px"
+          style="margin-top:13px"
         >
+
           <div class="lh-stats">
 
             <div class="lh-stat">
               <span class="lh-label">
-                ${tt(
-                  "公開URL索引",
-                  "Indexed source URLs"
+                ${tr(
+                  "索引URL数",
+                  "Indexed URLs"
                 )}
               </span>
 
-              <strong id="lh-urlcount">
-                ${sourceQueue().length}
+              <strong id="lh-urls">
+                ${queue().length}
               </strong>
             </div>
 
             <div class="lh-stat">
               <span class="lh-label">
-                ${tt(
-                  "研究バッチ数",
-                  "20-URL batches"
+                ${tr(
+                  "20URLバッチ数",
+                  "Research batches"
                 )}
               </span>
 
-              <strong id="lh-batchcount">
+              <strong id="lh-batches">
                 ${b.length}
               </strong>
             </div>
+
           </div>
 
           <p
             class="lh-note"
-            id="lh-indexstatus"
+            id="lh-sitemap"
           >
-            ${escapeHtml(state.sitemapStatus)}
+            ${esc(state.sitemapStatus)}
           </p>
 
           <div class="lh-field">
+
             <label for="lh-batch">
-              ${tt(
-                "研究バッチ選択",
+              ${tr(
+                "研究バッチ",
                 "Research batch"
               )}
             </label>
 
             <select id="lh-batch">
-              ${b.map((urls, i) => `
-                <option value="${i}">
-                  ${tt("バッチ", "Batch")}
-                  ${i + 1} / ${b.length}
-                  — ${urls.length} URLs
-                </option>
-              `).join("") ||
-                '<option value="0">0 URLs</option>'}
+
+              ${b.length
+                ? b.map(
+                    (u, i) => `
+                      <option value="${i}">
+                        ${tr(
+                          "バッチ",
+                          "Batch"
+                        )}
+                        ${i + 1}/${b.length}
+                        — ${u.length} URLs
+                      </option>
+                    `
+                  ).join("")
+                : '<option value="0">0 URLs</option>'}
+
             </select>
+
           </div>
 
           <div class="lh-actionrow">
+
             <button
               type="button"
-              id="lh-batchopen"
+              data-action="research"
               class="lh-btn lh-secondary"
             >
-              ${tt(
+              ${tr(
                 "選択バッチをAIで研究",
-                "Research selected batch in AI"
+                "Research selected batch"
               )}
             </button>
 
             <button
               type="button"
-              id="lh-batchcopy"
+              data-action="researchcopy"
               class="lh-btn lh-secondary"
             >
-              ${tt(
+              ${tr(
                 "20URL研究指示をコピー",
-                "Copy 20-URL research prompt"
+                "Copy research prompt"
               )}
             </button>
+
           </div>
 
-          <p class="lh-note">
-            ${tt(
-              "API未接続では研究指示をコピーして選択AIを開きます。全バッチの自動解析・蓄積には別途サーバー側の研究APIが必要です。",
-              "Without a research API, this copies a single batch prompt and opens the selected AI. Automated processing of all batches requires a separate backend."
-            )}
-          </p>
         </div>
+
       </section>
 
       <section class="lh-section">
+
         <h3>
-          ${tt("施術概算", "Tattoo Estimate")}
+          ${tr(
+            "施術概算",
+            "Tattoo Estimate"
+          )}
         </h3>
 
         <div class="lh-stats">
 
           <div class="lh-stat">
+
             <span class="lh-label">
-              ${tt(
+              ${tr(
                 "想定施術時間",
                 "Estimated hours"
               )}
@@ -1518,11 +1708,13 @@ research with full source URLs.`
             <strong id="lh-hours">
               ${e.low}〜${e.high}h
             </strong>
+
           </div>
 
           <div class="lh-stat">
+
             <span class="lh-label">
-              ${tt(
+              ${tr(
                 "参考料金（税抜）",
                 "Estimate before tax"
               )}
@@ -1531,57 +1723,75 @@ research with full source URLs.`
             <strong id="lh-price">
               ¥${fmt(e.min)}〜¥${fmt(e.max)}
             </strong>
+
           </div>
+
         </div>
 
         <p class="lh-note">
-          ${tt(
-            "時間彫り15,000円／時間（税抜）の参考試算。実際の施術内容に基づいて個別見積もりします。",
-            "JPY 15,000 per hour excluding tax. This estimate is illustrative; actual fees are quoted individually."
+          ${tr(
+            "15,000円／時間（税抜）の参考試算。実際の料金は個別見積もりです。",
+            "JPY 15,000/hour before tax. This is an illustrative estimate."
           )}
         </p>
+
       </section>
 
       <section class="lh-section">
+
         <h3>
-          ${tt(
+          ${tr(
             "美術史・実作品",
             "Art History & Original Works"
           )}
         </h3>
 
         <div class="lh-history">
-          ${HISTORY.map(([jp, en, url]) => `
-            <a
-              href="${url}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ${escapeHtml(tt(jp, en))}
-            </a>
-          `).join("")}
+
+          ${HISTORY.map(
+            ([a, b, u]) => `
+              <a
+                href="${u}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ${esc(tr(a, b))}
+              </a>
+            `
+          ).join("")}
+
         </div>
+
       </section>
 
       <section class="lh-section">
+
         <h3>
-          ${tt("専門FAQ", "Specialist FAQ")}
+          ${tr(
+            "専門FAQ",
+            "Specialist FAQ"
+          )}
         </h3>
 
         <div class="lh-field">
+
           <label for="lh-search">
-            ${tt("FAQ検索", "Search questions")}
+            ${tr(
+              "FAQ検索",
+              "Search FAQ"
+            )}
           </label>
 
           <input
             type="search"
             id="lh-search"
-            value="${escapeHtml(state.faq)}"
-            placeholder="${tt(
+            value="${esc(state.faq)}"
+            placeholder="${tr(
               "鷹・料金・ブラックワークなど",
-              "hawk, pricing, blackwork..."
+              "hawk, pricing, blackwork"
             )}"
           >
+
         </div>
 
         <div
@@ -1591,53 +1801,58 @@ research with full source URLs.`
 
         <button
           type="button"
+          data-action="faqmore"
           class="lh-btn lh-secondary"
-          id="lh-showfaq"
-          style="margin-top:8px"
-        >
-          ${tt(
-            "全30件を表示",
-            "Show all 30 questions"
-          )}
-        </button>
+          id="lh-faqmore"
+        ></button>
 
         <p class="lh-note">
           <a
-            href="${REPO}loyal-faq"
+            href="${GH}loyal-faq"
             target="_blank"
             rel="noopener noreferrer"
           >
             LOYAL TATTOO MASTER FAQ
           </a>
         </p>
+
       </section>
     `;
 
     root.querySelectorAll(
       "select[data-field]"
-    ).forEach(el => {
-      el.value = state[el.dataset.field];
-    });
+    ).forEach(
+      n => {
+        n.value = state[n.dataset.field];
+      }
+    );
 
-    const batchSelect =
+    const batchControl =
       root.querySelector("#lh-batch");
 
-    if (batchSelect) {
-      batchSelect.value = String(state.batch);
+    if (batchControl) {
+      batchControl.value =
+        String(state.batch);
     }
 
-    updateSummary();
-    renderFaq();
+    summary();
+    showFAQ();
   }
 
-  function updateSummary() {
+  // =========================================
+  // LIVE SUMMARY
+  // =========================================
+
+  function summary() {
     if (!root) return;
 
-    const config =
-      root.querySelector("#lh-configuration");
+    const e = rateEstimate();
 
-    if (config) {
-      config.textContent = [
+    const cfg =
+      root.querySelector("#lh-config");
+
+    if (cfg) {
+      cfg.textContent = [
         state.pose,
         state.motif,
         state.style,
@@ -1645,119 +1860,155 @@ research with full source URLs.`
       ].join(" × ");
     }
 
-    const e = estimate();
-
-    const hours =
+    const h =
       root.querySelector("#lh-hours");
 
-    const price =
-      root.querySelector("#lh-price");
-
-    if (hours) {
-      hours.textContent =
+    if (h) {
+      h.textContent =
         `${e.low}〜${e.high}h`;
     }
 
-    if (price) {
-      price.textContent =
+    const p =
+      root.querySelector("#lh-price");
+
+    if (p) {
+      p.textContent =
         `¥${fmt(e.min)}〜¥${fmt(e.max)}`;
     }
   }
 
-  function status(text, failed = false) {
-    const el =
-      root && root.querySelector("#lh-status");
+  // =========================================
+  // STATUS
+  // =========================================
 
-    if (!el) return;
-
-    el.textContent = text;
-
-    el.style.color = failed
-      ? "#ffb1b1"
-      : "#e7ce8b";
-  }
-
-  function renderFaq() {
+  function status(
+    message,
+    isError = false
+  ) {
     if (!root) return;
 
-    const query = state.faq
-      .trim()
-      .toLocaleLowerCase();
+    const e =
+      root.querySelector("#lh-status");
 
-    const filtered = FAQ.filter(row =>
-      row.join(" ")
-        .toLocaleLowerCase()
-        .includes(query)
+    if (e) {
+      e.textContent = message;
+
+      e.style.color = isError
+        ? "#ffb1b1"
+        : "#edd28e";
+    }
+  }
+
+  // =========================================
+  // FAQ DISPLAY
+  // =========================================
+
+  function showFAQ() {
+    if (!root) return;
+
+    const q = state.faq
+      .toLocaleLowerCase()
+      .trim();
+
+    const results = FAQ.filter(
+      row =>
+        row.join(" ")
+          .toLocaleLowerCase()
+          .includes(q)
     );
 
-    const visible = state.faqAll
-      ? filtered
-      : filtered.slice(0, 5);
+    const items = state.faqAll
+      ? results
+      : results.slice(0, 5);
 
     const holder =
       root.querySelector("#lh-faqs");
 
     if (holder) {
-      holder.innerHTML = visible.map(r => `
-        <details class="lh-faq">
-          <summary>
-            ${escapeHtml(tt(r[0], r[1]))}
-          </summary>
+      holder.innerHTML = items.map(
+        r => `
+          <details class="lh-faq">
 
-          <p>
-            ${escapeHtml(tt(r[2], r[3]))}
-          </p>
-        </details>
-      `).join("") || `
+            <summary>
+              ${esc(tr(r[0], r[1]))}
+            </summary>
+
+            <p>
+              ${esc(tr(r[2], r[3]))}
+            </p>
+
+          </details>
+        `
+      ).join("") || `
         <p class="lh-note">
-          ${tt(
-            "一致する項目はありません。",
-            "No matching questions."
+          ${tr(
+            "一致する項目がありません。",
+            "No matching question."
           )}
         </p>
       `;
     }
 
     const button =
-      root.querySelector("#lh-showfaq");
+      root.querySelector("#lh-faqmore");
 
     if (button) {
-      button.hidden = filtered.length <= 5;
+      button.hidden =
+        results.length <= 5;
 
       button.textContent = state.faqAll
-        ? tt("表示を少なくする", "Show fewer")
-        : tt(
-            `全${filtered.length}件を表示`,
-            `Show all ${filtered.length}`
+        ? tr(
+            "表示を減らす",
+            "Show fewer"
+          )
+        : tr(
+            `全${results.length}件を表示`,
+            `Show all ${results.length}`
           );
     }
   }
 
-  // =====================================
-  // CLIPBOARD + AI HANDOFF
-  // =====================================
+  // =========================================
+  // PROMPT DISPLAY
+  // =========================================
 
-  async function copyText(value) {
+  function expose(value) {
+    const e =
+      root.querySelector("#lh-prompt");
+
+    e.value = value;
+    e.style.display = "block";
+  }
+
+  // =========================================
+  // CLIPBOARD
+  // =========================================
+
+  async function copy(value) {
     try {
       if (
         navigator.clipboard &&
         window.isSecureContext
       ) {
-        await navigator.clipboard.writeText(value);
+        await navigator.clipboard.writeText(
+          value
+        );
+
         return true;
       }
     } catch (_) {}
 
-    const area =
+    const t =
       document.createElement("textarea");
 
-    area.value = value;
+    t.value = value;
 
-    area.style.cssText =
-      "position:fixed;left:-9999px;top:0;";
+    t.style.cssText =
+      "position:fixed;left:-9999px;top:0";
 
-    document.body.append(area);
-    area.select();
+    document.body.appendChild(t);
+
+    t.select();
 
     let ok = false;
 
@@ -1765,328 +2016,464 @@ research with full source URLs.`
       ok = document.execCommand("copy");
     } catch (_) {}
 
-    area.remove();
+    t.remove();
 
     return ok;
   }
 
-  function exposePrompt(prompt) {
-    const text =
-      root.querySelector("#lh-prompt");
+  // =========================================
+  // SELECTED AI
+  // =========================================
 
-    text.value = prompt;
-    text.style.display = "block";
+  const destination = () =>
+    state.provider === "GPT"
+      ? "https://chatgpt.com/"
+      : "https://gemini.google.com/app";
 
-    text.focus();
-    text.select();
-  }
+  // =========================================
+  // NATIVE APP HANDOFF
+  // =========================================
 
-  async function handoff(prompt) {
-    const destination =
-      state.provider === "GPT"
-        ? "https://chatgpt.com/"
-        : "https://gemini.google.com/app";
+  function nativeHandoff(value) {
+    const payload = {
+      title: "AI IHORI — LOYAL TATTOO",
+      text: value
+    };
 
-    window.open(
-      destination,
-      "_blank",
-      "noopener,noreferrer"
-    );
+    // Native OS sharing must be called
+    // synchronously from the user click.
 
-    const ok = await copyText(prompt);
+    if (
+      typeof navigator.share === "function" &&
+      window.isSecureContext
+    ) {
+      try {
+        const pending =
+          navigator.share(payload);
 
-    if (!ok) {
-      exposePrompt(prompt);
+        status(
+          tr(
+            "iPhoneの共有画面を開きました。受け取りと送信は選択したアプリ側で行われます。",
+            "Native share sheet opened. The receiving app handles import and submission."
+          )
+        );
+
+        Promise.resolve(pending).catch(
+          async error => {
+            if (
+              error &&
+              error.name === "AbortError"
+            ) {
+              status(
+                tr(
+                  "共有を取り消しました。",
+                  "Sharing cancelled."
+                )
+              );
+
+              return;
+            }
+
+            const ok =
+              await copy(value);
+
+            if (!ok) {
+              expose(value);
+            }
+
+            status(
+              tr(
+                "共有が利用できません。プロンプトをコピーしました。",
+                "Native sharing unavailable; prompt copied."
+              ),
+              !ok
+            );
+          }
+        );
+
+        return;
+      } catch (error) {
+        console.warn(
+          "[AI IHORI share]",
+          error
+        );
+      }
     }
 
-    status(
-      ok
-        ? tt(
-            "生成／研究指示をコピーしました。開いたAI画面に貼り付けて実行できます。",
-            "Copied. Paste the prompt into the AI tab to run it."
-          )
-        : tt(
-            "コピーが制限されました。下部に指示全文を表示しました。",
-            "Clipboard access was blocked. Full prompt is shown below."
-          )
+    // Standard sharing unavailable:
+    // copy and open selected service.
+
+    openSelected(value);
+  }
+
+  // =========================================
+  // COPY + OPEN SELECTED AI
+  // =========================================
+
+  function openSelected(value) {
+    const url = destination();
+
+    // Launch during the user click.
+    // Universal HTTPS links may open
+    // a native app depending on OS settings.
+
+    const opened =
+      window.open(
+        url,
+        "_blank",
+        "noopener,noreferrer"
+      );
+
+    if (!opened) {
+      status(
+        tr(
+          "AI画面の起動が制限されました。プロンプトをコピーします。",
+          "Opening AI was blocked. Copying prompt."
+        )
+      );
+    }
+
+    copy(value).then(
+      ok => {
+        if (!ok) {
+          expose(value);
+        }
+
+        status(
+          ok
+            ? tr(
+                "プロンプトをコピーしました。選択したAIへ貼り付けて実行できます。",
+                "Prompt copied. Paste and send in the selected AI."
+              )
+            : tr(
+                "プロンプトを下の欄に表示しました。",
+                "Prompt displayed below."
+              ),
+          !ok
+        );
+      }
     );
   }
 
-  // =====================================
-  // OPTIONAL IMAGE API EXECUTION
-  // =====================================
+  // =========================================
+  // IMAGE GENERATION
+  // =========================================
 
   async function generate() {
-    const prompt = buildPrompt();
+    const value = prompt();
 
     const endpoint =
       window.LOYAL_HAWK_IMAGE_ENDPOINT;
 
+    // Native or browser handoff mode.
+
     if (!endpoint) {
-      return handoff(prompt);
+      nativeHandoff(value);
+      return;
     }
 
-    const button =
-      root.querySelector("#lh-generate");
+    // Optional direct API mode.
 
-    const serial = ++requestId;
+    const btn =
+      root.querySelector(
+        '[data-action="generate"]'
+      );
 
-    button.disabled = true;
+    const token = ++taskNumber;
+
+    btn.disabled = true;
 
     status(
-      tt(
-        "画像生成APIに接続しています。",
-        "Connecting to image API..."
+      tr(
+        "原画生成APIを実行しています。",
+        "Generating via image API..."
       )
     );
 
     try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          provider: state.provider,
-          prompt,
-          images: chosenRefs().map(r => r.img),
-          references: selectedPromptUrls(),
-          spec: {
-            pose: state.pose,
-            motif: state.motif,
-            style: state.style,
-            place: state.place,
-            density: state.density
-          }
-        })
-      });
+      const response = await fetch(
+        endpoint,
+        {
+          method: "POST",
 
-      const body = await response.json();
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify({
+            provider: state.provider,
+            prompt: value,
+
+            images:
+              refList().map(r => r.img),
+
+            references:
+              promptSources(),
+
+            spec: {
+              pose: state.pose,
+              motif: state.motif,
+              style: state.style,
+              place: state.place,
+              density: state.density
+            }
+          })
+        }
+      );
+
+      const data = await response.json();
 
       if (!response.ok) {
         throw new Error(
-          body.error || String(response.status)
+          data.error ||
+          `HTTP ${response.status}`
         );
       }
 
-      if (serial !== requestId) return;
-
-      const url = body.imageBase64
-        ? "data:image/png;base64," +
-          body.imageBase64
-        : body.imageUrl;
-
-      if (
-        !url ||
-        !(
-          url.startsWith(
-            "data:image/png;base64,"
-          ) ||
-          url.startsWith("https://")
-        )
-      ) {
-        throw new Error("Image data missing");
+      if (token !== taskNumber) {
+        return;
       }
 
-      const box =
-        root.querySelector("#lh-preview");
+      const src = data.imageBase64
+        ? "data:image/png;base64," +
+          data.imageBase64
+        : data.imageUrl;
 
-      box.textContent = "";
+      if (
+        typeof src !== "string" ||
+        !(
+          src.startsWith(
+            "data:image/png;base64,"
+          ) ||
+          src.startsWith("https://")
+        )
+      ) {
+        throw new Error(
+          "Missing image data"
+        );
+      }
 
-      const image =
+      const output =
+        root.querySelector("#lh-output");
+
+      output.textContent = "";
+
+      const img =
         document.createElement("img");
 
-      image.alt =
-        "AI Ihori generated hawk tattoo drawing";
+      img.alt =
+        "AI Ihori generated hawk tattoo design";
 
-      image.src = url;
+      img.src = src;
 
-      box.append(image);
+      output.appendChild(img);
 
       status(
-        tt(
-          "原画の生成結果を表示しました。",
-          "Artwork generated."
+        tr(
+          "生成画像を表示しました。",
+          "Generated artwork displayed."
         )
       );
 
     } catch (error) {
+      expose(value);
+
       status(
-        tt(
-          "画像生成API接続エラー: ",
+        tr(
+          "画像生成APIエラー: ",
           "Image API error: "
         ) +
-          String(error.message || error),
+          String(
+            error.message || error
+          ),
         true
       );
 
-      exposePrompt(prompt);
-
     } finally {
-      button.disabled = false;
+      btn.disabled = false;
     }
   }
 
-  // =====================================
-  // UI EVENTS
-  // =====================================
+  // =========================================
+  // CLICK EVENTS
+  // =========================================
 
-  function onRootChange(event) {
-    const el = event.target;
-
-    if (el.dataset.field) {
-      state[el.dataset.field] = el.value;
-      updateSummary();
-      return;
-    }
-
-    if (el.dataset.ref) {
-      if (el.checked) {
-        state.refs.add(el.dataset.ref);
-      } else {
-        state.refs.delete(el.dataset.ref);
-      }
-
-      render();
-      return;
-    }
-
-    if (el.dataset.source) {
-      state.source[el.dataset.source] =
-        el.checked;
-
-      state.batch = 0;
-      render();
-      return;
-    }
-
-    if (el.id === "lh-batch") {
-      state.batch = Number(el.value) || 0;
-    }
-  }
-
-  function onRootClick(event) {
-    const button =
+  function handleClick(event) {
+    const btn =
       event.target.closest("button");
 
-    if (!button) return;
+    if (
+      !btn ||
+      !root.contains(btn)
+    ) return;
 
-    if (button.id === "lh-language") {
-      state.lang =
-        state.lang === "ja" ? "en" : "ja";
-
-      render();
-      return;
-    }
-
-    if (button.dataset.density) {
+    if (btn.dataset.density) {
       state.density =
-        button.dataset.density;
+        btn.dataset.density;
 
-      render();
+      show();
       return;
     }
 
-    if (button.dataset.provider) {
+    if (btn.dataset.provider) {
       state.provider =
-        button.dataset.provider;
+        btn.dataset.provider;
 
-      render();
+      show();
       return;
     }
 
-    if (button.id === "lh-generate") {
+    const cmd =
+      btn.dataset.action;
+
+    if (cmd === "language") {
+      state.lang =
+        state.lang === "ja"
+          ? "en"
+          : "ja";
+
+      show();
+      return;
+    }
+
+    if (cmd === "generate") {
       generate();
       return;
     }
 
-    if (button.id === "lh-copy") {
-      copyText(buildPrompt()).then(ok => {
-        status(
-          ok
-            ? tt("コピーしました。", "Copied.")
-            : tt(
-                "コピーを許可できませんでした。",
-                "Clipboard unavailable."
-              ),
-          !ok
-        );
-      });
+    if (cmd === "open") {
+      openSelected(prompt());
+      return;
+    }
+
+    if (cmd === "copy") {
+      const v = prompt();
+
+      copy(v).then(
+        ok => {
+          if (!ok) {
+            expose(v);
+          }
+
+          status(
+            ok
+              ? tr(
+                  "プロンプトをコピーしました。",
+                  "Prompt copied."
+                )
+              : tr(
+                  "コピーできません。下部に全文を表示しました。",
+                  "Clipboard unavailable; full prompt displayed."
+                ),
+            !ok
+          );
+        }
+      );
 
       return;
     }
 
-    if (button.id === "lh-detail") {
-      const el =
+    if (cmd === "detail") {
+      const box =
         root.querySelector("#lh-prompt");
 
-      el.value = buildPrompt();
+      box.value = prompt();
 
-      el.style.display =
-        el.style.display === "block"
+      box.style.display =
+        box.style.display === "block"
           ? "none"
           : "block";
 
       return;
     }
 
-    if (button.id === "lh-batchcopy") {
-      copyText(
-        buildResearchPrompt()
-      ).then(ok => {
-        status(
-          ok
-            ? tt(
-                "研究指示をコピーしました。",
-                "Research prompt copied."
-              )
-            : tt(
-                "コピーを許可できませんでした。",
-                "Clipboard unavailable."
-              ),
-          !ok
-        );
-      });
+    if (cmd === "research") {
+      nativeHandoff(
+        researchPrompt()
+      );
 
       return;
     }
 
-    if (button.id === "lh-batchopen") {
-      handoff(buildResearchPrompt());
+    if (cmd === "researchcopy") {
+      const v = researchPrompt();
+
+      copy(v).then(
+        ok => {
+          if (!ok) {
+            expose(v);
+          }
+
+          status(
+            ok
+              ? tr(
+                  "研究指示をコピーしました。",
+                  "Research prompt copied."
+                )
+              : tr(
+                  "コピーできません。研究指示を表示しました。",
+                  "Copy blocked; research text displayed."
+                ),
+            !ok
+          );
+        }
+      );
+
       return;
     }
 
-    if (button.id === "lh-showfaq") {
-      state.faqAll = !state.faqAll;
-      renderFaq();
+    if (cmd === "faqmore") {
+      state.faqAll =
+        !state.faqAll;
+
+      showFAQ();
     }
   }
 
-  // =====================================
-  // STYLE INITIALIZATION
-  // =====================================
+  // =========================================
+  // CHANGE EVENTS
+  // =========================================
 
-  function ensureStyles() {
-    if (
-      document.getElementById(
-        "lh-v51-css"
-      )
-    ) return;
+  function handleChange(event) {
+    const t = event.target;
 
-    const node =
-      document.createElement("style");
+    if (t.dataset.field) {
+      state[t.dataset.field] = t.value;
+      summary();
+      return;
+    }
 
-    node.id = "lh-v51-css";
-    node.textContent = css;
+    if (t.dataset.ref) {
+      if (t.checked) {
+        state.refs.add(t.dataset.ref);
+      } else {
+        state.refs.delete(t.dataset.ref);
+      }
 
-    document.head.append(node);
+      show();
+      return;
+    }
+
+    if (t.dataset.source) {
+      state.source[t.dataset.source] =
+        t.checked;
+
+      state.batch = 0;
+      show();
+      return;
+    }
+
+    if (t.id === "lh-batch") {
+      state.batch =
+        Number(t.value) || 0;
+    }
   }
 
-  // =====================================
-  // ARTICLE PLACEMENT
-  // =====================================
+  // =========================================
+  // ARTICLE INSERTION ANCHOR
+  // =========================================
 
-  function chooseAnchor() {
+  function anchor() {
     const selectors = [
       "article p",
       "main p",
@@ -2105,31 +2492,27 @@ research with full source URLs.`
         const el of
         document.querySelectorAll(selector)
       ) {
-        if (seen.has(el)) continue;
-
-        seen.add(el);
-
         if (
+          seen.has(el) ||
           el.closest(
             "#lh-app,nav,header,footer"
           )
         ) continue;
 
+        seen.add(el);
+
         if (
-          el.textContent.trim() === "—" &&
-          el.parentElement
+          el.textContent.trim() === "—"
         ) {
-          const block =
-            el.closest("p") || el;
+          const inside =
+            el.querySelector("p");
 
           if (
-            block.textContent.trim() === "—" &&
-            !block.closest(
-              "#lh-app,nav,header,footer"
-            )
-          ) {
-            return block;
-          }
+            inside &&
+            inside.textContent.trim() === "—"
+          ) continue;
+
+          return el;
         }
       }
     }
@@ -2139,91 +2522,98 @@ research with full source URLs.`
     );
   }
 
-  // =====================================
-  // OFFICIAL SITEMAP DISCOVERY
-  // =====================================
+  // =========================================
+  // SITEMAP COLLECTION
+  // =========================================
 
-  async function loadSitemaps() {
-    const discovered = new Set();
-    const visited = new Set();
+  async function collectSiteMap() {
+    const found = new Set();
+    const seen = new Set();
 
-    function inHost(url) {
-      try {
-        const u = new URL(url, HOME);
-
-        return (
-          u.protocol === "https:" &&
-          u.hostname === HOST
-        )
-          ? u.href
-          : null;
-
-      } catch {
-        return null;
-      }
-    }
-
-    async function walk(url, depth) {
+    async function walk(
+      url,
+      depth
+    ) {
       if (
-        depth > 3 ||
-        visited.size >= 12 ||
-        visited.has(url)
+        depth > 4 ||
+        seen.size >= 20 ||
+        seen.has(url)
       ) return;
 
-      visited.add(url);
+      seen.add(url);
 
-      const response = await fetch(url, {
-        credentials: "same-origin",
-        signal: AbortSignal.timeout(12000)
-      });
+      const response = await fetch(
+        url,
+        {
+          credentials: "same-origin",
+          signal:
+            AbortSignal.timeout(14000)
+        }
+      );
 
       if (!response.ok) {
         throw new Error(
-          `HTTP ${response.status}`
+          String(response.status)
         );
       }
 
-      const documentXML =
+      const doc =
         new DOMParser().parseFromString(
           await response.text(),
-          "text/xml"
+          "application/xml"
         );
 
       if (
-        documentXML.querySelector(
-          "parsererror"
-        )
+        doc.querySelector("parsererror")
       ) {
         throw new Error(
-          "XML parsing failed"
+          "Sitemap XML parse error"
         );
       }
 
-      const locations = Array.from(
-        documentXML.getElementsByTagName(
-          "loc"
-        )
-      )
-        .map(el =>
-          inHost(el.textContent.trim())
-        )
-        .filter(Boolean);
+      const locs = [
+        ...doc.getElementsByTagName("loc")
+      ].map(
+        x => {
+          try {
+            const u = new URL(
+              x.textContent.trim(),
+              HOME
+            );
+
+            return (
+              u.protocol === "https:" &&
+              u.hostname === HOST
+            )
+              ? u.href
+              : null;
+
+          } catch (_) {
+            return null;
+          }
+        }
+      ).filter(Boolean);
 
       if (
-        documentXML.documentElement.localName ===
+        doc.documentElement.localName ===
         "sitemapindex"
       ) {
-        for (const sub of locations) {
-          await walk(sub, depth + 1);
+        for (const u of locs) {
+          await walk(
+            u,
+            depth + 1
+          );
         }
 
       } else if (
-        documentXML.documentElement.localName ===
+        doc.documentElement.localName ===
         "urlset"
       ) {
-        for (const loc of locations) {
-          if (discovered.size < 50000) {
-            discovered.add(loc);
+        for (const u of locs) {
+          if (
+            found.size < 50000
+          ) {
+            found.add(u);
           }
         }
       }
@@ -2236,77 +2626,37 @@ research with full source URLs.`
       );
 
       state.sitemapUrls = [
-        ...discovered
+        ...found
       ];
 
-      state.sitemapStatus = tt(
-        `公式サイトマップから${discovered.size}件のURLを取得しました。`,
-        `Loaded ${discovered.size} URLs from the official sitemap.`
+      state.sitemapStatus = tr(
+        `公式サイトマップ：${found.size}件取得`,
+        `Official sitemap: ${found.size} URLs loaded`
       );
 
-    } catch (error) {
-      state.sitemapStatus = tt(
-        "サイトマップの取得を確認できませんでした。既知の公式資料を使用します。",
-        "Sitemap unavailable. Using verified known source URLs."
+    } catch (e) {
+      state.sitemapStatus = tr(
+        "サイトマップ取得を確認できませんでした。既知の資料を利用します。",
+        "Sitemap unavailable; using known sources."
       );
 
       console.warn(
-        "[AI IHORI] Sitemap:",
-        String(error)
+        "[AI IHORI sitemap]",
+        e
       );
     }
 
-    const count =
+    if (
       root &&
-      root.querySelector("#lh-urlcount");
-
-    const batchCount =
-      root &&
-      root.querySelector("#lh-batchcount");
-
-    if (count) {
-      count.textContent =
-        sourceQueue().length;
-    }
-
-    if (batchCount) {
-      batchCount.textContent =
-        batches().length;
-    }
-
-    const statusNode =
-      root &&
-      root.querySelector("#lh-indexstatus");
-
-    if (statusNode) {
-      statusNode.textContent =
-        state.sitemapStatus;
-    }
-
-    const batchSelect =
-      root &&
-      root.querySelector("#lh-batch");
-
-    if (batchSelect) {
-      const list = batches();
-
-      batchSelect.innerHTML =
-        list.map((urls, i) => `
-          <option value="${i}">
-            ${tt("バッチ", "Batch")}
-            ${i + 1} / ${list.length}
-            — ${urls.length} URLs
-          </option>
-        `).join("");
-
-      batchSelect.value =
-        String(state.batch);
+      root.isConnected
+    ) {
+      show();
     }
   }
 
-  // =====================================
+  // =========================================
   // MOUNT
-  // =====================================
+  // =========================================
 
   function mount() {
     if (
@@ -2314,14 +2664,28 @@ research with full source URLs.`
       root.isConnected
     ) return true;
 
-    const anchor = chooseAnchor();
+    const point = anchor();
 
     if (
-      !anchor ||
-      !anchor.parentNode
+      !point ||
+      !point.parentNode
     ) return false;
 
-    ensureStyles();
+    if (
+      !document.getElementById(
+        "lh-v52-style"
+      )
+    ) {
+      const style =
+        document.createElement("style");
+
+      style.id =
+        "lh-v52-style";
+
+      style.textContent = CSS;
+
+      document.head.append(style);
+    }
 
     root =
       document.createElement("section");
@@ -2333,75 +2697,61 @@ research with full source URLs.`
       "AI Ihori Hawk Tattoo Simulator"
     );
 
-    // Preserve free text above "—".
-    // Insert immediately after the marker.
-
-    anchor.insertAdjacentElement(
+    point.insertAdjacentElement(
       "afterend",
       root
     );
 
     root.addEventListener(
-      "change",
-      onRootChange
+      "click",
+      handleClick
     );
 
     root.addEventListener(
-      "click",
-      onRootClick
+      "change",
+      handleChange
     );
 
     root.addEventListener(
       "input",
-      event => {
+      e => {
         if (
-          event.target.id ===
-          "lh-search"
+          e.target.id === "lh-search"
         ) {
           state.faq =
-            event.target.value;
+            e.target.value;
 
-          renderFaq();
+          showFAQ();
         }
       }
     );
 
-    render();
-
-    state.sitemapStatus = tt(
-      "公式サイトマップを取得中です。",
-      "Loading official sitemap..."
+    state.sitemapStatus = tr(
+      "公式サイトマップの取得を開始します。",
+      "Loading official sitemap."
     );
 
-    const statusNode =
-      root.querySelector(
-        "#lh-indexstatus"
-      );
-
-    if (statusNode) {
-      statusNode.textContent =
-        state.sitemapStatus;
-    }
-
-    loadSitemaps();
+    show();
+    collectSiteMap();
 
     return true;
   }
 
-  // =====================================
-  // BOOTSTRAP
-  // =====================================
+  // =========================================
+  // BOOT
+  // =========================================
 
   if (!mount()) {
-    const watcher = new MutationObserver(
-      () => {
-        if (mount()) {
-          watcher.disconnect();
+    const observer =
+      new MutationObserver(
+        () => {
+          if (mount()) {
+            observer.disconnect();
+          }
         }
-      }
-    );
+      );
 
-    watcher.observe(
+    observer.observe(
       document.documentElement,
       {
         childList: true,
@@ -2413,7 +2763,7 @@ research with full source URLs.`
       "DOMContentLoaded",
       () => {
         if (mount()) {
-          watcher.disconnect();
+          observer.disconnect();
         }
       },
       { once: true }
@@ -2423,43 +2773,49 @@ research with full source URLs.`
       "load",
       () => {
         if (mount()) {
-          watcher.disconnect();
+          observer.disconnect();
         }
       },
       { once: true }
     );
 
-    setTimeout(() => {
-      watcher.disconnect();
+    setTimeout(
+      () => {
+        observer.disconnect();
 
-      if (!root) {
-        console.warn(
-          "[AI IHORI] Placement dash (—) not found on the target article."
-        );
-      }
-    }, 25000);
+        if (!root) {
+          console.warn(
+            "[AI IHORI] Standalone — was not found."
+          );
+        }
+      },
+      25000
+    );
   }
 
-  // =====================================
+  // =========================================
   // PUBLIC API
-  // =====================================
+  // =========================================
 
   window.LOYAL_IHORI_HAWK = {
-    version: "5.1",
+    version: "5.2",
 
     references: REFS,
 
-    buildPrompt,
+    buildPrompt: prompt,
 
-    buildResearchPrompt,
+    buildResearchPrompt:
+      researchPrompt,
+
+    sourceQueue: queue,
 
     getState: () => ({
       ...state,
       refs: [...state.refs],
-      source: { ...state.source }
-    }),
-
-    sourceQueue
+      source: {
+        ...state.source
+      }
+    })
   };
 
 })();
