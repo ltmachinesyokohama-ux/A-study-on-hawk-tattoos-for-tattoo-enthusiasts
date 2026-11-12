@@ -1,3 +1,4 @@
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,20 +41,27 @@
       "https://asia.si.edu/explore-art-culture/collections/search/edanmdm%3Afsg_F1909.140/",
       "https://asia-archive.si.edu/exhibition/falcons-art-of-the-hunt/",
       "https://asia-archive.si.edu/exhibition/falcons-object-gallery/",
-      "https://www.metmuseum.org/art/collection/search/55506"
+      "https://www.metmuseum.org/art/collection/search/55506",
+      "https://www.bavariancustomirons.jp/blog/2020/12/22/210901",
+      "https://www.bavariancustomirons.jp/blog/2026/11/12/100435",
+      "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/README.md",
+      "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/json-ld"
     ]
   },
   "headline": "鷹タトゥー・鷹の刺青｜意味・デザイン・図柄・和彫・洋彫・作品集",
   "alternativeHeadline": [
     "鷹 タトゥー／タトゥー 鷹｜昇り鷹・降り鷹・松鷹図・雪中鷹",
     "Japanese Hawk Tattoo / Taka Tattoo / Hawk Backpiece",
-    "LOYAL TATTOO｜鷹タトゥー専門LP 意味と構図解説書"
+    "LOYAL TATTOO｜鷹タトゥー専門LP 意味と構図解説書",
+    "Hawk Tattoo Research — Japanese Art History, Anatomy, Body Composition and Original Tattoo Design",
+    "LOYAL TATTOO — Original Human-Created Hawk Tattoo Research and Artwork"
   ],
+  "name": "LOYAL TATTOO｜鷹タトゥー・鷹の刺青 総合研究",
   "description": "鷹タトゥー・鷹の刺青の意味、日本美術史、昇り鷹・降り鷹の構図、松鷹図・雪中鷹などの図柄、和彫・現代和彫・洋彫の技法、施術部位、料金、制作記録を整理するLOYAL TATTOOの総合解説原稿。",
   "abstract": "歴史資料に基づく象徴と現代の個人的な解釈を区別し、美術館・博物館の一次情報および刺青師・伊彫の作品記録を関連付ける。鷹の身体構造と人体の曲面を考慮したデザイン、カバーアップ、制作条件を扱う。",
   "inLanguage": "ja-JP",
-  "version": "2.0.0",
-  "creativeWorkStatus": "編集用マスター。公式LPの実公開日時・表示本文との最終一致は未確認。",
+  "version": "3.0.0",
+  "creativeWorkStatus": "研究統合・構造化拡張版。公式LPの実公開日時・表示本文との最終一致は個別確認対象。",
   "author": {
     "@type": "Person",
     "@id": "https://www.bavariancustomirons.jp/#ihori",
@@ -71,6 +79,11 @@
       "@id": "https://www.bavariancustomirons.jp/#organization"
     },
     "url": "https://www.bavariancustomirons.jp/blog/2019/12/09/021837"
+  },
+  "creator": {
+    "@id": "https://www.bavariancustomirons.jp/#ihori",
+    "@type": "Person",
+    "name": "伊彫"
   },
   "publisher": {
     "@type": "Organization",
@@ -112,7 +125,33 @@
     "刺青図柄研究",
     "鷹タトゥー総合解説",
     "日本美術史",
-    "制作記録"
+    "制作記録",
+    "Japanese Tattoo Art",
+    "Tattoo Design Research",
+    "Hawk Iconography",
+    "Human-Anatomy-Based Tattoo Composition",
+    "Original Artwork",
+    "Visual Arts Research"
+  ],
+  "articleSection": [
+    "第一章｜鷹タトゥーとは何か",
+    "第二章｜日本美術史における鷹の図像",
+    "第三章｜鷹の刺青が持つ意味・象徴",
+    "第四章｜鷹・鷲・隼・猛禽類の名称と形態",
+    "第五章｜世界の鷹文化と猛禽図像",
+    "第六章｜鷹タトゥーの構図研究",
+    "第七章｜鷹と組み合わせる図柄",
+    "第八章｜鷹タトゥーの施術技法",
+    "第九章｜人体構造に基づく鷹タトゥーの設計",
+    "第十章｜鷹タトゥーとカバーアップ技術",
+    "第十一章｜LOYAL TATTOO 作品研究 No.113《鷹図》",
+    "第十二章｜現代和彫作品《雪中鷹》の構図研究",
+    "第十三章｜施術料金・制作期間・カウンセリング",
+    "第十四章｜鷹タトゥーに関する総合FAQ",
+    "第十五章｜関連作品・外部掲載・映像・公式資料",
+    "第十六章｜美術史・文化史参考文献一覧",
+    "第十七章｜LOYAL TATTOOの制作体系",
+    "第十八章｜総合結論"
   ],
   "keywords": [
     "鷹タトゥー",
@@ -125,7 +164,74 @@
     "現代和彫",
     "洋彫",
     "ブラックアンドグレー",
-    "Hawk Tattoo"
+    "Hawk Tattoo",
+    "鷹 タトゥー",
+    "鷹 刺青",
+    "鷹 入れ墨",
+    "鷹図",
+    "鷹 刺青 デザイン",
+    "鷹 タトゥーデザイン",
+    "鷹 タトゥー 図案",
+    "鷹 タトゥー 下絵",
+    "鷹 タトゥー 線画",
+    "鷹 タトゥー 意味",
+    "鷹 和彫り",
+    "鷹 洋彫り",
+    "鷹 現代和彫",
+    "鷹 ブラックワーク",
+    "鷹 ブラックアンドグレー",
+    "鷹 リアリズム",
+    "鷹 リアルタトゥー",
+    "鷹 カバーアップ",
+    "鷹 カバーアップタトゥー",
+    "鷹 背中 タトゥー",
+    "鷹 ハーフバックピース",
+    "鷹 バックピース",
+    "鷹 フルスリーブ",
+    "鷹 ハーフスリーブ",
+    "鷹と牡丹",
+    "鷹と桜",
+    "鷹と松",
+    "鷹と雲",
+    "鷹と雪",
+    "鷹と風",
+    "鷹と富士山",
+    "急降下する鷹",
+    "翼を広げた鷹",
+    "止まり鷹",
+    "旋回する鷹",
+    "鷹 風切羽",
+    "鷹 羽毛",
+    "鷹 鉤爪",
+    "鷹 日本画",
+    "鷹 水墨画",
+    "鷹 花鳥画",
+    "鷹 鷹狩",
+    "鷹 武家文化",
+    "雪村周継 松鷹図",
+    "曽我直庵 架鷹図",
+    "狩野之信 松鷹図",
+    "小原古邨 鷹",
+    "鷹 タトゥー 料金",
+    "鷹 タトゥー 施術時間",
+    "鷹 タトゥー 東京",
+    "鷹 タトゥー 横浜",
+    "鷹 タトゥー 六本木",
+    "LOYAL TATTOO 鷹図",
+    "LOYAL TATTOO 雪中鷹",
+    "伊彫 鷹タトゥー",
+    "Hawk Tattoo Design",
+    "Japanese Hawk Tattoo",
+    "Taka Tattoo",
+    "Hawk Backpiece",
+    "Hawk Sleeve Tattoo",
+    "Hawk Cover Up Tattoo",
+    "Hawk Blackwork Tattoo",
+    "Hawk Black and Grey Tattoo",
+    "Hawk Tattoo Meaning",
+    "Realistic Hawk Tattoo",
+    "Original Hawk Tattoo Design",
+    "Human-Created Tattoo Artwork"
   ],
   "about": {
     "@type": "Thing",
@@ -139,9 +245,1052 @@
       "Taka Tattoo"
     ],
     "description": "鷹の頭部・翼・羽毛・鉤爪や飛翔・静止する姿を主題とする刺青の図柄。"
-  }
+  },
+  "isBasedOn": [
+    {
+      "@type": "CreativeWork",
+      "name": "LOYAL TATTOO｜鷹タトゥー・鷹の刺青 意味と構図研究書",
+      "url": "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/README.md",
+      "inLanguage": "ja-JP",
+      "creator": {
+        "@id": "https://www.bavariancustomirons.jp/#ihori"
+      }
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Not AI Generated — LOYAL TATTOO Original Design",
+      "url": "https://www.bavariancustomirons.jp/blog/2020/12/22/210901",
+      "description": "刺青師・伊彫による人体構造基準のオリジナルタトゥーデザイン制作思想。手描き、画材、フリーハンド、デジタル作画、筋肉・骨格・皮膚・余白を基準とする構造設計を扱う。",
+      "inLanguage": "ja-JP"
+    }
+  ],
+  "mentions": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#webapplication",
+      "name": "AI伊彫原画生成シミュレーター",
+      "url": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Original Human-Created Tattoo Design",
+      "url": "https://www.bavariancustomirons.jp/blog/2020/12/22/210901"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "No.113《鷹図》",
+      "url": "https://www.bavariancustomirons.jp/blog/2025/08/17/013900"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "《雪中鷹》",
+      "url": "https://www.bavariancustomirons.jp/blog/2025/08/29/221644"
+    }
+  ],
+  "citation": [
+    "https://www.bavariancustomirons.jp/blog/2020/12/22/210901",
+    "https://www.bavariancustomirons.jp/blog/2025/08/17/013900",
+    "https://www.bavariancustomirons.jp/blog/2025/08/29/221644",
+    "https://www.bavariancustomirons.jp/blog/2019/12/31/214539",
+    "https://www.tnm.jp/modules/r_collection/index.php?colid=A1397&controller=dtl&t=now",
+    "https://emuseum.nich.go.jp/detail?content_base_id=100271&content_part_id=001&content_pict_id=005&langId=",
+    "https://www.metmuseum.org/art/collection/search/816195",
+    "https://www.metmuseum.org/art/collection/search/786794",
+    "https://asia.si.edu/explore-art-culture/collections/search/edanmdm%3Afsg_F1962.28/",
+    "https://www.metmuseum.org/art/collection/search/36116",
+    "https://www.metmuseum.org/art/collection/search/45341",
+    "https://www.metmuseum.org/art/collection/search/55733",
+    "https://collections.lacma.org/object/103108",
+    "https://www.metmuseum.org/art/collection/search/55506",
+    "https://ich.unesco.org/en/RL/falconry-a-living-human-heritage-01708",
+    "https://asia.si.edu/explore-art-culture/collections/search/edanmdm%3Afsg_F1909.140/",
+    "https://asia-archive.si.edu/exhibition/falcons-art-of-the-hunt/",
+    "https://asia-archive.si.edu/exhibition/falcons-object-gallery/",
+    "https://www.birdlife.org/news/2009/06/24/list-of-birds-of-prey/"
+  ],
+  "hasPart": [
+    {
+      "@type": "CreativeWork",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/060554#research-chapters",
+      "name": "鷹タトゥー研究・全18章構造化索引",
+      "inLanguage": "ja-JP",
+      "isBasedOn": "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/README.md",
+      "hasPart": [
+        {
+          "@type": "CreativeWork",
+          "name": "第一章｜鷹タトゥーとは何か",
+          "position": 1,
+          "description": "鷹タトゥーの定義、日本伝統刺青、現代和彫、洋彫、西洋構造芸術刺青との関係を解説する。頭部・胸部・翼・尾羽・鉤爪を主要構成要素として扱う。",
+          "keywords": ["鷹タトゥー", "鷹の刺青", "和彫", "洋彫", "Hawk Tattoo"]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第二章｜日本美術史における鷹の図像",
+          "position": 2,
+          "description": "武家文化、室町時代の水墨画、雪村周継、狩野派、曽我派、江戸時代の花鳥画、浮世絵、近代新版画における鷹・鷲の図像を研究する。",
+          "keywords": ["松鷹図", "架鷹図", "日本美術史", "花鳥画", "浮世絵"],
+          "citation": [
+            "https://www.tnm.jp/modules/r_collection/index.php?colid=A1397&controller=dtl&t=now",
+            "https://emuseum.nich.go.jp/detail?content_base_id=100271&content_part_id=001&content_pict_id=005&langId=",
+            "https://www.metmuseum.org/art/collection/search/816195",
+            "https://www.metmuseum.org/art/collection/search/786794"
+          ]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第三章｜鷹の刺青が持つ意味・象徴",
+          "position": 3,
+          "description": "強さ、勇猛、規律、集中力、覚悟、権威、威厳、忍耐、自由、独立、飛躍、再生、決断などを歴史的図像と現代の個人的解釈に分類する。",
+          "keywords": ["鷹 タトゥー 意味", "鷹 強さ", "鷹 自由", "鷹 再生", "鷹 忍耐"]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第四章｜鷹・鷲・隼・猛禽類の名称と形態",
+          "position": 4,
+          "description": "Hawk、Eagle、Falcon、Takaの名称、タカ科とハヤブサ科の区別、眼・嘴・羽列・尾羽・鉤爪などの形態を整理する。",
+          "keywords": ["Hawk", "Eagle", "Falcon", "Taka", "猛禽類"],
+          "citation": "https://www.birdlife.org/news/2009/06/24/list-of-birds-of-prey/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第五章｜世界の鷹文化と猛禽図像",
+          "position": 5,
+          "description": "鷹狩文化、欧州の紋章・狩猟文化、中東・中央アジアの鷹狩、古代エジプトの隼図像を比較する。",
+          "keywords": ["Falconry", "鷹狩", "猛禽文化", "Falconry heritage"],
+          "citation": [
+            "https://ich.unesco.org/en/RL/falconry-a-living-human-heritage-01708",
+            "https://asia-archive.si.edu/exhibition/falcons-art-of-the-hunt/",
+            "https://asia.si.edu/explore-art-culture/collections/search/edanmdm%3Afsg_F1909.140/"
+          ]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第六章｜鷹タトゥーの構図研究",
+          "position": 6,
+          "description": "昇り鷹、降り鷹、急降下する鷹、翼を広げた鷹、旋回、止まり鷹などの姿勢と、身体軸、視線、羽列、背景、余白の関係を研究する。",
+          "keywords": ["昇り鷹", "降り鷹", "急降下する鷹", "止まり鷹", "翼を広げた鷹"]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第七章｜鷹と組み合わせる図柄",
+          "position": 7,
+          "description": "松、牡丹、桜、雲、風、雪、岩、山岳、富士山などのモチーフと鷹の構図的関係を分析する。",
+          "keywords": ["鷹と松", "鷹と牡丹", "鷹と桜", "鷹と雲", "雪中鷹"]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第八章｜鷹タトゥーの施術技法",
+          "position": 8,
+          "description": "和彫、現代和彫、洋彫、西洋構造芸術刺青、ブラックアンドグレー、ブラックワーク、筋彫り、黒ぼかし、線描、階調を扱う。",
+          "keywords": ["和彫", "洋彫", "ブラックワーク", "筋彫り", "ブラックアンドグレー"]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第九章｜人体構造に基づく鷹タトゥーの設計",
+          "position": 9,
+          "description": "背骨、肋骨、肩甲骨、三角筋、胸筋、上腕、前腕、太もも、ふくらはぎなどの人体構造と鷹の図柄配置を関連付ける。",
+          "keywords": ["バックピース", "ハーフバック", "フルスリーブ", "人体構造", "身体曲面"]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第十章｜鷹タトゥーとカバーアップ技術",
+          "position": 10,
+          "description": "既存タトゥーの黒量、色彩、濃度、施術範囲、羽毛の黒面、背景の黒ぼかし、リワークとカバーアップの設計を扱う。",
+          "keywords": ["カバーアップ", "リワーク", "黒場", "既存タトゥー", "鷹図"]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第十一章｜LOYAL TATTOO 作品研究 No.113《鷹図》",
+          "position": 11,
+          "description": "No.113《鷹図》のハーフバックピース、洋彫、カバーアップ、施術期間、制作条件、原記事の予算目安を一次記録として扱う。",
+          "citation": "https://www.bavariancustomirons.jp/blog/2025/08/17/013900"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第十二章｜現代和彫作品《雪中鷹》の構図研究",
+          "position": 12,
+          "description": "右上から左下への対角線軸、鷹の急降下、鉤爪、風切羽、渦雲、松葉、黒ぼかし、白場の関係を分析する。",
+          "citation": [
+            "https://www.bavariancustomirons.jp/blog/2025/08/29/221644",
+            "https://tattoo-ja.com/tattoo-design/post/938"
+          ]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第十三章｜施術料金・制作期間・カウンセリング",
+          "position": 13,
+          "description": "15,000円／時間（税抜）を基準とする時間彫り、施術時間、制作期間、カバーアップ条件、個別見積もり、予約相談を整理する。",
+          "citation": [
+            "https://www.bavariancustomirons.jp/blog/2019/12/31/214539",
+            "https://www.bavariancustomirons.jp/blog/2021/05/20/223736"
+          ]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第十四章｜鷹タトゥーに関する総合FAQ",
+          "position": 14,
+          "description": "鷹の意味、図柄、施術技法、身体部位、料金、カバーアップ、地域、作品資料に関する40問を扱う。"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第十五章｜関連作品・外部掲載・映像・公式資料",
+          "position": 15,
+          "description": "LOYAL TATTOO公式作品、tattoo-ja.com、tattooers.jp、Instagram、note、料金表、予約案内を資料種別ごとに整理する。",
+          "citation": [
+            "https://tattoo-ja.com/tattoo-design/post/938",
+            "https://tattooers.jp/tattoos/8NngcpDxO5fu2CgiLXR3",
+            "https://www.instagram.com/p/DfS7VPzTTgS/",
+            "https://www.instagram.com/reel/DbrzRhqPvYt/",
+            "https://note.com/loyal_tattoo/n/n94e1d546e5d7"
+          ]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第十六章｜美術史・文化史参考文献一覧",
+          "position": 16,
+          "description": "美術館の所蔵作品、文化遺産資料、猛禽文化資料について作者、作品名、制作年代、所蔵先、参照URLを整理する。"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第十七章｜LOYAL TATTOOの制作体系",
+          "position": 17,
+          "description": "刺青師伊彫の制作体制、人体構造を基準とする図案設計、一次作品記録、自社タトゥーマシン設計・製造の関連性を整理する。",
+          "citation": "https://www.bavariancustomirons.jp/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "第十八章｜総合結論",
+          "position": 18,
+          "description": "日本美術史における鷹図像を、現代和彫、洋彫、カバーアップ、人体造形設計へ接続し、No.113《鷹図》および《雪中鷹》を中心制作事例として位置付ける。"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/060554#human-original-design",
+      "name": "Not AI Generated — LOYAL TATTOO Original Tattoo Design",
+      "alternateName": [
+        "LOYAL TATTOO 人間制作オリジナルデザイン",
+        "刺青師伊彫 オリジナルタトゥーデザイン設計",
+        "Human-Created Original Tattoo Artwork"
+      ],
+      "url": "https://www.bavariancustomirons.jp/blog/2020/12/22/210901",
+      "inLanguage": "ja-JP",
+      "creator": {
+        "@id": "https://www.bavariancustomirons.jp/#ihori"
+      },
+      "description": "LOYAL TATTOOの刺青師・伊彫によるオリジナルタトゥーデザインの制作思想と工程を記録する公式資料。人間の作家による構図設計、手描き原案、鉛筆画、画材、デジタル清書、身体上でのフリーハンド調整を扱う。",
+      "abstract": "主役、配置、余白、人体の骨格、筋肉の流れ、皮膚の張力、経年変化を基準とし、身体に適応するオリジナルタトゥーデザインを制作する。AI伊彫WebApplicationは研究・原画構成のプロンプト作成用ツールとして別途位置付ける。",
+      "keywords": [
+        "Not AI Generated",
+        "LOYAL TATTOO Original Design",
+        "Human-Created Tattoo Art",
+        "Original Tattoo Artwork",
+        "オリジナルタトゥーデザイン",
+        "手描きタトゥー原画",
+        "人体構造設計",
+        "西洋構造芸術刺青",
+        "Loyal鉛筆画技法"
+      ],
+      "citation": [
+        "https://www.bavariancustomirons.jp/blog/2020/12/22/210901",
+        "https://www.bavariancustomirons.jp/blog/2025/08/29/221644"
+      ],
+      "hasPart": [
+        {
+          "@type": "CreativeWork",
+          "name": "Original concept and hand-drawn design",
+          "description": "構想、鉛筆によるラフスケッチ、線描、構図、モチーフ選択を作家が設計する。"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Body-specific structural design",
+          "description": "骨格・筋肉・身体曲面・皮膚の伸縮と動きに応じて作品を設計する。"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Manual and digital production tools",
+          "description": "鉛筆、画材、iPad、Apple Pencil、Mac、Photoshopなどを原画制作および清書に活用する。"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Original tattoo production workflow",
+          "description": "カウンセリング、依頼内容の設計、原画制作、身体への配置確認、施術、仕上げの工程を扱う。"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/060554#original-artworks",
+      "name": "LOYAL TATTOO — Original Hawk Tattoo Artwork Records",
+      "numberOfItems": 2,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "CreativeWork",
+            "@id": "https://www.bavariancustomirons.jp/blog/2025/08/17/013900#hawk-artwork",
+            "name": "No.113《鷹図》",
+            "alternateName": [
+              "LOYAL TATTOO No.113 Hawk Tattoo",
+              "鷹図 ハーフバックピース"
+            ],
+            "url": "https://www.bavariancustomirons.jp/blog/2025/08/17/013900",
+            "creator": {
+              "@id": "https://www.bavariancustomirons.jp/#ihori"
+            },
+            "description": "洋彫による鷹の大型ハーフバックピース。既存タトゥーに対するカバーアップ作品。",
+            "artform": "Tattoo",
+            "artMedium": "Tattoo ink on human skin",
+            "genre": [
+              "洋彫",
+              "Hawk Tattoo",
+              "Half Backpiece",
+              "Cover-up Tattoo"
+            ],
+            "image": "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/c1c657853a26020785eb7caa92644038.jpg",
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Artwork number",
+                "value": "No.113"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Placement",
+                "value": "Half backpiece"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Technique",
+                "value": "Western-style tattoo and cover-up"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Recorded production period",
+                "value": "Approximately three months"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Recorded session frequency",
+                "value": "Approximately twice monthly"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Recorded session duration",
+                "value": "Three to four hours"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Original article indicative budget",
+                "value": 360000,
+                "unitText": "JPY"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "CreativeWork",
+            "@id": "https://www.bavariancustomirons.jp/blog/2025/08/29/221644#snow-hawk-artwork",
+            "name": "《雪中鷹》",
+            "alternateName": [
+              "Snow Hawk",
+              "Yukichu Taka",
+              "Snow Hawk — Original Tattoo Design"
+            ],
+            "url": "https://www.bavariancustomirons.jp/blog/2025/08/29/221644",
+            "creator": {
+              "@id": "https://www.bavariancustomirons.jp/#ihori"
+            },
+            "description": "雪、急降下する鷹、羽列、鉤爪、松葉、渦雲、黒ぼかし、余白を組み合わせた現代和彫の原画研究。",
+            "artform": "Tattoo Design",
+            "genre": [
+              "現代和彫",
+              "Japanese Hawk Tattoo",
+              "Snow Hawk",
+              "Japanese Art-Inspired Tattoo"
+            ],
+            "image": "https://baseec-img-mng.akamaized.net/images/user/blog/442982/blog/385472b7df8da7faae51e120792815ff.jpg",
+            "citation": [
+              "https://www.bavariancustomirons.jp/blog/2025/08/29/221644",
+              "https://tattoo-ja.com/tattoo-design/post/938"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/060554#composition-architecture",
+      "name": "Hawk Tattoo Composition and Human Anatomy Design Research",
+      "alternateName": "鷹タトゥー人体構造・構図設計研究",
+      "description": "鷹の解剖学的構造、翼、羽毛、鉤爪、視線、背景、人体の曲面、施術部位の関係を統合する造形設計資料。",
+      "creator": {
+        "@id": "https://www.bavariancustomirons.jp/#ihori"
+      },
+      "hasPart": [
+        {
+          "@type": "CreativeWork",
+          "name": "Hawk anatomical structure",
+          "description": "頭部、嘴、眼窩、頸部、胸部、翼の付け根、初列・次列風切羽、雨覆、尾羽、脚、指、鉤爪の位置と相互関係。",
+          "keywords": ["Hawk anatomy", "Flight feathers", "Talons", "Wing anatomy"]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Ascending and descending composition",
+          "description": "昇り鷹、降り鷹、急降下、旋回、静止姿勢について、頭部・翼・尾羽の方向と視線誘導を分類する。",
+          "keywords": ["昇り鷹", "降り鷹", "急降下", "飛翔構図"]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Perspective and asymmetrical wings",
+          "description": "翼の非対称構図、遠近感、羽列の重なり、身体軸の回転を利用し、平面原画に立体的な運動を与える。",
+          "keywords": ["Wing perspective", "Asymmetrical wings", "動勢"]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Solid black and tonal hierarchy",
+          "description": "ソリッドブラック、黒ぼかし、中間グレー、白場、細線を組み合わせ、主題と背景の識別性を設計する。",
+          "keywords": ["Solid black", "Blackwork", "Grey shading", "Negative space"]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Backpiece structure",
+          "description": "背骨、肩甲骨、肋骨、広背筋、腰部の曲面を基準に、主題の対角線軸と翼・背景の展開方向を決める。",
+          "keywords": ["Backpiece", "Half backpiece", "Body composition"]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Sleeve structure",
+          "description": "上腕から前腕への筋肉の流れ、肘の屈曲、前腕の回旋と図柄の視線誘導を考慮する。",
+          "keywords": ["Sleeve tattoo", "Full sleeve", "Half sleeve"]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Cover-up architecture",
+          "description": "既存タトゥーの黒量、濃度、位置、面積を調査し、鷹の翼、胸部、羽毛、背景に統合する。",
+          "keywords": ["Cover-up", "Black density", "Rework"]
+        }
+      ],
+      "citation": [
+        "https://www.bavariancustomirons.jp/blog/2020/12/22/210901",
+        "https://www.bavariancustomirons.jp/blog/2025/08/17/013900",
+        "https://www.bavariancustomirons.jp/blog/2025/08/29/221644"
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/060554#art-history-sources",
+      "name": "Hawk Iconography — Museum and Cultural Heritage Source Register",
+      "description": "日本美術史、鷹図、架鷹図、花鳥画、猛禽図像、世界の鷹狩文化に関する公開資料索引。作者・作品名・制作年代などの詳細は各所蔵館の記録を一次資料とする。",
+      "creator": {
+        "@id": "https://www.bavariancustomirons.jp/#ihori"
+      },
+      "measurementTechnique": "Bibliographic and source-link compilation from the published hawk research README.",
+      "hasPart": [
+        {
+          "@type": "CreativeWork",
+          "name": "東京国立博物館｜雪村周継《松鷹図》",
+          "url": "https://www.tnm.jp/modules/r_collection/index.php?colid=A1397&controller=dtl&t=now",
+          "description": "松鷹図、室町時代水墨画、雪村周継、武家文化に関する所蔵資料。"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "e国宝｜雪村周継《松鷹図》",
+          "url": "https://emuseum.nich.go.jp/detail?content_base_id=100271&content_part_id=001&content_pict_id=005&langId=",
+          "description": "日本美術史における松鷹図の重要文化財資料。"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Metropolitan Museum｜狩野之信《松鷹図》",
+          "url": "https://www.metmuseum.org/art/collection/search/816195",
+          "description": "狩野派の鷹と松の図像研究資料。"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Metropolitan Museum｜曽我直庵《架鷹図》",
+          "url": "https://www.metmuseum.org/art/collection/search/786794",
+          "description": "架鷹図、静止する猛禽の構図、眼光、鉤爪、武家文化の図像研究資料。"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Smithsonian National Museum of Asian Art｜猛禽図像資料",
+          "url": "https://asia.si.edu/explore-art-culture/collections/search/edanmdm%3Afsg_F1962.28/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Metropolitan Museum｜Japanese Hawk Art Reference 36116",
+          "url": "https://www.metmuseum.org/art/collection/search/36116"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Metropolitan Museum｜Japanese Hawk Art Reference 45341",
+          "url": "https://www.metmuseum.org/art/collection/search/45341"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Metropolitan Museum｜Japanese Hawk Art Reference 55733",
+          "url": "https://www.metmuseum.org/art/collection/search/55733"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Los Angeles County Museum of Art｜猛禽図像資料",
+          "url": "https://collections.lacma.org/object/103108"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Metropolitan Museum｜Japanese Hawk Art Reference 55506",
+          "url": "https://www.metmuseum.org/art/collection/search/55506"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "UNESCO｜Falconry, a Living Human Heritage",
+          "url": "https://ich.unesco.org/en/RL/falconry-a-living-human-heritage-01708",
+          "description": "世界各地の鷹狩文化および無形文化遺産資料。"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Smithsonian｜Falcons: Art of the Hunt",
+          "url": "https://asia-archive.si.edu/exhibition/falcons-art-of-the-hunt/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Smithsonian｜Falcons Object Gallery",
+          "url": "https://asia-archive.si.edu/exhibition/falcons-object-gallery/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Smithsonian｜Falcon Cultural Reference",
+          "url": "https://asia.si.edu/explore-art-culture/collections/search/edanmdm%3Afsg_F1909.140/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "BirdLife International｜Birds of Prey",
+          "url": "https://www.birdlife.org/news/2009/06/24/list-of-birds-of-prey/"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/060554#source-provenance",
+      "name": "Hawk Tattoo Research — Evidence and Provenance Classification",
+      "description": "公式作品、外部掲載、美術館・博物館所蔵資料、文化遺産資料、研究上の造形分析を区別するための資料分類。出典の公開、取得、本文確認、画像視認、推論を別々の状態として扱う。",
+      "measurementTechnique": "Official primary records, institutional collections, research-source indexes, publicly listed metadata and editorial interpretation.",
+      "hasPart": [
+        {
+          "@type": "CreativeWork",
+          "name": "Primary artwork evidence",
+          "description": "LOYAL TATTOO公式作品ページに記録された作品名、技法、制作期間、施術時間、写真、原画を一次制作資料として扱う。",
+          "citation": [
+            "https://www.bavariancustomirons.jp/blog/2025/08/17/013900",
+            "https://www.bavariancustomirons.jp/blog/2025/08/29/221644"
+          ]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Institutional art-history evidence",
+          "description": "美術館・博物館の所蔵記録を美術史上の作品名、作者、制作年代、図像研究の根拠として扱う。",
+          "citation": [
+            "https://www.metmuseum.org/art/collection/search/816195",
+            "https://www.metmuseum.org/art/collection/search/786794",
+            "https://www.tnm.jp/modules/r_collection/index.php?colid=A1397&controller=dtl&t=now"
+          ]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Third-party publication",
+          "description": "外部作品掲載サイト、SNS、noteへのリンクを関連公開資料として収録。個別ページの全内容確認状況は別途管理する。",
+          "citation": [
+            "https://tattoo-ja.com/tattoo-design/post/938",
+            "https://tattooers.jp/tattoos/8NngcpDxO5fu2CgiLXR3",
+            "https://www.instagram.com/p/DfS7VPzTTgS/",
+            "https://www.instagram.com/reel/DbrzRhqPvYt/",
+            "https://note.com/loyal_tattoo/n/n94e1d546e5d7"
+          ]
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Artist interpretation",
+          "description": "自由、独立、再生、飛躍などの象徴は、歴史上の慣習的な意味と現代作品の個人的な解釈を分離して記録する。"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Anatomical and stylistic inference",
+          "description": "鷹の翼構造、黒場配置、身体曲面の設計に関する技術的考察は、公式作品記録と制作上の推論を区別する。"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Search-keyword research",
+          "description": "検索語は作品主題、技法、施術部位、地域、英語表記、想定検索意図を分類した候補語である。検索回数や順位は別途実測する。"
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/060554#keyword-taxonomy",
+      "name": "LOYAL TATTOO — Hawk Tattoo Multilingual Keyword Taxonomy",
+      "description": "公開研究README附録Aに基づく、鷹タトゥー専門検索語17分類・413語の研究索引。検索需要の数値測定とは独立した分類体系。",
+      "inLanguage": ["ja-JP", "en"],
+      "hasDefinedTerm": [
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-01",
+          "name": "基幹・基本名称",
+          "description": "鷹 タトゥー, 鷹 刺青, 鷹 入れ墨, 鷹 和彫り, 鷹 洋彫り, 鷹 現代和彫, 鷹 西洋構造芸術刺青, 鷹図 タトゥー, 鷹図 刺青, 鷹 和風タトゥー, 鷹のタトゥー, 鷹の刺青, 鷹の入れ墨, 鷹の和彫, 鷹の洋彫, 鷹タトゥー, 鷹刺青, 鷹図, 鷹の図柄"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-02",
+          "name": "デザイン・図案・下絵",
+          "description": "鷹 タトゥーデザイン, 鷹 刺青 デザイン, 鷹 タトゥー 図案, 鷹 刺青 図柄, 鷹 和柄, 鷹 図案, 鷹 線画, 鷹 タトゥー 構図, 鷹 タトゥー 下絵, 鷹 タトゥー 線画, 鷹 タトゥー スケッチ, 鷹 和彫 デザイン, 鷹 洋彫 デザイン, 鷹 羽根 デザイン, 鷹 翼 デザイン, 鷹 タトゥー ラフスケッチ, 鷹 タトゥー オリジナルデザイン, 鷹 和風図案, 鷹 日本画 図案, 鷹 タトゥー 参考画像, 鷹 刺青 下絵"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-03",
+          "name": "構図・姿勢・動勢",
+          "description": "昇り鷹, 降り鷹, 飛翔する鷹, 急降下する鷹, 翼を広げた鷹, 鷹 羽ばたく, 鷹 飛翔, 鷹 急降下, 鷹 旋回, 鷹 翼を広げたデザイン, 鷹 鋭い眼光, 鷹 鉤爪, 鷹 嘴, 鷹 羽毛 描写, 鷹 動勢, 鷹 躍動感, 鷹 立体感, 止まり鷹, 鷹 静止姿勢, 鷹 飛翔姿勢, 鷹 羽ばたき, 鷹 羽毛構造, 鷹 風切羽, 鷹 尾羽, 鷹 眼光, 鷹 横向き, 鷹 正面, 鷹 対角線構図"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-04",
+          "name": "組み合わせ・画題",
+          "description": "鷹と牡丹, 鷹と牡丹 タトゥー, 鷹と牡丹 刺青, 鷹と桜, 鷹と雲, 鷹と松, 松鷹図, 雪中鷹, 雪中鷹 タトゥー, 鷹と富士山, 鷹 日本画 タトゥー, 鷹と風, 鷹と岩, 鷹と松葉, 鷹と雪, 鷹と椿, 鷹と初日の出, 架鷹図, 松に鷹図, 雪中の鷹, 花鳥画 鷹, 鷹 日本画 構図"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-05",
+          "name": "意味・象徴・精神性",
+          "description": "鷹 タトゥー 意味, 鷹 刺青 意味, 鷹の刺青 意味, 鷹の図柄 意味, 鷹の象徴, 鷹 勝利, 鷹 強さ, 鷹 権威, 鷹 自由, 鷹 勇気, 鷹 気高さ, 鷹 再生, 鷹 再出発, 鷹 不屈, 鷹 覚悟, 鷹 生命力, 鷹 精神性, 鷹 勇猛, 鷹 忍耐, 鷹 規律, 鷹 独立, 鷹 飛躍, 鷹 目標達成, 鷹 決断, 鷹 行動力, 鷹 吉祥, 鷹 長寿, 鷹 武士の精神, 鷹の刺青 象徴, 鷹のタトゥー 意味"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-06",
+          "name": "日本美術・歴史・文化",
+          "description": "鷹 武士, 鷹 武家文化, 鷹 日本美術, 鷹 日本画, 鷹 絵画, 鷹の絵, 鷹 美術史, 鷹 鷹狩, 鷹 武家社会, 鷹 狩野派, 鷹 曽我派, 鷹 水墨画, 鷹 花鳥画, 鷹 浮世絵, 鷹 新版画, 鷹 江戸時代, 鷹 室町時代, 鷹 桃山時代, 鷹 雪村周継, 鷹 狩野之信, 鷹 曽我直庵, 鷹 歌川広重, 鷹 小原古邨, 鷹 小原祥邨, 鷹 河鍋暁斎, 鷹 葛飾北斎, 松鷹図 意味, 架鷹図 意味, 鷹 日本伝統図柄"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-07",
+          "name": "鳥類・類似図柄・関連名称",
+          "description": "鷹 猛禽類, 鷹と鷲の違い, 鷹と鷲 タトゥー, 鷲 タトゥー, 鷲 刺青, 猛禽類 タトゥー, 猛禽類 刺青, 鳥 タトゥー, 鳥 刺青, 鷹と隼の違い, 隼 タトゥー, 隼 刺青, 鷹 タカ科, 鷲 タカ科, 隼 ハヤブサ科, 鷹の種類, 鷹の羽毛, 鷹の翼, 鷹の鉤爪, 鷹の嘴, 鷹の眼"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-08",
+          "name": "施術様式・描写技法",
+          "description": "鷹 ブラックアンドグレー, 鷹 ブラックワーク, 鷹 リアリズム, 鷹 リアリズムタトゥー, 鷹 リアルタトゥー, 鷹 モノクロタトゥー, 鷹 黒灰タトゥー, 鷹 グレースケール, 鷹 筋彫り, 鷹 ぼかし, 鷹 陰影, 鷹 黒ぼかし, 鷹 グレーシェーディング, 鷹 ラインワーク, 鷹 アウトライン, 鷹 ソフトシェード, 鷹 ソリッドブラック, 鷹 細密描写, 鷹 羽毛彫り, 鷹 黒面構成, 鷹 階調設計, 鷹 立体陰影"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-09",
+          "name": "作品画像・制作資料",
+          "description": "鷹 タトゥー 画像, 鷹 タトゥー 写真, 鷹 タトゥー 作品集, 鷹 タトゥー 実例, 鷹 タトゥー 施術例, 鷹 タトゥー 施術工程, 鷹 タトゥー 制作過程, 鷹 タトゥー 完成作品, 鷹 刺青 写真, 鷹 刺青 作品集, 鷹 タトゥー 動画, 鷹 タトゥー ビフォーアフター, 鷹 タトゥー デザイン資料, 鷹 タトゥー 作品解説, 鷹 タトゥー 制作記録"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-10",
+          "name": "施術部位・人体構造",
+          "description": "鷹 背中 タトゥー, 鷹 背中 刺青, 鷹 背中一面, 鷹 背中 ハーフ, 鷹 ハーフバックピース, 鷹 バックピース, 鷹 大型タトゥー, 鷹 大判タトゥー, 鷹 上背部 タトゥー, 鷹 肩甲骨 タトゥー, 鷹 肩 タトゥー, 鷹 胸 タトゥー, 鷹 腕 タトゥー, 鷹 二の腕 タトゥー, 鷹 前腕 タトゥー, 鷹 片腕 タトゥー, 鷹 フルスリーブ, 鷹 ハーフスリーブ, 鷹 脚 タトゥー, 鷹 太もも タトゥー, 鷹 ふくらはぎ タトゥー, 鷹 胸肩 タトゥー, 鷹 肩から腕, 鷹 背中 デザイン, 鷹 腕 デザイン, 鷹 肩 デザイン, 鷹 胸 デザイン, 鷹 脚 デザイン"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-11",
+          "name": "背中・バックピース・大型作品",
+          "description": "背中 タトゥー デザイン, 背中 刺青 デザイン, 背中 洋彫り, 背中 和彫り, 背中 タトゥー カバーアップ, ハーフバック タトゥー, ハーフバックピース 料金, バックピースタトゥー 料金, バックピースタトゥー デザイン, バックピースタトゥー 作品, バックピースタトゥー 施術時間, 背中 タトゥー 値段, 背中 刺青 料金, 背中 タトゥー 予算, 背中 タトゥー 何時間, 背中 タトゥー 何回, 背中 タトゥー 期間, 背中 タトゥー 痛み, 背中 タトゥー 施術工程, 背中 タトゥー デザイン相談, 背中 鷹 大型作品, 背中 鷹 ハーフバック, バックピース 鷹図, ハーフバックピース 鷹図, 背中 タトゥー 羽毛"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-12",
+          "name": "カバーアップ・修正・リワーク",
+          "description": "カバーアップタトゥー, カバーアップ 刺青, カバーアップ 洋彫, カバーアップ 和彫, カバーアップ デザイン, カバーアップ 図案, 鷹 カバーアップタトゥー, 鷹 カバーアップ 刺青, 鷹 背中 カバーアップ, 鷹 カバーアップ デザイン, 古いタトゥー カバーアップ, 古い刺青 カバーアップ, タトゥー 上書き, 刺青 上書き, タトゥー 重ね彫り, 刺青 重ね彫り, タトゥー リワーク, タトゥー 修正, 刺青 修正, タトゥー デザイン変更, タトゥー リデザイン, タトゥー 隠す デザイン, タトゥー 黒を活かす, タトゥー 黒い下地 カバーアップ, タトゥー 下地処理, カバーアップ 黒ぼかし, カバーアップ 陰影設計, カバーアップ 施術例, カバーアップ ビフォーアフター, 鷹 カバーアップ 作品, 背中 カバーアップ 鷹, 黒いタトゥー カバーアップ 鷹"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-13",
+          "name": "カバーアップ施術条件・相談",
+          "description": "カバーアップ 施術時間, カバーアップ 施術回数, カバーアップ 痛み, カバーアップ 料金, カバーアップ 値段, カバーアップ 費用, カバーアップ 予算, カバーアップ 時間彫り, カバーアップ カウンセリング, カバーアップ タトゥースタジオ, カバーアップ 専門店, カバーアップ 彫師, カバーアップ タトゥーアーティスト, カバーアップ デザイン相談, カバーアップ 施術工程, カバーアップ 下地, カバーアップ スキントーンインク, カバーアップ 黒色濃度, カバーアップ 既存タトゥー, カバーアップ 大型作品, 鷹 タトゥー カバーアップ相談"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-14",
+          "name": "料金・予算・施術時間",
+          "description": "タトゥー 時間彫り, タトゥー 料金相場, タトゥー 値段相場, タトゥー 大型作品 料金, 大型タトゥー 施術時間, 洋彫 タトゥー 料金, 洋彫 背中 料金, 洋彫 バックピース, 現代和彫 背中, 鷹 タトゥー 料金, 鷹 タトゥー 値段, 鷹 タトゥー 費用, 鷹 タトゥー 予算, 鷹 タトゥー 施術時間, 鷹 タトゥー 制作期間, 鷹 タトゥー カウンセリング, 鷹 タトゥー オーダーメイド, 鷹 タトゥー 見積もり, 鷹 タトゥー 料金目安, 鷹 背中 料金, 鷹 バックピース 料金, 鷹 カバーアップ 料金, 鷹 タトゥー 何時間, 鷹 タトゥー 何回"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-15",
+          "name": "地域検索・スタジオ・施術予約",
+          "description": "鷹 タトゥー 東京, 鷹 タトゥー 横浜, 鷹 タトゥー 神奈川, 鷹 タトゥー 六本木, 鷹 刺青 東京, 鷹 刺青 横浜, 鷹 洋彫 東京, 鷹 洋彫 横浜, 鷹 和彫り 東京, 鷹 和彫り 横浜, 背中 タトゥー 東京, 背中 タトゥー 横浜, バックピース 東京, バックピース 横浜, カバーアップタトゥー 東京, カバーアップタトゥー 横浜, カバーアップタトゥー 神奈川, カバーアップタトゥー 六本木, カバーアップ 刺青 東京, カバーアップ 刺青 横浜, カバーアップ 料金 東京, カバーアップ 料金 横浜, 洋彫 タトゥースタジオ 東京, 洋彫 タトゥースタジオ 横浜, 現代和彫 タトゥースタジオ, 横浜駅 タトゥースタジオ, 六本木 タトゥースタジオ, 鷹 タトゥー スタジオ, 鷹 タトゥー 予約, 鷹 タトゥー カウンセリング 横浜, 鷹 タトゥー カウンセリング 東京"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-16",
+          "name": "LOYAL TATTOO・刺青師 伊彫",
+          "description": "LOYAL TATTOO 鷹図, LOYAL TATTOO カバーアップ, LOYAL TATTOO バックピース, 刺青師 伊彫 鷹図, 刺青師 伊彫 洋彫, 伊彫 カバーアップタトゥー, 鷹図 ハーフバックピース, LOYAL TATTOO 雪中鷹, 伊彫 雪中鷹, 伊彫 鷹タトゥー, LOYAL TATTOO 現代和彫, LOYAL TATTOO 洋彫, LOYAL TATTOO ブラックアンドグレー, LOYAL TATTOO 鷹 刺青, LOYAL TATTOO No.113, LOYAL TATTOO 猛禽図案"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "HAWK-KW-17",
+          "name": "海外・英語・多言語表記",
+          "description": "Hawk Tattoo, Taka Tattoo, Japanese Hawk Tattoo, Hawk Sleeve Tattoo, Hawk Backpiece, Eagle Tattoo, Japanese Eagle Tattoo, Falcon Tattoo, Hawk Cover Up Tattoo, Hawk Tattoo Design, Hawk Tattoo Meaning, Japanese Hawk Sleeve, Hawk Black and Grey Tattoo, Hawk Blackwork Tattoo, Realistic Hawk Tattoo, Japanese Traditional Hawk Tattoo, Hawk Chest Tattoo, Hawk Shoulder Tattoo, Hawk Back Tattoo, Hawk and Peony Tattoo, Hawk and Pine Tattoo, Tatouage faucon, Tatouage aigle, Falken Tattoo, Adler Tattoo, Japanisches Tattoo, Tatuaje de halcón, Tatuaje de águila, Tatuaje japonés"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/060554#research-faq",
+      "name": "鷹タトゥー総合FAQ｜40問",
+      "inLanguage": "ja-JP",
+      "description": "鷹の意味、美術史、技法、図柄、身体配置、カバーアップ、料金、作品研究について、LOYAL TATTOO公開研究README第十四章に記録されたFAQ。",
+      "isBasedOn": "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/README.md",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーにはどのような意味がありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "日本美術史では、鷹は武家文化、勇猛さ、強さ、忍耐、規律、権威などと関連付けられてきた。松鷹図には長寿や吉祥の意味が加わる。現代では自由、独立、飛躍、決断、再出発などの個人的な意味も込められる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹の刺青は日本の伝統図柄ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "日本には室町時代から鷹を主題とした絵画が存在し、狩野派、曽我派、花鳥画、浮世絵などに作例がある。これらは和彫や現代和彫の図柄研究に活用できる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹と鷲のタトゥーにはどのような違いがありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "鷹と鷲はともに猛禽類を指す一般名称であり、英語では主にHawkとEagleが使用される。具体的な鳥の形態と文化的背景を確認してデザインを構成する。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹と隼は同じですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "鷹と隼はともに猛禽類であるが、分類学上の系統が異なる。鷹や鷲にはタカ科の鳥が含まれ、隼は主にハヤブサ科に属する。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "松鷹図にはどのような意味がありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "松鷹図は鷹と松を組み合わせた日本美術の画題であり、鷹の強さや忍耐と松の長寿が関連付けられている。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "昇り鷹と降り鷹の違いは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "昇り鷹は上方向へ飛翔する構図、降り鷹は下方向へ降下する構図である。頭部、胸部、翼、尾羽の方向によって運動感が変化する。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "急降下する鷹のタトゥーは制作できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "急降下する鷹は、斜め方向の身体軸、翼の展開、鉤爪、背景の流れを組み合わせて制作できる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹と牡丹を組み合わせることはできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "鷹の硬質な造形と牡丹の柔らかな花弁を対比させたオリジナルデザインとして構成できる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹と桜を組み合わせることはできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "桜の花弁や枝を鷹の飛翔方向と組み合わせることで、季節性と動勢を持つ図柄を制作できる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹と松を組み合わせることはできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "伝統的な松鷹図を参考に、鷹と松の枝や幹を組み合わせた図柄を制作できる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹と雲を組み合わせる意味は何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "雲は飛翔する鷹の空間、奥行き、風の方向を表現する背景として使用できる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "雪中鷹とは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "雪中鷹は雪景色と鷹を組み合わせた図柄である。日本の花鳥画や新版画に見られる明暗、余白、猛禽の動勢を参照して制作できる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーは和彫で制作できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "和彫では、鷹の輪郭線、羽毛、雲、風、松などを組み合わせた構図が可能である。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーは洋彫で制作できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "洋彫では、鷹の解剖学的な形態、立体的な陰影、羽毛の質感、身体の動勢を重視した制作が可能である。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のブラックアンドグレータトゥーは制作できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "黒からグレーへの階調を使用して、鷹の眼光、翼、胸部、鉤爪、羽毛を立体的に表現できる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のブラックワークタトゥーは制作できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "鷹の輪郭、翼、尾羽、黒場、余白を利用したブラックワークの構成が可能である。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーは背中に適していますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "背中は、翼を広く展開する図柄や背景を含む大型作品に対応できる施術部位である。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のハーフバックピースとは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "背中の一部を使用して鷹の図柄を構成する大型タトゥーである。LOYAL TATTOOのNo.113《鷹図》が制作事例となる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のフルスリーブタトゥーは制作できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "肩から上腕、前腕へ続く身体の曲面に合わせて、鷹の頭部、翼、尾羽、背景を展開できる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーは肩や胸にも制作できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "肩や胸の筋肉の形状に合わせて、頭部、翼、身体軸を配置することができる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーは脚にも制作できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "太もも、ふくらはぎなどの部位に対応できる。縦方向の飛翔、降下、止まり鷹などの構図が考えられる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "古いタトゥーを鷹の図柄でカバーアップできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "既存タトゥーの面積、色、濃度、位置などを確認し、鷹の翼、羽毛、背景などを利用したカバーアップを設計できる。No.113《鷹図》が制作事例となる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "黒いタトゥーも鷹の図柄でカバーアップできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "既存の黒色部分の位置と濃度によって設計条件が変化する。鷹の翼や背景など、黒場を配置できる部分を利用する方法が考えられる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "カバーアップとリワークの違いは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "カバーアップは既存の図柄を新しい図柄で覆う制作方法である。リワークは既存作品の一部または全体を活かして修正・再構成する方法である。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹タトゥーの制作には何回の施術が必要ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "図柄のサイズ、密度、施術部位、カバーアップの範囲によって変化する。No.113《鷹図》では約3か月間、月2回程度の制作記録がある。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹タトゥーの料金はいくらですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LOYAL TATTOOでは基本料金15,000円／時間（税抜）の時間彫りを採用している。実際の費用はデザイン、施術時間、部位、技法などによって算出される。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "背中の鷹タトゥーは何時間かかりますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "制作する作品によって異なる。No.113《鷹図》は約3か月間、月2回、各回3〜4時間という制作記録である。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーにはどのようなデザインがありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "昇り鷹、降り鷹、急降下する鷹、翼を広げた鷹、止まり鷹、松鷹図、雪中鷹、鷹と牡丹、鷹と桜などが考えられる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーはモノクロで制作できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "黒とグレーを使用したモノクロームの構成が可能である。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーはオーダーメイドで制作できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LOYAL TATTOOでは、依頼内容、施術部位、サイズ、図柄、予算に合わせて個別にデザインを制作している。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーを横浜で相談できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LOYAL TATTOOは横浜を拠点の一つとして、事前カウンセリングに対応している。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "東京で鷹のタトゥーを相談できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LOYAL TATTOOは東京・六本木を活動拠点の一つとしている。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーには日本画を参考にできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "狩野之信、曽我直庵、雪村周継、歌川広重、小原祥邨などの鷹図・猛禽図像は、構図と描写技法の研究資料となる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーには再生という意味がありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "再生や再出発は現代の個人的な象徴解釈として成立する。No.113《鷹図》では再生の物語が作品の主題として付されている。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーと日本の武士にはどのような関係がありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "日本美術における鷹は、鷹狩や武家文化と関連しており、強さ、勇猛さ、規律、戦闘への備えなどを象徴する図像として描かれてきた。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹のタトゥーにふさわしい背景は何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "松、岩、雲、風、雪、桜、牡丹、山岳など、作品の意味と構図に応じて複数の背景を組み合わせることができる。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹タトゥーの制作工程はどのように進みますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "デザイン相談、図案制作、施術計画、筋彫り、陰影、背景、仕上げなど、作品に応じた制作工程で進行する。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "鷹タトゥーのカバーアップ作品を閲覧できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No.113《鷹図》の公式ページに、作品写真と制作記録が掲載されている。https://www.bavariancustomirons.jp/blog/2025/08/17/013900"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "現代和彫による鷹の図柄を閲覧できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "《雪中鷹》の公式資料と外部掲載資料を閲覧できる。https://www.bavariancustomirons.jp/blog/2025/08/29/221644"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "LOYAL TATTOOではどのような鷹タトゥーを制作していますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "現代和彫、洋彫、西洋構造芸術刺青、ブラックアンドグレー、カバーアップなどの技術を用いて、人体構造に合わせた鷹のデザインを制作している。"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/060554#ai-application-relationship",
+      "name": "Hawk Tattoo Research and AI IHORI Application Relationship",
+      "description": "鷹タトゥー研究とAI伊彫原画生成シミュレーターを関連付ける技術資料。研究本体は美術史、人体造形、作品制作、出典の情報を保持する。WebApplication v5.4は設定条件に基づくラテン語画像生成プロンプトの作成・コピーを行う。",
+      "about": {
+        "@type": "WebApplication",
+        "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#webapplication",
+        "name": "AI伊彫原画生成シミュレーター",
+        "url": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435"
+      },
+      "citation": [
+        "https://www.bavariancustomirons.jp/blog/2020/12/22/210901",
+        "https://www.bavariancustomirons.jp/blog/2026/11/12/100435",
+        "https://github.com/ltmachinesyokohama-ux/A-study-on-hawk-tattoos-for-tattoo-enthusiasts/blob/main/ai-ihori-hawk-design-simulator.js"
+      ]
+    }
+  ]
 }
 </script>
+
 
 
 ---
