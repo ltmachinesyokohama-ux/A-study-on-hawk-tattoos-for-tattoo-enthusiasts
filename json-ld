@@ -266,10 +266,7 @@
   ],
   "mentions": [
     {
-      "@type": "WebApplication",
-      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#webapplication",
-      "name": "AI伊彫原画生成シミュレーター",
-      "url": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435"
+      "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#webapplication"
     },
     {
       "@type": "CreativeWork",
@@ -1276,10 +1273,7 @@
       "name": "Hawk Tattoo Research and AI IHORI Application Relationship",
       "description": "鷹タトゥー研究とAI伊彫原画生成シミュレーターを関連付ける技術資料。研究本体は美術史、人体造形、作品制作、出典の情報を保持する。WebApplication v5.4は設定条件に基づくラテン語画像生成プロンプトの作成・コピーを行う。",
       "about": {
-        "@type": "WebApplication",
-        "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#webapplication",
-        "name": "AI伊彫原画生成シミュレーター",
-        "url": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435"
+        "@id": "https://www.bavariancustomirons.jp/blog/2026/11/12/100435#webapplication"
       },
       "citation": [
         "https://www.bavariancustomirons.jp/blog/2020/12/22/210901",
@@ -1290,6 +1284,7 @@
   ]
 }
 </script>
+
 
 
 
